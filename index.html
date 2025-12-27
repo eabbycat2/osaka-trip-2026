@@ -9,7 +9,7 @@
     
     <style>
         :root {
-            /* V14 經典配色 (完全保留) */
+            /* V14 經典配色 */
             --bg: #FCFCFA;          
             --card-bg: #FFFFFF;
             --primary: #5A6A58;     
@@ -18,6 +18,7 @@
             --text-light: #888888;
             --border: #F0F0F0;
             --btn-bg: #F5F5F0;      
+            --accent-gold: #D4A373; /* 工具類按鈕顏色 */
         }
 
         * { box-sizing: border-box; }
@@ -33,104 +34,45 @@
         .day-section { display: none; animation: fadeIn 0.4s; }
         .day-section.active { display: block; }
 
-        /* 1. Hero (V14 style) */
-        .hero {
-            padding: 50px 25px 20px;
-            background: var(--bg);
-        }
-        .hero-date {
-            font-family: sans-serif; letter-spacing: 2px; font-size: 13px; 
-            color: var(--secondary); font-weight: 600; margin-bottom: 10px; text-transform: uppercase;
-        }
-        .hero-title {
-            font-size: 40px; font-weight: 700; margin: 0 0 15px 0; color: var(--text-main);
-            letter-spacing: -1px; line-height: 1.2;
-        }
-        .hero-desc {
-            font-size: 15px; color: var(--text-light); font-family: sans-serif; 
-            max-width: 90%; line-height: 1.6;
-        }
+        /* 1. Hero */
+        .hero { padding: 50px 25px 20px; background: var(--bg); }
+        .hero-date { font-family: sans-serif; letter-spacing: 2px; font-size: 13px; color: var(--secondary); font-weight: 600; margin-bottom: 10px; text-transform: uppercase; }
+        .hero-title { font-size: 40px; font-weight: 700; margin: 0 0 15px 0; color: var(--text-main); letter-spacing: -1px; line-height: 1.2; }
+        .hero-desc { font-size: 15px; color: var(--text-light); font-family: sans-serif; max-width: 90%; line-height: 1.6; }
 
-        /* 2. Weather (V14 style) */
-        .weather-scroller { 
-            display: flex; overflow-x: auto; gap: 12px; padding: 10px 25px 30px; 
-            scrollbar-width: none; 
-        }
+        /* 2. Weather */
+        .weather-scroller { display: flex; overflow-x: auto; gap: 12px; padding: 10px 25px 30px; scrollbar-width: none; }
         .weather-scroller::-webkit-scrollbar { display: none; }
-        
-        .weather-hour { 
-            flex: 0 0 auto; text-align: center; font-family: sans-serif; 
-            background: white; padding: 12px 0; border-radius: 50px;
-            border: 1px solid var(--border); width: 60px;
-        }
+        .weather-hour { flex: 0 0 auto; text-align: center; font-family: sans-serif; background: white; padding: 12px 0; border-radius: 50px; border: 1px solid var(--border); width: 60px; }
         .wh-time { font-size: 11px; color: #999; margin-bottom: 4px; }
         .wh-temp { font-size: 14px; font-weight: 700; color: var(--text-main); }
         .wh-icon { color: var(--secondary); margin-bottom: 4px; font-size: 14px; }
         .wh-loading { font-size: 12px; color: #BBB; padding: 0 25px; }
 
-        /* Card (V14 style) */
-        .card { 
-            background: var(--card-bg); margin: 0 20px 20px; 
-            border-radius: 16px; 
-            box-shadow: 0 4px 20px rgba(0,0,0,0.03); 
-        }
-        
-        .card-header { 
-            padding: 20px 25px 15px; 
-            display: flex; align-items: center; justify-content: space-between;
-        }
-        .location-title { 
-            font-size: 18px; font-weight: 700; color: var(--text-main); 
-            display: flex; align-items: center; gap: 10px;
-        }
+        /* Card */
+        .card { background: var(--card-bg); margin: 0 20px 20px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
+        .card-header { padding: 20px 25px 15px; display: flex; align-items: center; justify-content: space-between; }
+        .location-title { font-size: 18px; font-weight: 700; color: var(--text-main); display: flex; align-items: center; gap: 10px; }
         .location-title i { color: var(--secondary); font-size: 16px; opacity: 0.8; }
-        
         .card-body { padding: 0 25px 25px; }
 
-        /* Timeline (V14 style) */
-        .time-row { 
-            display: flex; gap: 20px; padding: 20px 0; 
-            border-bottom: 1px solid var(--border);
-        }
+        /* Timeline */
+        .time-row { display: flex; gap: 20px; padding: 20px 0; border-bottom: 1px solid var(--border); }
         .time-row:last-child { border-bottom: none; }
-        
-        .time-col { 
-            font-family: sans-serif; font-size: 13px; font-weight: 600; 
-            color: var(--secondary); min-width: 45px; padding-top: 3px; 
-        }
+        .time-col { font-family: sans-serif; font-size: 13px; font-weight: 600; color: var(--secondary); min-width: 45px; padding-top: 3px; }
         .content-col { flex: 1; }
-        
         .event-title { font-size: 16px; font-weight: 700; color: var(--text-main); margin-bottom: 6px; }
-        .event-desc { 
-            font-size: 14px; color: #666; line-height: 1.7; 
-            margin-top: 8px;
-        }
+        .event-desc { font-size: 14px; color: #666; line-height: 1.7; margin-top: 8px; }
         .event-desc ul { margin: 0; padding-left: 18px; }
         .event-desc li { margin-bottom: 4px; }
         
-        /* Buttons (V14 Attachment style - Your favorite) */
-        .btn-attachment {
-            display: inline-flex; align-items: center; gap: 6px;
-            background: var(--btn-bg); color: var(--primary);
-            padding: 6px 12px; border-radius: 8px;
-            font-size: 12px; font-weight: 600; cursor: pointer;
-            margin-top: 10px; border: none; font-family: sans-serif;
-            transition: 0.2s;
-        }
+        /* Buttons */
+        .btn-attachment { display: inline-flex; align-items: center; gap: 6px; background: var(--btn-bg); color: var(--primary); padding: 6px 12px; border-radius: 8px; font-size: 12px; font-weight: 600; cursor: pointer; margin-top: 10px; border: none; font-family: sans-serif; transition: 0.2s; }
         .btn-attachment:active { background: #E8E8E0; }
-        
-        /* General Buttons */
-        .btn-outline { 
-            display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-            width: 100%; padding: 12px; margin-top: 15px;
-            border: 1px solid #DDD; color: var(--text-main); 
-            border-radius: 50px; 
-            text-decoration: none; font-size: 13px; font-weight: 500;
-            transition: all 0.2s; font-family: sans-serif; background: #fff;
-        }
+        .btn-outline { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 12px; margin-top: 15px; border: 1px solid #DDD; color: var(--text-main); border-radius: 50px; text-decoration: none; font-size: 13px; font-weight: 500; transition: all 0.2s; font-family: sans-serif; background: #fff; cursor: pointer; }
         .btn-outline:active { background: #f9f9f9; border-color: #CCC; }
 
-        /* Expand Item (V14 style) */
+        /* Accordion */
         .expand-item { padding: 18px 0; border-bottom: 1px solid var(--border); }
         .expand-item:last-child { border-bottom: none; }
         .expand-header { display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
@@ -142,24 +84,16 @@
         .expand-item.active .expand-content { display: block; }
         .expand-item.active .fa-chevron-down { transform: rotate(180deg); transition: 0.3s; opacity: 0.5; }
 
-        /* Guide Text (V14 style) */
-        .guide-text { 
-            font-size: 14px; color: #555; line-height: 1.8; 
-            padding: 0 5px; border-left: 2px solid var(--primary); 
-            padding-left: 15px; margin: 10px 0 15px;
-        }
+        /* Guide Text */
+        .guide-text { font-size: 14px; color: #555; line-height: 1.8; padding: 0 5px; border-left: 2px solid var(--primary); padding-left: 15px; margin: 10px 0 15px; }
         .shop-meta { font-size: 12px; color: #999; margin-bottom: 10px; font-family: sans-serif; display: flex; gap: 12px; align-items: center; }
 
-        /* Map Container (V14 style) */
-        .map-container { 
-            width: 100%; height: 200px; background: #eee; border-radius: 12px; 
-            display: flex; align-items: center; justify-content: center; 
-            position: relative; margin-bottom: 20px; overflow: hidden; cursor: zoom-in;
-        }
+        /* Map Container */
+        .map-container { width: 100%; height: 200px; background: #eee; border-radius: 12px; display: flex; align-items: center; justify-content: center; position: relative; margin-bottom: 20px; overflow: hidden; cursor: zoom-in; }
         .map-img { width: 100%; height: 100%; object-fit: cover; transition: 0.3s; }
         .map-hint { position: absolute; bottom: 10px; right: 10px; background: rgba(255,255,255,0.9); padding: 4px 10px; border-radius: 20px; font-size: 11px; color: #333; pointer-events: none; }
 
-        /* Scrollable Dock (Style matched to V14) */
+        /* Scrollable Dock */
         .dock-container {
             position: fixed; bottom: 30px; left: 20px; right: 20px;
             background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px);
@@ -174,10 +108,10 @@
         .dock-item { 
             flex: 0 0 auto; color: #CCC; text-align: center; text-decoration: none; 
             font-size: 10px; font-family: sans-serif; transition: 0.2s; cursor: pointer;
-            width: 60px; /* 固定寬度確保好點 */
+            width: 55px; /* 稍微縮小寬度以容納更多天數 */
         }
         .dock-item.active { color: var(--primary); transform: translateY(-2px); font-weight: 700; }
-        .dock-item i { font-size: 22px; display: block; margin-bottom: 4px; }
+        .dock-item i { font-size: 20px; display: block; margin-bottom: 4px; }
         
         /* Lightbox */
         .lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255,255,255,0.95); backdrop-filter: blur(5px); z-index: 3000; display: none; justify-content: center; align-items: center; flex-direction: column; opacity: 0; transition: opacity 0.3s; }
@@ -348,18 +282,6 @@
             </div>
         </div>
     </div>
-
-    <div class="card">
-        <div class="card-header"><div class="location-title"><i class="fas fa-utensils"></i> 美食口袋名單</div></div>
-        <div class="card-body">
-            <div class="guide-text" style="margin-top:0; border-left:none; padding-left:0; color:#666;">
-                已為您整理好周邊的推薦美食，包含朋友的私藏名單與網友熱推餐廳。點擊下方按鈕直接開啟地圖探索。
-            </div>
-            <a href="https://maps.app.goo.gl/fXYQTt3Bd8ZoDNz97" target="_blank" class="btn-outline" style="padding: 15px; font-weight:600; background: var(--bg); border-color: #DDD;">
-                <i class="fas fa-map-marked-alt"></i> 開啟 Google 美食地圖
-            </a>
-        </div>
-    </div>
 </div>
 
 <div id="day2" class="day-section">
@@ -450,8 +372,12 @@
             <div class="time-row">
                 <div class="time-col">09:00</div>
                 <div class="content-col">
-                    <div class="event-title">京阪電車</div>
-                    <div class="event-desc">淀屋橋站 → 祇園四條站 (特急約 50 分)。</div>
+                    <div class="event-title">京阪電車 (紅色特急)</div>
+                    <div class="event-desc">淀屋橋站 → 祇園四條站 (約 50 分)。</div>
+                    <div class="guide-text" style="margin-top:10px;">
+                        從淀屋橋發車比較有位子坐。請認明<b>紅色雙層特急列車</b>，不必加價，速度最快。
+                    </div>
+                    <a href="https://maps.google.com/?q=SUGI藥局心齋橋店1" class="btn-outline">導航至淀屋橋站</a>
                 </div>
             </div>
         </div>
@@ -463,25 +389,40 @@
             <div class="time-row">
                 <div class="time-col">10:00</div>
                 <div class="content-col">
-                    <div class="event-title">岡本和服 (預約)</div>
-                    <div class="guide-text">建議預留 1 小時挑選與著裝。髮型設計是靈魂，強烈建議加購。</div>
-                    <a href="#" class="btn-outline">導航至本店</a>
+                    <div class="event-title">岡本和服 (已預約)</div>
+                    <div class="guide-text">
+                        建議預留 1 小時挑選與著裝。<b>Tip:</b> 髮型設計是靈魂，強烈建議加購，拍照效果差很多！
+                    </div>
+                    <a href="https://maps.google.com/?q=SUGI藥局心齋橋店2" class="btn-outline">導航至本店</a>
                 </div>
             </div>
         </div>
     </div>
 
     <div class="card">
-        <div class="card-header"><div class="location-title"><i class="fas fa-walking"></i> 經典散策</div></div>
+        <div class="card-header"><div class="location-title"><i class="fas fa-walking"></i> 經典散策路線</div></div>
         <div class="card-body">
             <div class="time-row">
                 <div class="time-col">11:00</div>
                 <div class="content-col">
                     <div class="event-title">清水寺 → 八坂神社</div>
-                    <div class="guide-text">
-                        <b>路線：</b>清水寺 (舞台) → 三年坂 → 二年坂 → 高台寺 → 八坂神社。<br>
-                        這是京都最美的石板路，沿途有非常多特色小店與抹茶甜點。
+                    <div class="event-desc">不需搭車，全程步行約 20-30 分鐘 (不含逛街)。</div>
+                    
+                    <div class="guide-text" style="border-left: 2px solid var(--secondary);">
+                        <b>路線指引：</b><br>
+                        1. 清水寺正門出來，沿「松原通」下坡。<br>
+                        2. 右轉進入「三年坂」，接「二年坂」。<br>
+                        3. 穿過「寧寧之道」，經過高台寺。<br>
+                        4. 最後從圓山公園側邊進入「八坂神社」。
                     </div>
+                    
+                    <div class="guide-text" style="background:#F2F2F7; border-left:none; padding:10px; border-radius:8px; font-size:13px;">
+                        <b>⚠️ 防迷路：</b>這段都是石板路。看到地標「法觀寺 八坂之塔」代表方向正確。終點是巨大的朱紅色大門。
+                    </div>
+
+                    <button class="btn-attachment" onclick="openLightbox('https://placehold.co/600x800?text=Upload+Map+Here')">
+                        <i class="far fa-image"></i> 查看散步路徑圖
+                    </button>
                 </div>
             </div>
         </div>
@@ -493,10 +434,21 @@
             <div class="time-row">
                 <div class="time-col">13:30</div>
                 <div class="content-col">
+                    <div class="event-title">京阪電車移動</div>
+                    <div class="guide-text">
+                        從「祇園四條」搭往「出町柳」方向，搭到終點站。<br>
+                        <b>防迷路：</b>找 <b>5 號出口</b>。出站左轉會看到鴨川跳烏龜，過橋後即是森林入口。
+                    </div>
+                </div>
+            </div>
+            <div class="time-row">
+                <div class="time-col">15:00</div>
+                <div class="content-col">
                     <div class="event-title">下鴨神社 & 糺之森</div>
                     <div class="guide-text">
-                        搭京阪電車至「出町柳站」。穿過太古森林，感受與祇園截然不同的寧靜氣氛。必玩「水占卜」。
+                        穿過太古森林（糺之森），感受與祇園截然不同的寧靜。必玩「水占卜」，將籤紙放入水中才會浮現文字。
                     </div>
+                    <a href="https://maps.google.com/?q=SUGI藥局心齋橋店4" class="btn-outline">導航至下鴨神社</a>
                 </div>
             </div>
         </div>
@@ -508,38 +460,42 @@
 <div id="day6" class="day-section"><div class="hero"><div class="hero-title">Day 6 - 臨空城</div></div></div>
 <div id="day7" class="day-section"><div class="hero"><div class="hero-title">Day 7 - 返台</div></div></div>
 
-<div id="tickets" class="day-section"><div class="hero"><div class="hero-title">電子票夾</div><div class="hero-desc">功能開發中</div></div></div>
-<div id="expenses" class="day-section"><div class="hero"><div class="hero-title">旅費記帳</div><div class="hero-desc">功能開發中</div></div></div>
+<div id="food" class="day-section">
+    <div class="hero">
+        <div class="hero-title">美食口袋名單</div>
+        <div class="hero-desc">已為您整理好朋友推薦與網友熱評的餐廳清單。</div>
+    </div>
+    <div class="card">
+        <div class="card-body" style="text-align:center; padding:40px 20px;">
+            <i class="fas fa-map-marked-alt" style="font-size:40px; color:var(--primary); margin-bottom:20px;"></i>
+            <div class="guide-text" style="border:none; padding:0; margin-bottom:20px;">
+                點擊下方按鈕，直接開啟 Google Maps 完整清單。<br>包含心齋橋、梅田與京都的推薦店家。
+            </div>
+            <a href="https://maps.app.goo.gl/fXYQTt3Bd8ZoDNz97" target="_blank" class="btn-outline" style="background:var(--primary); color:white; border:none; padding:15px; font-size:15px;">
+                開啟美食地圖
+            </a>
+        </div>
+    </div>
+</div>
+
+<div id="tickets" class="day-section"><div class="hero"><div class="hero-title">電子票夾</div></div></div>
+
+<div id="expenses" class="day-section"><div class="hero"><div class="hero-title">旅費記帳</div></div></div>
 
 <div class="dock-container">
-    <div class="dock-item active" id="btn-day1" onclick="switchDay('day1')">
-        <i class="fas fa-compass"></i> Day 1
-    </div>
-    <div class="dock-item" id="btn-day2" onclick="switchDay('day2')">
-        <i class="fas fa-map-signs"></i> Day 2
-    </div>
-    <div class="dock-item" id="btn-day3" onclick="switchDay('day3')">
-        <i class="fas fa-temple"></i> Day 3
-    </div>
-    <div class="dock-item" id="btn-day4" onclick="switchDay('day4')">
-        <i class="fas fa-tree"></i> Day 4
-    </div>
-    <div class="dock-item" id="btn-day5" onclick="switchDay('day5')">
-        <i class="fas fa-coffee"></i> Day 5
-    </div>
-    <div class="dock-item" id="btn-day6" onclick="switchDay('day6')">
-        <i class="fas fa-shopping-bag"></i> Day 6
-    </div>
-    <div class="dock-item" id="btn-day7" onclick="switchDay('day7')">
-        <i class="fas fa-plane-departure"></i> Day 7
-    </div>
-    <div style="width:1px; height:20px; background:#EEE; margin:0 5px;"></div>
-    <div class="dock-item" onclick="switchDay('tickets')" style="color:#D4A373;">
-        <i class="fas fa-ticket-alt"></i> 票夾
-    </div>
-    <div class="dock-item" onclick="switchDay('expenses')" style="color:#D4A373;">
-        <i class="fas fa-wallet"></i> 記帳
-    </div>
+    <div class="dock-item active" id="btn-day1" onclick="switchDay('day1')"><i class="fas fa-calendar-day"></i>Day 1</div>
+    <div class="dock-item" id="btn-day2" onclick="switchDay('day2')"><i class="fas fa-calendar-day"></i>Day 2</div>
+    <div class="dock-item" id="btn-day3" onclick="switchDay('day3')"><i class="fas fa-calendar-day"></i>Day 3</div>
+    <div class="dock-item" id="btn-day4" onclick="switchDay('day4')"><i class="fas fa-calendar-day"></i>Day 4</div>
+    <div class="dock-item" id="btn-day5" onclick="switchDay('day5')"><i class="fas fa-calendar-day"></i>Day 5</div>
+    <div class="dock-item" id="btn-day6" onclick="switchDay('day6')"><i class="fas fa-calendar-day"></i>Day 6</div>
+    <div class="dock-item" id="btn-day7" onclick="switchDay('day7')"><i class="fas fa-calendar-day"></i>Day 7</div>
+    
+    <div style="width:1px; height:20px; background:#EEE; margin:0 5px; flex-shrink:0;"></div>
+    
+    <div class="dock-item" id="btn-food" onclick="switchDay('food')" style="color:var(--accent-gold);"><i class="fas fa-utensils"></i>美食</div>
+    <div class="dock-item" id="btn-tickets" onclick="switchDay('tickets')" style="color:var(--accent-gold);"><i class="fas fa-ticket-alt"></i>票夾</div>
+    <div class="dock-item" id="btn-expenses" onclick="switchDay('expenses')" style="color:var(--accent-gold);"><i class="fas fa-wallet"></i>記帳</div>
 </div>
 
 <div id="lightbox" class="lightbox" onclick="closeLightbox()">
@@ -548,29 +504,45 @@
 </div>
 
 <script>
+    // 切換頁面
     function switchDay(id) {
-        // Hide all
+        // 隱藏所有頁面與按鈕激活狀態
         document.querySelectorAll('.day-section').forEach(el => el.classList.remove('active'));
         document.querySelectorAll('.dock-item').forEach(el => el.classList.remove('active'));
         
-        // Show target
+        // 顯示目標頁面
         document.getElementById(id).classList.add('active');
-        
-        // Update dock if it's a day button
         const btn = document.getElementById('btn-' + id);
         if(btn) btn.classList.add('active');
         
+        // 捲動回頂部
         window.scrollTo(0, 0);
         
-        // Load Weather
+        // 如果是行程頁，載入天氣
         if(id.startsWith('day')) fetchWeather(id.replace('day', 'd'));
     }
 
-    function toggleItem(el) { el.classList.toggle('active'); }
+    // 自動收合的手風琴 (Auto-Collapse Accordion)
+    function toggleItem(el) { 
+        // 1. 取得當前點擊項目的父容器 (例如 card-body)
+        const parent = el.parentElement;
+        
+        // 2. 找到該容器內所有已展開的項目 (除了自己)
+        const siblings = parent.querySelectorAll('.expand-item.active');
+        siblings.forEach(item => {
+            if (item !== el) {
+                item.classList.remove('active'); // 關閉它們
+            }
+        });
+
+        // 3. 切換自己的狀態
+        el.classList.toggle('active'); 
+    }
+
     function openLightbox(src) { document.getElementById('lightbox-img').src = src; document.getElementById('lightbox').classList.add('active'); }
     function closeLightbox() { document.getElementById('lightbox').classList.remove('active'); }
 
-    // Weather API
+    // 氣象 API
     async function fetchWeather(dayCode) {
         const container = document.getElementById('wb-' + dayCode);
         if(!container || container.innerHTML.includes('weather-hour')) return;
