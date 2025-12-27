@@ -521,98 +521,75 @@
 <div id="day3" class="day-section">
     <div class="hero">
         <div class="hero-date">Day 3 . Jan 20</div>
-        <div class="hero-title">古都巡禮</div>
-        <div class="hero-desc">穿上和服漫步清水坂，在八坂神社感受祇園風情，午後前往靜謐的下鴨神社。</div>
+        <div class="hero-title">奇幻冒險</div>
+        <div class="hero-desc">全日投入日本環球影城。從瑪利歐的蘑菇王國到哈利波特的魔法世界，盡情釋放童心。</div>
     </div>
     <div class="weather-scroller" id="wb-d3"><div class="wh-loading">載入氣象...</div></div>
 
     <div class="card">
-        <div class="card-header"><div class="location-title"><i class="fas fa-train"></i> 前往京都</div></div>
+        <div class="card-header"><div class="location-title"><i class="fas fa-train"></i> 07:00 前往環球影城</div></div>
         <div class="card-body">
-            <div class="time-row">
-                <div class="time-col">09:00</div>
-                <div class="content-col">
-                    <div class="event-title">京阪電車 (紅色特急)</div>
-                    <div class="event-desc">淀屋橋站 → 祇園四條站 (約 50 分)。</div>
-                    <div class="guide-text" style="margin-top:10px;">
-                        從淀屋橋發車比較有位子坐。請認明<b>紅色雙層特急列車</b>，不必加價，速度最快。
-                    </div>
-                    <a href="https://maps.google.com/?q=SUGI藥局心齋橋店1" class="btn-outline">導航至淀屋橋站</a>
-                </div>
+            
+            <div class="guide-text" style="border-left: 3px solid #E63946;">
+                <b>Step 1：地鐵御堂筋線 <span style="color:#E63946">(紅色)</span></b><br>
+                從飯店出發，在「心齋橋站」搭乘地鐵。
+            </div>
+
+            <div class="guide-text" style="border-left: 3px solid #F39C12;">
+                <b>Step 2：轉乘 JR 環狀線 <span style="color:#F39C12">(橘色)</span></b><br>
+                依照您的筆記：搭到<b>「大國町站」</b>（轉乘最快），換乘往<b>「西九條」</b>方向的列車。
+            </div>
+
+            <div class="guide-text" style="border-left: 3px solid #2980B9;">
+                <b>Step 3：轉乘 JR 櫻島線 <span style="color:#2980B9">(藍色)</span></b><br>
+                在「西九條站」換乘 JR 夢咲線/櫻島線，往 <b>Universal City</b> 站。
+            </div>
+
+            <div onclick="toggleVisibility('lost-usj')" style="background:#FFF9E6; border:1px solid #FFEBA8; color:#856404; padding:12px 15px; border-radius:8px; font-size:13px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; margin-top:10px; font-weight:600;">
+                <span><i class="fas fa-key" style="color:#F39C12; width:20px;"></i> 關鍵指引：西九條無痛轉車</span>
+                <i class="fas fa-chevron-down" id="icon-lost-usj"></i>
+            </div>
+            <div id="lost-usj" style="display:none; padding:15px; border:1px solid #FFEBA8; border-top:none; border-radius:0 0 8px 8px; font-size:13px; line-height:1.7; color:#333;">
+                <b>1. 轉車秘訣：</b>在西九條站轉車時，通常不需要換月台！<br>
+                目標列車通常就停在<b>同一個月台的對面</b>，非常方便。<br>
+                <b>2. 視覺確認：</b>看到車身有<b>小小兵</b>或<b>馬力歐彩繪</b>的列車，不用懷疑，上去就對了！<br>
+                <b>3. 備註：</b>全程通行時間約 30 分鐘，細節可參考 Navitime App。
+            </div>
+
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header"><div class="location-title"><i class="fas fa-ticket-alt"></i> 08:00 抵達 / 入園</div></div>
+        <div class="card-body">
+            <div class="shop-meta"><i class="far fa-clock"></i> 表定 08:30 開門 (通常會提早)</div>
+            <div class="guide-text">
+                <b>攻略重點：</b><br>
+                需提早 30-40 分鐘抵達門口排隊。如果沒有買快速通關 (Express)，一入園請直接衝向「任天堂世界」抽整理券，或是直奔最新設施。
+            </div>
+            <a href="https://maps.app.goo.gl/JPMYc9VhobWX3H4QA" class="btn-outline"><i class="fas fa-map-marker-alt"></i> Google 地標</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header"><div class="location-title"><i class="fas fa-star"></i> 園區活動</div></div>
+        <div class="card-body">
+            <div class="event-desc">
+                盡情享受設施與遊行。午餐與晚餐建議避開尖峰時段，或在園區內的餐車解決。<br>
+                記得下載 USJ 官方 App 以隨時查看設施排隊時間與表演時刻表。
             </div>
         </div>
     </div>
 
     <div class="card">
-        <div class="card-header"><div class="location-title"><i class="fas fa-user-friends"></i> 和服體驗</div></div>
+        <div class="card-header"><div class="location-title"><i class="fas fa-sign-out-alt"></i> 20:00 離開園區</div></div>
         <div class="card-body">
-            <div class="time-row">
-                <div class="time-col">10:00</div>
-                <div class="content-col">
-                    <div class="event-title">岡本和服 (已預約)</div>
-                    <div class="guide-text">
-                        建議預留 1 小時挑選與著裝。<b>Tip:</b> 髮型設計是靈魂，強烈建議加購，拍照效果差很多！
-                    </div>
-                    <a href="https://maps.google.com/?q=SUGI藥局心齋橋店2" class="btn-outline">導航至本店</a>
-                </div>
+            <div class="guide-text">
+                閉園時段人潮眾多，車站可能會非常擁擠。若太累，可在 CityWalk 稍作休息或吃晚餐再搭車返回市區。
             </div>
         </div>
     </div>
 
-    <div class="card">
-        <div class="card-header"><div class="location-title"><i class="fas fa-walking"></i> 經典散策路線</div></div>
-        <div class="card-body">
-            <div class="time-row">
-                <div class="time-col">11:00</div>
-                <div class="content-col">
-                    <div class="event-title">清水寺 → 八坂神社</div>
-                    <div class="event-desc">不需搭車，全程步行約 20-30 分鐘 (不含逛街)。</div>
-                    
-                    <div class="guide-text" style="border-left: 2px solid var(--secondary);">
-                        <b>路線指引：</b><br>
-                        1. 清水寺正門出來，沿「松原通」下坡。<br>
-                        2. 右轉進入「三年坂」，接「二年坂」。<br>
-                        3. 穿過「寧寧之道」，經過高台寺。<br>
-                        4. 最後從圓山公園側邊進入「八坂神社」。
-                    </div>
-                    
-                    <div class="guide-text" style="background:#F2F2F7; border-left:none; padding:10px; border-radius:8px; font-size:13px;">
-                        <b>⚠️ 防迷路：</b>這段都是石板路。看到地標「法觀寺 八坂之塔」代表方向正確。終點是巨大的朱紅色大門。
-                    </div>
-
-                    <button class="btn-attachment" onclick="openLightbox('https://placehold.co/600x800?text=Upload+Map+Here')">
-                        <i class="far fa-image"></i> 查看散步路徑圖
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="card">
-        <div class="card-header"><div class="location-title"><i class="fas fa-tree"></i> 森林神社</div></div>
-        <div class="card-body">
-            <div class="time-row">
-                <div class="time-col">13:30</div>
-                <div class="content-col">
-                    <div class="event-title">京阪電車移動</div>
-                    <div class="guide-text">
-                        從「祇園四條」搭往「出町柳」方向，搭到終點站。<br>
-                        <b>防迷路：</b>找 <b>5 號出口</b>。出站左轉會看到鴨川跳烏龜，過橋後即是森林入口。
-                    </div>
-                </div>
-            </div>
-            <div class="time-row">
-                <div class="time-col">15:00</div>
-                <div class="content-col">
-                    <div class="event-title">下鴨神社 & 糺之森</div>
-                    <div class="guide-text">
-                        穿過太古森林（糺之森），感受與祇園截然不同的寧靜。必玩「水占卜」，將籤紙放入水中才會浮現文字。
-                    </div>
-                    <a href="https://maps.google.com/?q=SUGI藥局心齋橋店4" class="btn-outline">導航至下鴨神社</a>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
 
 <div id="day4" class="day-section"><div class="hero"><div class="hero-title">Day 4 - USJ</div></div></div>
