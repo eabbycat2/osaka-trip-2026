@@ -9,15 +9,15 @@
     
     <style>
         :root {
-            /* V13 清新明亮色票 */
+            /* V14 極致明亮色票 */
             --bg: #FCFCFA;          
             --card-bg: #FFFFFF;
-            --primary: #5A6A58;     
+            --primary: #5A6A58;     /* 森林綠 */
             --secondary: #8C9488;   
             --text-main: #2F3337;   
             --text-light: #888888;
             --border: #F0F0F0;
-            --highlight: #E8E8E6;   
+            --btn-bg: #F5F5F0;      /* 淺灰按鈕底 */
         }
 
         * { box-sizing: border-box; }
@@ -83,15 +83,15 @@
         
         .card-body { padding: 0 25px 25px; }
 
-        /* 時間軸設計 */
+        /* 時間軸 */
         .time-row { 
-            display: flex; gap: 20px; padding: 15px 0; 
+            display: flex; gap: 20px; padding: 20px 0; 
             border-bottom: 1px solid var(--border);
         }
         .time-row:last-child { border-bottom: none; }
         
         .time-col { 
-            font-family: sans-serif; font-size: 13px; font-weight: 500; 
+            font-family: sans-serif; font-size: 13px; font-weight: 600; 
             color: var(--secondary); min-width: 45px; padding-top: 3px; 
         }
         .content-col { flex: 1; }
@@ -99,12 +99,24 @@
         .event-title { font-size: 16px; font-weight: 700; color: var(--text-main); margin-bottom: 6px; }
         .event-desc { 
             font-size: 14px; color: #666; line-height: 1.7; 
-            background: var(--bg); padding: 15px; border-radius: 12px; margin-top: 8px;
+            margin-top: 8px;
         }
         .event-desc ul { margin: 0; padding-left: 18px; }
         .event-desc li { margin-bottom: 4px; }
         
-        /* 按鈕樣式 */
+        /* 附件圖片按鈕 (New Feature) */
+        .btn-attachment {
+            display: inline-flex; align-items: center; gap: 6px;
+            background: var(--btn-bg); color: var(--primary);
+            padding: 6px 12px; border-radius: 8px;
+            font-size: 12px; font-weight: 600; cursor: pointer;
+            margin-top: 10px; border: none; font-family: sans-serif;
+            transition: 0.2s;
+        }
+        .btn-attachment:active { background: #E8E8E0; }
+        .btn-attachment i { font-size: 14px; }
+
+        /* 一般按鈕 */
         .btn-outline { 
             display: inline-flex; align-items: center; justify-content: center; gap: 8px;
             width: 100%; padding: 12px; margin-top: 15px;
@@ -113,8 +125,7 @@
             text-decoration: none; font-size: 13px; font-weight: 500;
             transition: all 0.2s; font-family: sans-serif; background: #fff;
         }
-        .btn-outline:active { background: var(--highlight); border-color: #CCC; }
-        .btn-outline i { color: var(--primary); }
+        .btn-outline:active { background: #f9f9f9; border-color: #CCC; }
 
         /* 展開列表 */
         .expand-item { padding: 18px 0; border-bottom: 1px solid var(--border); }
@@ -139,6 +150,15 @@
         }
         .shop-meta { font-size: 12px; color: #999; margin-bottom: 10px; font-family: sans-serif; display: flex; gap: 12px; align-items: center; }
 
+        /* 購物地圖容器 (可點擊放大) */
+        .map-container { 
+            width: 100%; height: 200px; background: #eee; border-radius: 12px; 
+            display: flex; align-items: center; justify-content: center; 
+            position: relative; margin-bottom: 20px; overflow: hidden; cursor: zoom-in;
+        }
+        .map-img { width: 100%; height: 100%; object-fit: cover; transition: 0.3s; }
+        .map-hint { position: absolute; bottom: 10px; right: 10px; background: rgba(255,255,255,0.9); padding: 4px 10px; border-radius: 20px; font-size: 11px; color: #333; pointer-events: none; }
+
         /* 底部 Dock */
         .dock { 
             position: fixed; bottom: 30px; left: 30px; right: 30px; 
@@ -151,11 +171,11 @@
         .dock-item.active { color: var(--primary); transform: translateY(-2px); }
         .dock-item i { font-size: 22px; display: block; margin-bottom: 4px; }
 
-        /* 抽屜 */
-        .drawer { position: fixed; bottom: -100%; left: 0; width: 100%; max-height: 60%; background: #fff; border-radius: 24px 24px 0 0; z-index: 2000; padding: 35px 30px; transition: 0.3s; box-shadow: 0 -10px 40px rgba(0,0,0,0.1); overflow-y: auto; }
-        .drawer.active { bottom: 0; }
-        .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.1); backdrop-filter: blur(2px); z-index: 1999; display: none; }
-        .overlay.active { display: block; }
+        /* 燈箱 (Lightbox) */
+        .lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255,255,255,0.95); backdrop-filter: blur(5px); z-index: 3000; display: none; justify-content: center; align-items: center; flex-direction: column; opacity: 0; transition: opacity 0.3s; }
+        .lightbox.active { display: flex; opacity: 1; }
+        .lightbox img { max-width: 95%; max-height: 85%; border-radius: 8px; box-shadow: 0 10px 40px rgba(0,0,0,0.15); }
+        .lightbox-close { color: #333; font-size: 16px; margin-top: 20px; cursor: pointer; padding: 10px 20px; background: #eee; border-radius: 30px; }
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
     </style>
@@ -199,9 +219,10 @@
 
 <div class="card">
     <div class="card-header">
-        <div class="location-title"><i class="fas fa-torii-gate"></i> 關西機場 (KIX)</div>
+        <div class="location-title"><i class="fas fa-torii-gate"></i> 關西機場 (KIX) & 交通</div>
     </div>
     <div class="card-body">
+        
         <div class="time-row">
             <div class="time-col">11:00</div>
             <div class="content-col">
@@ -213,28 +234,25 @@
                         <li><i class="fas fa-check" style="color:var(--primary); width:20px;"></i> 兌換 Rapi:t 車票 (橘色櫃檯)</li>
                     </ul>
                 </div>
+                <button class="btn-attachment" onclick="openLightbox('https://raw.githubusercontent.com/eabbycat2/osaka-trip-2026/refs/heads/main/day1%E6%A9%9F%E5%A0%B4%E6%8C%87%E5%BC%95.png')">
+                    <i class="far fa-image"></i> 查看入境指引圖
+                </button>
             </div>
         </div>
-    </div>
-</div>
 
-<div class="card">
-    <div class="card-header">
-        <div class="location-title"><i class="fas fa-train"></i> 機場交通</div>
-    </div>
-    <div class="card-body">
         <div class="time-row">
             <div class="time-col">12:35</div>
             <div class="content-col">
                 <div class="event-title">南海電鐵 Rapi:t</div>
                 <div class="guide-text">
-                    搭乘復古又前衛的深藍色鐵人列車，這是大阪給旅人的第一份見面禮。
+                    搭乘復古又前衛的深藍色鐵人列車前往難波。記得走「橘色」閘門，避開藍色 JR。
                 </div>
-                <button class="btn-outline" onclick="openDrawer('transit-kix')">
-                    <i class="fas fa-map-signs"></i> 查看實景指引與出口
+                <button class="btn-attachment" onclick="openLightbox('https://github.com/eabbycat2/osaka-trip-2026/blob/main/day1%E7%89%B9%E6%80%A5Rapit%20%E6%8C%87%E5%BC%95.png?raw=true')">
+                    <i class="far fa-image"></i> 查看 Rapi:t 指引圖
                 </button>
             </div>
         </div>
+
     </div>
 </div>
 
@@ -265,6 +283,11 @@
     </div>
     <div class="card-body">
         
+        <div class="map-container" onclick="openLightbox(this.querySelector('img').src)">
+            <img src="https://github.com/eabbycat2/osaka-trip-2026/blob/main/%E9%81%93%E9%A0%93%E5%A0%80%E6%95%A3%E6%AD%A5%E5%9C%B0%E5%9C%96.jpg?raw=true" class="map-img">
+            <div class="map-hint"><i class="fas fa-search-plus"></i> 點擊查看散步地圖</div>
+        </div>
+
         <div class="expand-item" onclick="toggleItem(this)">
             <div class="expand-header">
                 <div class="item-name"><span class="tag tag-special">必逛</span> Mjet 雑貨店</div>
@@ -388,7 +411,7 @@
         <div class="guide-text" style="margin-top:0; border-left:none; padding-left:0; color:#666;">
             已為您整理好周邊的推薦美食，包含朋友的私藏名單與網友熱推餐廳。點擊下方按鈕直接開啟地圖探索。
         </div>
-        <a href="https://maps.app.goo.gl/fXYQTt3Bd8ZoDNz97" target="_blank" class="btn-outline" style="padding: 15px; font-weight:600; background: var(--bg); border-color: var(--primary);">
+        <a href="https://maps.app.goo.gl/fXYQTt3Bd8ZoDNz97" target="_blank" class="btn-outline" style="padding: 15px; font-weight:600; background: var(--bg); border-color: #DDD;">
             <i class="fas fa-map-marked-alt"></i> 開啟 Google 美食地圖
         </a>
     </div>
@@ -401,31 +424,23 @@
     <a href="#" class="dock-item"><i class="fas fa-ticket-alt"></i>票券</a>
 </div>
 
-<div id="overlay" class="overlay" onclick="closeDrawer()"></div>
-<div id="transit-kix" class="drawer">
-    <div style="width:40px; height:4px; background:#ddd; margin:0 auto 20px; border-radius:10px;" onclick="closeDrawer()"></div>
-    <h3 style="font-family:'Noto Serif TC'; color:var(--primary); margin-bottom:15px; font-weight:700;">南海電鐵指引</h3>
-    <div style="font-size:15px; line-height:1.8; color:#555;">
-        <p>1. 往「橘色」區域走 (南海電鐵)。</p>
-        <p>2. 使用 QR Code 或實體票過電子閘門。</p>
-        <p>3. 抵達難波站，找「北改札口」，由「14 號出口」搭電梯。</p>
-    </div>
-    <a href="https://www.nankai.co.jp/library/station/pdf/namba.pdf" target="_blank" class="btn-outline" style="margin-top:20px;">
-        官方車站地圖
-    </a>
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="">
+    <div class="lightbox-close">關閉預覽</div>
 </div>
 
 <script>
-    // 抽屜與手風琴邏輯
-    function openDrawer(id) { 
-        document.getElementById('overlay').classList.add('active'); 
-        document.getElementById(id).classList.add('active'); 
-    }
-    function closeDrawer() { 
-        document.getElementById('overlay').classList.remove('active'); 
-        document.querySelectorAll('.drawer').forEach(d => d.classList.remove('active')); 
-    }
+    // 手風琴邏輯
     function toggleItem(el) { el.classList.toggle('active'); }
+
+    // 燈箱邏輯
+    function openLightbox(src) {
+        document.getElementById('lightbox-img').src = src;
+        document.getElementById('lightbox').classList.add('active');
+    }
+    function closeLightbox() {
+        document.getElementById('lightbox').classList.remove('active');
+    }
 
     // 即時氣象
     async function fetchWeather() {
