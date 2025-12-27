@@ -46,4 +46,120 @@
         .card { background: var(--card-bg); border-radius: 16px; padding: 18px; margin-bottom: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); border-left: 4px solid var(--jp-blue); }
         .card-time { color: var(--jp-blue); font-weight: bold; font-size: 14px; margin-bottom: 5px; }
         .card-title { font-size: 18px; font-weight: bold; margin-bottom: 8px; display: flex; align-items: center; justify-content: space-between; }
-        .card-desc { font-size: 14
+        .card-desc { font-size: 14px; line-height: 1.6; color: #444; white-space: pre-line; }
+
+        /* 功能按鈕 */
+        .btn-group { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+        .btn { 
+            padding: 8px 12px; border-radius: 20px; font-size: 12px; border: 1px solid #ddd; 
+            background: #fdfdfd; text-decoration: none; color: #555; display: inline-flex; align-items: center;
+        }
+        .btn i { margin-right: 5px; }
+        .btn-map { background: var(--jp-blue); color: #fff; border: none; }
+        .btn-food { background: #FFB703; color: #fff; border: none; }
+
+        /* 記帳分頁樣式 */
+        .budget-card { background: #fff; padding: 20px; border-radius: 15px; margin-top: 20px; }
+        .rate-calc { display: flex; gap: 10px; align-items: center; margin-bottom: 15px; }
+        input { padding: 10px; border-radius: 8px; border: 1px solid #ddd; width: 100px; font-size: 16px; }
+
+        /* 標籤 */
+        .tag { font-size: 11px; background: #f0f0f0; padding: 2px 8px; border-radius: 4px; margin-right: 5px; vertical-align: middle; }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>OSAKA TRIP 2026</h1>
+</div>
+
+<div class="container" id="main-content">
+    
+    <div id="today-page" class="day-section active">
+        <div class="weather-info">
+            <span><i class="fa-solid fa-cloud-sun"></i> 大阪市 1月18日</span>
+            <span>預估 4°C / 11°C</span>
+        </div>
+
+        <div class="card">
+            <div class="card-time">12:35</div>
+            <div class="card-title">關西機場 → 難波 <span class="tag">交通</span></div>
+            <div class="card-desc">搭乘 Rapi:t 特急 (橘色標誌)。
+防迷路：下車找「北改札口」，由「14號出口」搭電梯。</div>
+            <div class="btn-group">
+                <a href="https://www.google.com/maps/dir/?api=1&destination=Nankai+Namba+Station" class="btn btn-map"><i class="fa-solid fa-location-arrow"></i> 難波站導航</a>
+                <a href="https://www.google.com/maps/search/?api=1&query=燒肉+難波" class="btn btn-food"><i class="fa-solid fa-utensils"></i> 朋友美食地圖</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-time">15:30</div>
+            <div class="card-title">心齋橋 PARCO / Disney Store</div>
+            <div class="card-desc">購買維尼商品！旗艦店位於商店街中心。
+💡 攻略：PARCO 6F 有吉伊卡哇與各類動漫專區。</div>
+            <div class="btn-group">
+                <a href="https://www.google.com/maps/dir/?api=1&destination=Disney+Store+Shinsaibashi" class="btn btn-map"><i class="fa-solid fa-location-arrow"></i> 導航至商店</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="budget-page" class="day-section">
+        <div class="budget-card">
+            <h3>💴 即時匯率換算</h3>
+            <div class="rate-calc">
+                <input type="number" id="jpy" placeholder="日幣" oninput="convert(this.value)">
+                <span>JPY ≈</span>
+                <strong id="twd">0</strong>
+                <span>TWD</span>
+            </div>
+            <p style="font-size: 12px; color: #888;">* 匯率預設：0.22 (可自行於代碼修改)</p>
+        </div>
+    </div>
+
+    <div id="wallet-page" class="day-section">
+        <div class="card">
+            <div class="card-title">🎫 我的票券夾</div>
+            <p style="font-size: 14px;">請將票券截圖上傳後替換連結</p>
+            <div class="btn-group">
+                <a href="#" class="btn"><i class="fa-solid fa-image"></i> USJ 門票</a>
+                <a href="#" class="btn"><i class="fa-solid fa-image"></i> 演唱會票</a>
+                <a href="https://www.donki.com/service/coupon.php" class="btn"><i class="fa-solid fa-tag"></i> 唐吉訶德優惠券</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<nav class="nav-bar">
+    <a href="javascript:void(0)" onclick="showPage('today-page')" class="nav-item active" id="nav-today">
+        <i class="fa-solid fa-calendar-day"></i>今日
+    </a>
+    <a href="javascript:void(0)" onclick="showPage('budget-page')" class="nav-item" id="nav-budget">
+        <i class="fa-solid fa-wallet"></i>記帳
+    </a>
+    <a href="javascript:void(0)" onclick="showPage('wallet-page')" class="nav-item" id="nav-wallet">
+        <i class="fa-solid fa-ticket"></i>票券
+    </a>
+</nav>
+
+<script>
+    // 頁面切換功能
+    function showPage(pageId) {
+        document.querySelectorAll('.day-section').forEach(page => page.classList.remove('active'));
+        document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
+        document.getElementById(pageId).classList.add('active');
+        // 抓取導航ID並高亮 (簡化處理)
+        if(pageId === 'today-page') document.getElementById('nav-today').classList.add('active');
+        if(pageId === 'budget-page') document.getElementById('nav-budget').classList.add('active');
+        if(pageId === 'wallet-page') document.getElementById('nav-wallet').classList.add('active');
+    }
+
+    // 匯率換算 (門外漢可手動改 0.22 這個數字)
+    function convert(val) {
+        let rate = 0.22;
+        document.getElementById('twd').innerText = Math.round(val * rate);
+    }
+</script>
+
+</body>
+</html>
