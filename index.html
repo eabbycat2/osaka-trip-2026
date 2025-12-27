@@ -5,19 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Osaka Journey | Day 1</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --bg: #F9F8F6;          /* 米白底色 */
+            /* V13 清新明亮色票 */
+            --bg: #FCFCFA;          
             --card-bg: #FFFFFF;
-            --primary: #6B705C;     /* 莫蘭迪綠 */
-            --accent: #A5A58D;      /* 淺卡其 */
-            --text-main: #3F4238;   /* 深橄欖灰 */
+            --primary: #5A6A58;     
+            --secondary: #8C9488;   
+            --text-main: #2F3337;   
             --text-light: #888888;
-            --border: #EBEBEB;
-            --friend: #D4A373; 
-            --ai: #7F90A0;
+            --border: #F0F0F0;
+            --highlight: #E8E8E6;   
         }
 
         * { box-sizing: border-box; }
@@ -25,150 +25,136 @@
         body {
             margin: 0; font-family: -apple-system, "Noto Serif TC", serif;
             background: var(--bg); color: var(--text-main); 
-            padding-bottom: 110px; line-height: 1.7;
+            padding-bottom: 110px; line-height: 1.75;
             -webkit-tap-highlight-color: transparent;
         }
 
-        /* 1. 純文字 Hero (極簡化) */
+        /* 1. 極簡 Hero */
         .hero {
-            padding: 40px 25px 20px;
-            background: linear-gradient(to bottom, #F0F0EB, #F9F8F6);
-            border-bottom: 1px solid var(--border);
+            padding: 50px 25px 20px;
+            background: var(--bg);
         }
         .hero-date {
-            font-family: sans-serif; letter-spacing: 2px; font-size: 12px; 
-            color: var(--primary); font-weight: 700; margin-bottom: 8px; text-transform: uppercase;
+            font-family: sans-serif; letter-spacing: 2px; font-size: 13px; 
+            color: var(--secondary); font-weight: 600; margin-bottom: 10px; text-transform: uppercase;
         }
         .hero-title {
-            font-size: 36px; font-weight: 700; margin: 0 0 15px 0; color: var(--text-main);
-            letter-spacing: -0.5px;
+            font-size: 40px; font-weight: 700; margin: 0 0 15px 0; color: var(--text-main);
+            letter-spacing: -1px; line-height: 1.2;
         }
         .hero-desc {
             font-size: 15px; color: var(--text-light); font-family: sans-serif; 
             max-width: 90%; line-height: 1.6;
         }
 
-        /* 2. 天氣模組 (無圖版) */
+        /* 2. 天氣模組 */
         .weather-scroller { 
-            display: flex; overflow-x: auto; gap: 12px; padding: 20px 25px; 
+            display: flex; overflow-x: auto; gap: 12px; padding: 10px 25px 30px; 
             scrollbar-width: none; 
         }
         .weather-scroller::-webkit-scrollbar { display: none; }
         
         .weather-hour { 
             flex: 0 0 auto; text-align: center; font-family: sans-serif; 
-            background: white; padding: 12px 18px; border-radius: 12px; 
-            border: 1px solid var(--border); min-width: 75px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+            background: white; padding: 12px 0; border-radius: 50px;
+            border: 1px solid var(--border); width: 60px;
         }
-        .wh-time { font-size: 12px; color: var(--text-light); margin-bottom: 5px; }
-        .wh-temp { font-size: 15px; font-weight: 700; color: var(--primary); }
-        .wh-icon { color: var(--accent); margin-bottom: 5px; font-size: 14px; }
-        .wh-loading { font-size: 12px; color: #999; padding: 0 25px; }
+        .wh-time { font-size: 11px; color: #999; margin-bottom: 4px; }
+        .wh-temp { font-size: 14px; font-weight: 700; color: var(--text-main); }
+        .wh-icon { color: var(--secondary); margin-bottom: 4px; font-size: 14px; }
+        .wh-loading { font-size: 12px; color: #BBB; padding: 0 25px; }
 
-        /* 卡片系統 (純淨版) */
+        /* 卡片系統 */
         .card { 
-            background: var(--card-bg); margin: 0 20px 15px; 
-            border-radius: 12px; border: 1px solid var(--border); 
-            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            background: var(--card-bg); margin: 0 20px 20px; 
+            border-radius: 16px; 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03); 
         }
         
         .card-header { 
-            padding: 18px 20px; border-bottom: 1px solid var(--border);
+            padding: 20px 25px 15px; 
             display: flex; align-items: center; justify-content: space-between;
         }
         .location-title { 
-            font-size: 17px; font-weight: 700; color: var(--text-main); 
+            font-size: 18px; font-weight: 700; color: var(--text-main); 
             display: flex; align-items: center; gap: 10px;
         }
-        .location-title i { color: var(--primary); font-size: 16px; }
+        .location-title i { color: var(--secondary); font-size: 16px; opacity: 0.8; }
         
-        .card-body { padding: 15px 20px; }
+        .card-body { padding: 0 25px 25px; }
 
         /* 時間軸設計 */
         .time-row { 
-            display: flex; gap: 20px; padding: 10px 0; 
-            border-bottom: 1px dashed var(--border);
+            display: flex; gap: 20px; padding: 15px 0; 
+            border-bottom: 1px solid var(--border);
         }
         .time-row:last-child { border-bottom: none; }
         
         .time-col { 
-            font-family: sans-serif; font-size: 13px; font-weight: 600; 
-            color: var(--accent); min-width: 45px; padding-top: 2px; 
+            font-family: sans-serif; font-size: 13px; font-weight: 500; 
+            color: var(--secondary); min-width: 45px; padding-top: 3px; 
         }
         .content-col { flex: 1; }
         
-        .event-title { font-size: 15px; font-weight: 700; color: var(--text-main); margin-bottom: 6px; }
+        .event-title { font-size: 16px; font-weight: 700; color: var(--text-main); margin-bottom: 6px; }
         .event-desc { 
-            font-size: 13px; color: #666; line-height: 1.6; 
-            background: #F7F7F7; padding: 12px; border-radius: 8px; margin-top: 5px;
+            font-size: 14px; color: #666; line-height: 1.7; 
+            background: var(--bg); padding: 15px; border-radius: 12px; margin-top: 8px;
         }
         .event-desc ul { margin: 0; padding-left: 18px; }
+        .event-desc li { margin-bottom: 4px; }
         
-        /* 按鈕樣式 (線框風) */
+        /* 按鈕樣式 */
         .btn-outline { 
-            display: inline-flex; align-items: center; justify-content: center; gap: 6px;
-            width: 100%; padding: 10px; margin-top: 12px;
-            border: 1px solid var(--primary); color: var(--primary); 
-            border-radius: 8px; text-decoration: none; font-size: 13px; font-weight: 500;
-            transition: all 0.2s; font-family: sans-serif;
+            display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+            width: 100%; padding: 12px; margin-top: 15px;
+            border: 1px solid #DDD; color: var(--text-main); 
+            border-radius: 50px; 
+            text-decoration: none; font-size: 13px; font-weight: 500;
+            transition: all 0.2s; font-family: sans-serif; background: #fff;
         }
-        .btn-outline:active { background: var(--primary); color: white; }
-        .btn-text { background: none; border: none; padding: 0; color: var(--primary); font-size: 13px; cursor: pointer; text-decoration: underline; margin-top: 5px; }
+        .btn-outline:active { background: var(--highlight); border-color: #CCC; }
+        .btn-outline i { color: var(--primary); }
 
-        /* 展開列表 (手風琴) */
-        .expand-item { padding: 15px 0; border-bottom: 1px solid var(--border); }
+        /* 展開列表 */
+        .expand-item { padding: 18px 0; border-bottom: 1px solid var(--border); }
         .expand-item:last-child { border-bottom: none; }
         
         .expand-header { display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
-        .item-name { font-size: 15px; font-weight: 600; color: var(--text-main); display: flex; align-items: center; gap: 8px; }
+        .item-name { font-size: 16px; font-weight: 600; color: var(--text-main); display: flex; align-items: center; gap: 10px; }
         
-        .tag { font-size: 10px; padding: 2px 8px; border-radius: 4px; font-family: sans-serif; letter-spacing: 0.5px; }
-        .tag-shop { background: #EEE; color: #666; }
-        .tag-special { background: var(--primary); color: white; }
-        .tag-food { background: var(--friend); color: white; }
+        .tag { font-size: 10px; padding: 3px 10px; border-radius: 20px; font-family: sans-serif; letter-spacing: 0.5px; border: 1px solid #EEE; }
+        .tag-shop { color: #888; }
+        .tag-special { background: var(--primary); color: white; border-color: var(--primary); }
         
-        .expand-content { display: none; margin-top: 12px; padding-top: 5px; animation: fadeIn 0.3s; }
+        .expand-content { display: none; margin-top: 15px; padding-top: 5px; animation: fadeIn 0.3s; }
         .expand-item.active .expand-content { display: block; }
-        .expand-item.active .fa-chevron-down { transform: rotate(180deg); transition: 0.3s; }
+        .expand-item.active .fa-chevron-down { transform: rotate(180deg); transition: 0.3s; opacity: 0.5; }
 
         /* 導遊文字 */
         .guide-text { 
-            font-size: 13px; color: var(--text-main); line-height: 1.7; 
-            padding: 10px; background: #FAF9F6; border-left: 3px solid var(--primary); 
-            border-radius: 0 8px 8px 0; margin-bottom: 10px;
+            font-size: 14px; color: #555; line-height: 1.8; 
+            padding: 0 5px; border-left: 2px solid var(--primary); 
+            padding-left: 15px; margin: 10px 0 15px;
         }
-        .shop-meta { font-size: 12px; color: var(--text-light); margin-bottom: 8px; font-family: sans-serif; display: flex; gap: 12px; }
-
-        /* 美食探索 (純文字卡片) */
-        .food-stack { display: flex; overflow-x: auto; gap: 12px; padding-bottom: 5px; scrollbar-width: none; }
-        .food-stack::-webkit-scrollbar { display: none; }
-        
-        .food-card-simple { 
-            flex: 0 0 240px; background: #FDFDFD; border: 1px solid var(--border); 
-            border-radius: 10px; padding: 15px; 
-        }
-        .food-head { display: flex; justify-content: space-between; margin-bottom: 8px; }
-        .food-name { font-weight: 700; font-size: 14px; }
-        .food-info { font-size: 12px; color: #666; margin-bottom: 8px; display: flex; gap: 10px; }
-        .food-desc { font-size: 12px; color: #888; line-height: 1.5; margin-bottom: 12px; }
+        .shop-meta { font-size: 12px; color: #999; margin-bottom: 10px; font-family: sans-serif; display: flex; gap: 12px; align-items: center; }
 
         /* 底部 Dock */
         .dock { 
-            position: fixed; bottom: 25px; left: 25px; right: 25px; 
-            background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); 
-            border: 1px solid rgba(0,0,0,0.05); border-radius: 40px; height: 60px; 
+            position: fixed; bottom: 30px; left: 30px; right: 30px; 
+            background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px); 
+            border-radius: 50px; height: 65px; 
             display: flex; align-items: center; justify-content: space-around; 
-            z-index: 1000; box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            z-index: 1000; box-shadow: 0 10px 40px rgba(0,0,0,0.08);
         }
-        .dock-item { color: #CCC; text-align: center; text-decoration: none; font-size: 10px; font-family: sans-serif; }
-        .dock-item.active { color: var(--primary); }
-        .dock-item i { font-size: 20px; display: block; margin-bottom: 3px; }
+        .dock-item { color: #CCC; text-align: center; text-decoration: none; font-size: 10px; font-family: sans-serif; transition: 0.2s; }
+        .dock-item.active { color: var(--primary); transform: translateY(-2px); }
+        .dock-item i { font-size: 22px; display: block; margin-bottom: 4px; }
 
         /* 抽屜 */
-        .drawer { position: fixed; bottom: -100%; left: 0; width: 100%; max-height: 60%; background: #fff; border-radius: 20px 20px 0 0; z-index: 2000; padding: 30px; transition: 0.3s; box-shadow: 0 -10px 40px rgba(0,0,0,0.1); overflow-y: auto; }
+        .drawer { position: fixed; bottom: -100%; left: 0; width: 100%; max-height: 60%; background: #fff; border-radius: 24px 24px 0 0; z-index: 2000; padding: 35px 30px; transition: 0.3s; box-shadow: 0 -10px 40px rgba(0,0,0,0.1); overflow-y: auto; }
         .drawer.active { bottom: 0; }
-        .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); z-index: 1999; display: none; }
+        .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.1); backdrop-filter: blur(2px); z-index: 1999; display: none; }
         .overlay.active { display: block; }
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
@@ -265,7 +251,7 @@
                 <div class="guide-text" style="margin-top:10px;">
                     若還不能進房，先寄放行李，轉身投入心齋橋的懷抱。
                 </div>
-                <a href="https://maps.app.goo.gl/zTrtuhtAHYLW1E3v61" class="btn-outline">
+                <a href="https://maps.app.goo.gl/oBDQWRH5VTXpPTnY8" class="btn-outline">
                     <i class="fas fa-location-arrow"></i> 導航至飯店
                 </a>
             </div>
@@ -282,7 +268,7 @@
         <div class="expand-item" onclick="toggleItem(this)">
             <div class="expand-header">
                 <div class="item-name"><span class="tag tag-special">必逛</span> Mjet 雑貨店</div>
-                <i class="fas fa-chevron-down" style="color:#ccc"></i>
+                <i class="fas fa-chevron-down" style="color:#DDD"></i>
             </div>
             <div class="expand-content">
                 <div class="shop-meta"><i class="far fa-clock"></i> 11:00 - 19:00</div>
@@ -296,7 +282,7 @@
         <div class="expand-item" onclick="toggleItem(this)">
             <div class="expand-header">
                 <div class="item-name"><span class="tag tag-shop">百貨</span> PARCO / Hands</div>
-                <i class="fas fa-chevron-down" style="color:#ccc"></i>
+                <i class="fas fa-chevron-down" style="color:#DDD"></i>
             </div>
             <div class="expand-content">
                 <div class="shop-meta"><i class="far fa-clock"></i> 10:00 - 20:00</div>
@@ -310,7 +296,7 @@
         <div class="expand-item" onclick="toggleItem(this)">
             <div class="expand-header">
                 <div class="item-name"><span class="tag tag-shop">古蹟</span> 大丸心齋橋 本館</div>
-                <i class="fas fa-chevron-down" style="color:#ccc"></i>
+                <i class="fas fa-chevron-down" style="color:#DDD"></i>
             </div>
             <div class="expand-content">
                 <div class="shop-meta"><i class="far fa-clock"></i> 10:00 - 20:30</div>
@@ -324,7 +310,7 @@
         <div class="expand-item" onclick="toggleItem(this)">
             <div class="expand-header">
                 <div class="item-name"><span class="tag tag-shop">雜貨</span> 唐吉訶德 道頓堀</div>
-                <i class="fas fa-chevron-down" style="color:#ccc"></i>
+                <i class="fas fa-chevron-down" style="color:#DDD"></i>
             </div>
             <div class="expand-content">
                 <div class="shop-meta"><i class="far fa-clock"></i> 24H 營業</div>
@@ -338,7 +324,7 @@
         <div class="expand-item" onclick="toggleItem(this)">
             <div class="expand-header">
                 <div class="item-name"><span class="tag tag-shop">藥妝</span> SUGI 藥局</div>
-                <i class="fas fa-chevron-down" style="color:#ccc"></i>
+                <i class="fas fa-chevron-down" style="color:#DDD"></i>
             </div>
             <div class="expand-content">
                 <div class="shop-meta"><i class="far fa-clock"></i> 10:00 - 23:00</div>
@@ -352,21 +338,21 @@
         <div class="expand-item" onclick="toggleItem(this)">
             <div class="expand-header">
                 <div class="item-name"><span class="tag tag-shop">電器</span> Bic Camera 難波</div>
-                <i class="fas fa-chevron-down" style="color:#ccc"></i>
+                <i class="fas fa-chevron-down" style="color:#DDD"></i>
             </div>
             <div class="expand-content">
                 <div class="shop-meta"><i class="far fa-clock"></i> 10:00 - 21:00</div>
                 <div class="guide-text">
                     7 層樓的電器天堂。吹風機、美容儀到廚房家電，甚至零食酒水都能一次買齊並退稅，效率最高。
                 </div>
-                <a href="https://maps.google.com/?q=唐吉訶德道頓堀店" class="btn-outline">Google 導航</a>
+                <a href="https://maps.app.goo.gl/5CLXvWwfwQ34XxCk9" class="btn-outline">Google 導航</a>
             </div>
         </div>
 
         <div class="expand-item" onclick="toggleItem(this)">
             <div class="expand-header">
                 <div class="item-name"><span class="tag tag-shop">科技</span> Apple 心齋橋</div>
-                <i class="fas fa-chevron-down" style="color:#ccc"></i>
+                <i class="fas fa-chevron-down" style="color:#DDD"></i>
             </div>
             <div class="expand-content">
                 <div class="shop-meta"><i class="far fa-clock"></i> 10:00 - 21:00</div>
@@ -380,7 +366,7 @@
         <div class="expand-item" onclick="toggleItem(this)">
             <div class="expand-header">
                 <div class="item-name"><span class="tag tag-shop">服飾</span> UNIQLO & GU</div>
-                <i class="fas fa-chevron-down" style="color:#ccc"></i>
+                <i class="fas fa-chevron-down" style="color:#DDD"></i>
             </div>
             <div class="expand-content">
                 <div class="shop-meta"><i class="far fa-clock"></i> 11:00 - 21:00</div>
@@ -396,58 +382,15 @@
 
 <div class="card">
     <div class="card-header">
-        <div class="location-title"><i class="fas fa-utensils"></i> 美食地圖探索</div>
-        <a href="https://maps.app.goo.gl/fXYQTt3Bd8ZoDNz97" target="_blank" class="btn-outline" style="width:auto; margin:0; padding:6px 12px; font-size:12px;">
-            <i class="fas fa-map-marked-alt"></i> 開啟地圖
-        </a>
+        <div class="location-title"><i class="fas fa-utensils"></i> 美食口袋名單</div>
     </div>
     <div class="card-body">
-        <div style="font-size:12px; color:#888; margin-bottom:12px;">
-            滑動查看朋友推薦清單 (含備案) 👇
+        <div class="guide-text" style="margin-top:0; border-left:none; padding-left:0; color:#666;">
+            已為您整理好周邊的推薦美食，包含朋友的私藏名單與網友熱推餐廳。點擊下方按鈕直接開啟地圖探索。
         </div>
-        
-        <div class="food-stack">
-            
-            <div class="food-card-simple">
-                <div class="food-head">
-                    <div class="food-name">松阪牛燒肉 M</div>
-                    <span class="tag tag-food">朋友推</span>
-                </div>
-                <div class="food-info">
-                    <span><i class="fas fa-yen-sign"></i> 6,000+</span>
-                    <span><i class="fas fa-walking"></i> 8 min</span>
-                </div>
-                <div class="food-desc">法善寺橫丁內。肉質極佳，建議一定要提前訂位。</div>
-                <a href="https://maps.app.goo.gl/HMYUMvgcWuHHgouQA" class="btn-outline">導航</a>
-            </div>
-
-            <div class="food-card-simple">
-                <div class="food-head">
-                    <div class="food-name">PABLO 起司塔</div>
-                    <span class="tag tag-shop">甜點</span>
-                </div>
-                <div class="food-info">
-                    <span><i class="fas fa-yen-sign"></i> 900</span>
-                    <span><i class="fas fa-walking"></i> 2 min</span>
-                </div>
-                <div class="food-desc">外帶快，河邊野餐首選。</div>
-                <a href="https://maps.app.goo.gl/HMYUMvgcWuHHgouQA" class="btn-outline">導航</a>
-            </div>
-
-            <div class="food-card-simple">
-                <div class="food-head">
-                    <div class="food-name">美津 大阪燒</div>
-                    <span class="tag tag-shop">排隊</span>
-                </div>
-                <div class="food-info">
-                    <span><i class="fas fa-yen-sign"></i> 1,500</span>
-                    <span>米其林</span>
-                </div>
-                <div class="food-desc">必點山藥燒，口感非常特別。</div>
-                <a href="https://maps.app.goo.gl/HMYUMvgcWuHHgouQA" class="btn-outline">導航</a>
-            </div>
-
-        </div>
+        <a href="https://maps.app.goo.gl/fXYQTt3Bd8ZoDNz97" target="_blank" class="btn-outline" style="padding: 15px; font-weight:600; background: var(--bg); border-color: var(--primary);">
+            <i class="fas fa-map-marked-alt"></i> 開啟 Google 美食地圖
+        </a>
     </div>
 </div>
 
@@ -461,8 +404,8 @@
 <div id="overlay" class="overlay" onclick="closeDrawer()"></div>
 <div id="transit-kix" class="drawer">
     <div style="width:40px; height:4px; background:#ddd; margin:0 auto 20px; border-radius:10px;" onclick="closeDrawer()"></div>
-    <h3 style="font-family:'Noto Serif TC'; color:var(--primary); margin-bottom:15px;">南海電鐵指引</h3>
-    <div style="font-size:14px; line-height:1.8; color:#555;">
+    <h3 style="font-family:'Noto Serif TC'; color:var(--primary); margin-bottom:15px; font-weight:700;">南海電鐵指引</h3>
+    <div style="font-size:15px; line-height:1.8; color:#555;">
         <p>1. 往「橘色」區域走 (南海電鐵)。</p>
         <p>2. 使用 QR Code 或實體票過電子閘門。</p>
         <p>3. 抵達難波站，找「北改札口」，由「14 號出口」搭電梯。</p>
