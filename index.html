@@ -293,10 +293,11 @@
     <div class="weather-scroller" id="wb-d2"><div class="wh-loading">載入氣象...</div></div>
 
     <div class="card">
-        <div class="card-header"><div class="location-title"><i class="fas fa-coffee"></i> 08:00 早晨時光</div></div>
+        <div class="card-header"><div class="location-title"><i class="fas fa-coffee"></i> 早晨時光</div></div>
         <div class="card-body">
             <div class="event-desc">
-                難波/心齋橋出發。建議吃飽一點，因為勝尾寺周邊餐廳較少。出發前請確認水壺與行動電源電量。
+                難波/心齋橋出發。建議吃飽一點，因為勝尾寺周邊餐廳較少。<br>
+                <b>👟 體力預警：</b>今日包含寺廟階梯、大阪城公園與梅田逛街，步行量極大，請穿著最舒適的鞋子，並確認水壺與行動電源電量。
             </div>
         </div>
     </div>
@@ -315,26 +316,28 @@
                 出站後跟著「公車轉運站」指標，到 <b>6 號月台</b> 搭乘 29 或 30 號阪急巴士，在「勝尾寺」下車。
             </div>
 
-            <div onclick="toggleVisibility('lost-katsuo')" style="background:#F2F2F7; padding:10px 15px; border-radius:8px; font-size:13px; color:#555; cursor:pointer; display:flex; justify-content:space-between; align-items:center; margin-top:10px;">
-                <span><i class="fas fa-key"></i> 查看防迷路關鍵</span>
+            <div onclick="toggleVisibility('lost-katsuo')" style="background:#F2F2F7; padding:12px 15px; border-radius:8px; font-size:13px; color:#333; cursor:pointer; display:flex; justify-content:space-between; align-items:center; margin-top:10px; font-weight:600;">
+                <span><i class="fas fa-map-signs" style="color:var(--primary); width:20px;"></i> 關鍵指引：防迷路與回程</span>
                 <i class="fas fa-chevron-down" id="icon-lost-katsuo"></i>
             </div>
-            <div id="lost-katsuo" style="display:none; padding:10px; border:1px solid #F2F2F7; border-top:none; border-radius:0 0 8px 8px; font-size:13px; color:#666; line-height:1.6;">
-                1. <b>車頭確認：</b>認明列車目的地寫著「箕面萱野」。<br>
-                2. <b>ICOCA 刷卡：</b>阪急巴士上車刷一次（後門），下車刷一次（前門）。<br>
-                3. <b>回程注意：</b>平日班次較少，下車時建議先拍下回程時刻表。
+            <div id="lost-katsuo" style="display:none; padding:15px; border:1px solid #F2F2F7; border-top:none; border-radius:0 0 8px 8px; font-size:13px; color:#666; line-height:1.7;">
+                1. <b>車頭確認：</b>認明地鐵列車目的地寫著「箕面萱野」。<br>
+                2. <b>ICOCA 刷卡：</b>阪急巴士「上車刷一次（後門），下車刷一次（前門）」。<br>
+                3. <b>回程注意：</b>平日公車班次較少，下車時建議先用手機拍下站牌上的回程時刻表。
             </div>
-
-            <a href="https://maps.app.goo.gl/HMYUMvgcWuHHgouQA9" class="btn-outline"><i class="fas fa-location-arrow"></i> 導航至箕面萱野站</a>
         </div>
     </div>
 
     <div class="card">
         <div class="card-header"><div class="location-title"><i class="fas fa-torii-gate"></i> 09:30 勝尾寺</div></div>
         <div class="card-body">
+            <div class="shop-meta"><i class="far fa-clock"></i> 平日 08:00 - 17:00 / 假日 08:00 - 18:00</div>
             <div class="guide-text">
-                滿山滿谷的「達摩」是亮點。留意年底廟方整理達摩的時間，視覺效果可能會有落差。<br>
-                <b>必做：</b>買達摩畫左眼許願，願望達成畫右眼。
+                這裡以滿山滿谷的「達摩」聞名，是祈求「勝運」（考試、事業、戀愛）的聖地。
+                <br><br>
+                <b>🌟 必做體驗：</b><br>
+                1. <b>購買達摩：</b>挑選一個有緣的達摩，畫上「左眼」許願，願望達成後再畫上右眼並帶回來還願。<br>
+                2. <b>手印明信片：</b>寺內有特色的手印明信片活動，可以蓋章收集，是非常獨特的參拜紀念。
             </div>
             <a href="https://maps.app.goo.gl/CDBmgT2cMXkAnKc36" class="btn-outline"><i class="fas fa-map-marker-alt"></i> Google 地標</a>
         </div>
@@ -347,13 +350,14 @@
                 交通方式：巴士 ➔ 地鐵(紅) ➔ JR環狀線(橘)
             </div>
             
-            <div onclick="toggleVisibility('transit-osaka-castle')" style="background:#FFF9E6; border:1px solid #FFEBA8; color:#856404; padding:12px; border-radius:8px; font-size:13px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; margin-top:10px;">
-                <span><i class="fas fa-info-circle"></i> 點擊查看詳細轉乘指引</span>
+            <div onclick="toggleVisibility('transit-osaka-castle')" style="background:#FFF9E6; border:1px solid #FFEBA8; color:#856404; padding:12px 15px; border-radius:8px; font-size:13px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; margin-top:10px; font-weight:600;">
+                <span><i class="fas fa-map-signs" style="color:#D35400; width:20px;"></i> 關鍵指引：梅田轉乘 JR 密技</span>
                 <i class="fas fa-chevron-down" id="icon-transit-osaka-castle"></i>
             </div>
             <div id="transit-osaka-castle" style="display:none; padding:15px; border:1px solid #FFEBA8; border-top:none; border-radius:0 0 8px 8px; font-size:13px; line-height:1.7; color:#333;">
-                <b>1. 回程：</b>搭公車回「箕面萱野」，轉地鐵御堂筋線回「梅田站」。<br>
-                <b>2. 轉乘 JR (關鍵)：</b>從地鐵梅田站走出來，抬頭找 <b>「JR 連絡通路」</b> 指標，步行至「JR 大阪站」。<br>
+                <b>1. 回到梅田：</b>搭公車回「箕面萱野」，轉地鐵御堂筋線回「梅田站」。<br>
+                <b>2. 穿越迷宮 (關鍵)：</b>從地鐵梅田站走出來，請尋找 <b>「JR 連絡通路」</b> 指標。<br>
+                這段路會穿梭在百貨公司之間，<b>請記得抬頭看天花板，跟著「JR」的標誌走</b>，就能順利抵達「JR 大阪站」。<br>
                 <b>3. 搭乘：</b>搭乘 JR 環狀線（外環方向/橘色），在 <b>「大阪城公園站」</b> 下車。<br>
                 <b>4. 步行：</b>出站後往左看，沿著寬闊的公園步道直走即達天守閣。
             </div>
@@ -363,8 +367,10 @@
     <div class="card">
         <div class="card-header"><div class="location-title"><i class="fas fa-landmark"></i> 12:40 大阪城公園</div></div>
         <div class="card-body">
+            <div class="shop-meta"><i class="far fa-clock"></i> 09:00 - 17:00 (最後入場 16:30)</div>
             <div class="guide-text">
-                歷史地標巡禮。若要上天守閣，門票約 NTD 250，建議先上 KKday 預訂避開排隊人潮。
+                大阪的象徵，由豐臣秀吉建造的歷史名城。周邊的巨石牆與護城河非常壯觀，是感受日本戰國歷史的最佳地點。<br>
+                若要上天守閣，門票約 NTD 250，建議先上 KKday 預訂避開排隊人潮。
             </div>
             <a href="https://maps.app.goo.gl/fWVB69UyUhjG6Wg86" class="btn-outline">Google 導航</a>
         </div>
@@ -378,10 +384,13 @@
                 從「大阪城公園」搭回「JR 大阪站」。
             </div>
             
-            <div class="guide-text" style="background:#F2F2F7; border-left:none; padding:10px; border-radius:8px;">
-                <b>⚠️ 防迷路關鍵 (重要)：</b><br>
+            <div onclick="toggleVisibility('lost-umeda-start')" style="background:#F2F2F7; padding:12px 15px; border-radius:8px; font-size:13px; color:#333; cursor:pointer; display:flex; justify-content:space-between; align-items:center; margin-top:10px; font-weight:600;">
+                <span><i class="fas fa-map-signs" style="color:var(--primary); width:20px;"></i> 關鍵指引：如何切換到逛街模式</span>
+                <i class="fas fa-chevron-down" id="icon-lost-umeda-start"></i>
+            </div>
+            <div id="lost-umeda-start" style="display:none; padding:15px; border:1px solid #F2F2F7; border-top:none; border-radius:0 0 8px 8px; font-size:13px; line-height:1.7; color:#666;">
                 下車後請往 <b>「連絡橋口」</b> 改札（閘門）走！<br>
-                出站後你會在 3 樓的時空廣場。從這裡下到 <b>2 樓</b>，就能開啟「天橋串連模式」攻略梅田迷宮。
+                出站後你會在 3 樓的時空廣場。從這裡<b>下到 2 樓</b>，就可以開始進入「天橋串連模式」攻略梅田迷宮。
             </div>
         </div>
     </div>
@@ -392,33 +401,45 @@
             
             <div class="map-container" onclick="openLightbox(this.querySelector('img').src)">
                 <img src="https://github.com/eabbycat2/osaka-trip-2026/blob/main/%E6%A2%85%E7%94%B0%E5%8D%80%E7%99%BE%E8%B2%A8%E6%94%BB%E7%95%A5.jpg?raw=true" class="map-img">
-                <div class="map-hint"><i class="fas fa-search-plus"></i> 查看百貨地圖</div>
+                <div class="map-hint"><i class="fas fa-search-plus"></i> 查看百貨攻略地圖</div>
             </div>
 
             <div class="guide-text" style="background:#FFF9E6; border-left:3px solid #FFD700; color:#856404; margin-top:0;">
-                <b>🚶 核心攻略：</b>直接往 2 樓走，走天橋！一樓和 B1 容易迷路。
+                <b>🚶 核心攻略：</b>直接往 2 樓走，走天橋！一樓和 B1 容易迷路。<br>
+                建議順序：LUCUA ➔ GFO ➔ 友都八喜 ➔ HEP FIVE
             </div>
 
             <div class="expand-item" onclick="toggleItem(this)">
-                <div class="expand-header"><div class="item-name"><span class="tag tag-shop">起點</span> LUCUA & 1100</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
+                <div class="expand-header"><div class="item-name"><span class="tag tag-shop">起點</span> LUCUA</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
                 <div class="expand-content">
+                    <div class="shop-meta"><i class="far fa-clock"></i> 10:30 - 20:30</div>
                     <div class="guide-text">
-                        兩館各樓層 (B1~7F) 皆有聯絡通道互通。<br>
-                        <b>必逛重點：</b><br>
-                        • <b>LUCUA 1100：</b>5F Disney Store、8-9F 雜貨控天堂、北面紫標、KEEN。<br>
-                        • <b>LUCUA：</b>3F BEAMS、7F Freak Store。<br>
-                        <b>👉 下一站：</b>從 2 樓天橋往北走，進入 GFO 南館。
+                        <b>特色：</b>主打年輕女性潮流服飾，非常好逛。3F 有 BEAMS、7F 有 Freak Store。<br>
+                        <b>👉 下一站：</b>就在隔壁，同一棟建築的另一側。
                     </div>
-                    <a href="https://maps.app.goo.gl/MVzqpors2YA83wwEA" class="btn-outline">Google 導航</a>
+                    <a href="https://maps.app.goo.gl/zTrtuhtAHYLW1E3v62" class="btn-outline">Google 導航</a>
                 </div>
             </div>
 
             <div class="expand-item" onclick="toggleItem(this)">
-                <div class="expand-header"><div class="item-name"><span class="tag tag-shop">戶外</span> Grand Front Osaka</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
+                <div class="expand-header"><div class="item-name"><span class="tag tag-shop">質感</span> LUCUA 1100</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
                 <div class="expand-content">
+                    <div class="shop-meta"><i class="far fa-clock"></i> 10:30 - 20:30</div>
                     <div class="guide-text">
-                        <b>必逛重點：</b><br>
-                        • <b>南館：</b>2F BEAMS (很潮)、4F 始祖鳥、5F 超大北面 (戶外控必逛)、Markeys 童裝 (便宜好淘)。<br>
+                        兩館各樓層 (B1~7F) 皆互通。<br>
+                        <b>必逛：</b>5F Disney Store、8-9F 雜貨控天堂、北面紫標、KEEN 鞋。<br>
+                        <b>👉 下一站：</b>從 2F 連通道往北走，連接 Grand Front 南館。
+                    </div>
+                    <a href="https://maps.app.goo.gl/zTrtuhtAHYLW1E3v62" class="btn-outline">Google 導航</a>
+                </div>
+            </div>
+
+            <div class="expand-item" onclick="toggleItem(this)">
+                <div class="expand-header"><div class="item-name"><span class="tag tag-shop">時尚</span> Grand Front Osaka</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
+                <div class="expand-content">
+                    <div class="shop-meta"><i class="far fa-clock"></i> 11:00 - 21:00</div>
+                    <div class="guide-text">
+                        <b>南館必逛：</b>2F BEAMS (很潮)、4F 始祖鳥、5F 超大北面 (戶外控必逛)、Markeys 童裝。<br>
                         <b>👉 下一站：</b>南館 2 樓天橋有「專屬通道」直連友都八喜 2 樓。
                     </div>
                     <a href="https://maps.app.goo.gl/gapCzJAjD6VKXetm7" class="btn-outline">Google 導航</a>
@@ -426,12 +447,11 @@
             </div>
 
             <div class="expand-item" onclick="toggleItem(this)">
-                <div class="expand-header"><div class="item-name"><span class="tag tag-shop">電器</span> 友都八喜 (Yodobashi)</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
+                <div class="expand-header"><div class="item-name"><span class="tag tag-shop">電器</span> 友都八喜 / LINKS</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
                 <div class="expand-content">
+                    <div class="shop-meta"><i class="far fa-clock"></i> 09:30 - 22:00</div>
                     <div class="guide-text">
-                        <b>必逛重點：</b><br>
-                        • 2F 相機區、5F 扭蛋機+手辦 (男生會瘋掉)、B1 文具控挖寶、1F UNIQLO 大型店。<br>
-                        • <b>打卡點：</b>整面的扭蛋牆，非常好拍。<br>
+                        <b>必逛：</b>2F 相機、5F 扭蛋機+手辦 (扭蛋牆必拍)、B1 文具控挖寶、1F UNIQLO 大型店。<br>
                         <b>👉 下一站：</b>過天橋往「阪急大阪梅田站」方向，尋找紅色摩天輪。
                     </div>
                     <a href="https://maps.app.goo.gl/BeTMndya8btphVwt8" class="btn-outline">Google 導航</a>
@@ -439,16 +459,28 @@
             </div>
 
             <div class="expand-item" onclick="toggleItem(this)">
-                <div class="expand-header"><div class="item-name"><span class="tag tag-shop">潮流</span> HEP FIVE</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
+                <div class="expand-header"><div class="item-name"><span class="tag tag-shop">地標</span> HEP FIVE</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
                 <div class="expand-content">
+                    <div class="shop-meta"><i class="far fa-clock"></i> 11:00 - 21:00</div>
                     <div class="guide-text">
-                        <b>必逛重點：</b><br>
+                        <b>必逛：</b><br>
                         • 1F：niko and... (中性風格，與台灣有價差)<br>
-                        • 4F：Sanrio vivitix (三麗鷗周邊)、3coins+ (平價雜貨)<br>
+                        • 4F：Sanrio vivitix (三麗鷗周邊)、3coins+<br>
                         • 5F：Wego (超平價日牌男裝)<br>
                         • 6F：Marvel Store
                     </div>
                     <a href="https://maps.app.goo.gl/wwAWDuFcahr6hjPJ7" class="btn-outline">Google 導航</a>
+                </div>
+            </div>
+
+            <div class="expand-item" onclick="toggleItem(this)">
+                <div class="expand-header"><div class="item-name"><span class="tag tag-special">粉絲</span> 大丸梅田店</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
+                <div class="expand-content">
+                    <div class="shop-meta"><i class="far fa-clock"></i> 10:00 - 20:00</div>
+                    <div class="guide-text">
+                        如果不順路可跳過，但任天堂粉絲<b>直衝 13 樓</b>！寶可夢中心與 Nintendo Osaka 所在地。
+                    </div>
+                    <a href="https://maps.app.goo.gl/zTrtuhtAHYLW1E3v60" class="btn-outline">Google 導航</a>
                 </div>
             </div>
 
@@ -458,31 +490,24 @@
     <div class="card">
         <div class="card-header"><div class="location-title"><i class="fas fa-moon"></i> 18:30 空中庭園夜景</div></div>
         <div class="card-body">
+            <div class="shop-meta"><i class="far fa-clock"></i> 09:30 - 22:30</div>
             <div class="guide-text">
                 從 Hep Five 離開後，回到地面層，穿過 GFO 北館左前方的「梅北廣場」。
             </div>
             
-            <div class="guide-text" style="background:#2C3E50; color:#fff; border-left:none;">
-                <b>⚠️ 防迷路關鍵：梅田地下道</b><br>
-                請務必導航設定為<b>「梅田地下道」</b>。找到那條長長的白色隧道，穿過去後，正前方那棟中間有圓洞的高樓就是了。
+            <div onclick="toggleVisibility('lost-umeda-sky')" style="background:#2C3E50; color:#fff; padding:12px 15px; border-radius:8px; font-size:13px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; margin-top:10px; font-weight:600;">
+                <span><i class="fas fa-search" style="color:#F1C40F; width:20px;"></i> 關鍵指引：尋找梅田地下道</span>
+                <i class="fas fa-chevron-down" id="icon-lost-umeda-sky"></i>
+            </div>
+            <div id="lost-umeda-sky" style="display:none; padding:15px; border:1px solid #DDD; border-top:none; border-radius:0 0 8px 8px; font-size:13px; line-height:1.7; color:#333;">
+                這是最容易迷路的一段！<br>
+                請務必將導航設定為<b>「梅田地下道」</b>。你會找到一條長長的白色隧道，穿過去後，正前方那棟中間有圓洞的高樓就是了。
             </div>
             
-            <div class="event-desc" style="margin-top:10px;">
+            <div class="event-desc" style="margin-top:15px;">
                 欣賞夕陽與夜景。KKday 門票約 $402。
             </div>
             <a href="https://maps.app.goo.gl/VMXDYnus85t8QzqD8" class="btn-outline">導航至藍天大廈</a>
-        </div>
-    </div>
-
-    <div class="card">
-        <div class="card-header"><div class="location-title"><i class="fas fa-utensils"></i> 美食口袋名單</div></div>
-        <div class="card-body">
-            <div class="guide-text" style="margin-top:0; border-left:none; padding-left:0; color:#666;">
-                收錄梅田周邊美食 (包含拉麵、大阪燒)。點擊按鈕開啟地圖。
-            </div>
-            <a href="https://maps.app.goo.gl/fXYQTt3Bd8ZoDNz97" target="_blank" class="btn-outline" style="padding: 15px; font-weight:600; background: var(--bg); border-color: #DDD;">
-                <i class="fas fa-map-marked-alt"></i> 開啟 Google 美食地圖
-            </a>
         </div>
     </div>
 </div>
