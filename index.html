@@ -522,62 +522,205 @@
     <div class="hero">
         <div class="hero-date">Day 3 . Jan 20</div>
         <div class="hero-title">奇幻冒險</div>
-        <div class="hero-desc">全日投入日本環球影城。從瑪利歐的蘑菇王國到哈利波特的魔法世界，盡情釋放童心。</div>
+        <div class="hero-desc">全日投入 USJ。手握快速通關，精準攻略瑪利歐與哈利波特兩大園區。</div>
     </div>
     <div class="weather-scroller" id="wb-d3"><div class="wh-loading">載入氣象...</div></div>
 
     <div class="card">
+        <div class="card-header"><div class="location-title"><i class="fas fa-exclamation-circle"></i> 入園前必讀</div></div>
+        <div class="card-body">
+            <div class="expand-item" onclick="toggleItem(this)">
+                <div class="expand-header"><div class="item-name"><span class="tag tag-special" style="background:#E74C3C;">禁止</span> 入園規則與安檢</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
+                <div class="expand-content">
+                    <div class="guide-text" style="border-left:3px solid #E74C3C;">
+                        <b>1. 嚴格安檢：</b>所有包包皆須檢查。<br>
+                        <b>2. 禁止攜帶：</b><br>
+                        ❌ <b>自拍棒 / 腳架</b> (完全禁止)<br>
+                        ❌ <b>外食 / 飲料</b> (每人限帶 1 瓶 500ml 寶特瓶水)<br>
+                        ❌ <b>行李箱</b> (必須寄放)<br>
+                        <b>3. 禁止再入園：</b>一旦出場就不能再進來 (年票除外)。
+                    </div>
+                </div>
+            </div>
+            
+            <div class="expand-item" onclick="toggleItem(this)">
+                <div class="expand-header"><div class="item-name"><span class="tag tag-shop">寄放</span> 行李置物櫃攻略</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
+                <div class="expand-content">
+                    <div class="guide-text">
+                        <b>⚠️ 大行李箱 (L/XL) 請寄放在「園區外」！</b><br>
+                        園區內的置物櫃多為「可重複開關型(小型)」，不適合放登機箱。<br>
+                        <br>
+                        <b>位置指引：</b><br>
+                        • <b>園區外：</b>大門左側、停車場旁 (有特大櫃)。<br>
+                        • <b>園區內：</b>入園右側 (僅限小型隨身物)。
+                    </div>
+                    <a href="https://www.usj.co.jp/web/zh/tw/service-guide/theme-park-services/coin-locker" target="_blank" class="btn-outline">官網置物櫃詳情</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
         <div class="card-header"><div class="location-title"><i class="fas fa-train"></i> 07:00 前往環球影城</div></div>
         <div class="card-body">
-            
             <div class="guide-text" style="border-left: 3px solid #E63946;">
                 <b>Step 1：地鐵御堂筋線 <span style="color:#E63946">(紅色)</span></b><br>
-                從飯店出發，在「心齋橋站」搭乘地鐵。
+                從「心齋橋站」搭到<b>「大國町站」</b>轉乘。
             </div>
-
             <div class="guide-text" style="border-left: 3px solid #F39C12;">
                 <b>Step 2：轉乘 JR 環狀線 <span style="color:#F39C12">(橘色)</span></b><br>
-                依照您的筆記：搭到<b>「大國町站」</b>（轉乘最快），換乘往<b>「西九條」</b>方向的列車。
+                在大國町換乘往<b>「西九條」</b>方向的列車。
             </div>
-
             <div class="guide-text" style="border-left: 3px solid #2980B9;">
                 <b>Step 3：轉乘 JR 櫻島線 <span style="color:#2980B9">(藍色)</span></b><br>
-                在「西九條站」換乘 JR 夢咲線/櫻島線，往 <b>Universal City</b> 站。
+                在「西九條站」換乘往 <b>Universal City</b> 站。
             </div>
-
+            
             <div onclick="toggleVisibility('lost-usj')" style="background:#FFF9E6; border:1px solid #FFEBA8; color:#856404; padding:12px 15px; border-radius:8px; font-size:13px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; margin-top:10px; font-weight:600;">
                 <span><i class="fas fa-key" style="color:#F39C12; width:20px;"></i> 關鍵指引：西九條無痛轉車</span>
                 <i class="fas fa-chevron-down" id="icon-lost-usj"></i>
             </div>
             <div id="lost-usj" style="display:none; padding:15px; border:1px solid #FFEBA8; border-top:none; border-radius:0 0 8px 8px; font-size:13px; line-height:1.7; color:#333;">
-                <b>1. 轉車秘訣：</b>在西九條站轉車時，通常不需要換月台！<br>
-                目標列車通常就停在<b>同一個月台的對面</b>，非常方便。<br>
-                <b>2. 視覺確認：</b>看到車身有<b>小小兵</b>或<b>馬力歐彩繪</b>的列車，不用懷疑，上去就對了！<br>
-                <b>3. 備註：</b>全程通行時間約 30 分鐘，細節可參考 Navitime App。
+                <b>1. 轉車秘訣：</b>在西九條站轉車時，通常不需要換月台！目標列車通常就停在<b>同一個月台的對面</b>。<br>
+                <b>2. 視覺確認：</b>看到車身有<b>小小兵</b>或<b>馬力歐彩繪</b>的列車，不用懷疑，上去就對了！
             </div>
-
         </div>
     </div>
 
     <div class="card">
         <div class="card-header"><div class="location-title"><i class="fas fa-ticket-alt"></i> 08:00 抵達 / 入園</div></div>
         <div class="card-body">
-            <div class="shop-meta"><i class="far fa-clock"></i> 表定 08:30 開門 (通常會提早)</div>
+            <div class="shop-meta"><i class="far fa-clock"></i> 表定 08:30 (通常提早開園)</div>
             <div class="guide-text">
-                <b>攻略重點：</b><br>
-                需提早 30-40 分鐘抵達門口排隊。如果沒有買快速通關 (Express)，一入園請直接衝向「任天堂世界」抽整理券，或是直奔最新設施。
+                <b>入園SOP：</b><br>
+                1. 掃描門票 QR Code 入園。<br>
+                2. 立刻打開 App 抽「夜間整理券」 (若想二刷任天堂)。<br>
+                3. 如果時間充裕，先衝不用快通的熱門設施。
             </div>
+            
+            <div class="map-container" onclick="openLightbox(this.querySelector('img').src)" style="height:180px; margin-top:15px;">
+                <img src="https://github.com/eabbycat2/osaka-trip-2026/blob/main/%E7%92%B0%E7%90%83%E5%BD%B1%E5%9F%8E%E5%9C%B0%E5%9C%96.jpg?raw=true" class="map-img">
+                <div class="map-hint"><i class="fas fa-search-plus"></i> 查看全區地圖</div>
+            </div>
+            
             <a href="https://maps.app.goo.gl/JPMYc9VhobWX3H4QA" class="btn-outline"><i class="fas fa-map-marker-alt"></i> Google 地標</a>
         </div>
     </div>
 
-    <div class="card">
-        <div class="card-header"><div class="location-title"><i class="fas fa-star"></i> 園區活動</div></div>
+    <div class="card" style="border: 2px solid #D4A373;">
+        <div class="card-header" style="background:#FFF8F0;">
+            <div class="location-title" style="color:#D35400;"><i class="fas fa-bolt"></i> 快速通關時程 (必守)</div>
+        </div>
         <div class="card-body">
-            <div class="event-desc">
-                盡情享受設施與遊行。午餐與晚餐建議避開尖峰時段，或在園區內的餐車解決。<br>
-                記得下載 USJ 官方 App 以隨時查看設施排隊時間與表演時刻表。
+            <div class="guide-text" style="border:none; padding:0; margin-bottom:15px; color:#D35400;">
+                這是今天的核心行程，<b>絕對不能遲到</b>。請隨時留意時間！
             </div>
+
+            <div class="expand-item active" style="border-bottom: 1px dashed #DDD;">
+                <div class="expand-header" style="cursor:default;">
+                    <div class="item-name">
+                        <span class="tag" style="background:#E74C3C; color:white;">時段 1</span> 
+                        超級任天堂世界
+                    </div>
+                </div>
+                <div class="expand-content" style="display:block;">
+                    <div class="time-row" style="padding:10px 0; border:none;">
+                        <div class="time-col" style="color:#E74C3C; font-weight:700;">10:30</div>
+                        <div class="content-col">
+                            <b>區域入場保證 (10:30-11:30)</b><br>
+                            <span style="font-size:12px; color:#666;">請提前準備好 QR Code</span>
+                        </div>
+                    </div>
+                    <div class="time-row" style="padding:0 0 10px; border:none;">
+                        <div class="time-col" style="color:#E74C3C; font-weight:700;">10:30</div>
+                        <div class="content-col">
+                            <b>庫巴的挑戰書 (賽車)</b><br>
+                            <span style="font-size:12px; color:#999;">10:30 - 11:00</span>
+                        </div>
+                    </div>
+                    <div class="time-row" style="padding:0 0 10px; border:none;">
+                        <div class="time-col" style="color:#E74C3C; font-weight:700;">11:00</div>
+                        <div class="content-col">
+                            <b>耀西冒險</b><br>
+                            <span style="font-size:12px; color:#999;">11:00 - 11:30</span>
+                        </div>
+                    </div>
+                    <div class="time-row" style="padding:0 0 10px; border:none;">
+                        <div class="time-col" style="color:#E74C3C; font-weight:700;">11:30</div>
+                        <div class="content-col">
+                            <b>咚奇剛的瘋狂礦車</b><br>
+                            <span style="font-size:12px; color:#999;">11:30 - 12:00 (建議穿雨衣)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="expand-item active" style="border-bottom: 1px dashed #DDD;">
+                <div class="expand-header" style="cursor:default;">
+                    <div class="item-name">
+                        <span class="tag" style="background:#2C3E50; color:white;">時段 2</span> 
+                        哈利波特魔法世界
+                    </div>
+                </div>
+                <div class="expand-content" style="display:block;">
+                    <div class="time-row" style="padding:10px 0; border:none;">
+                        <div class="time-col" style="color:#2C3E50; font-weight:700;">13:00</div>
+                        <div class="content-col">
+                            <b>區域入場保證 (13:00-14:00)</b>
+                        </div>
+                    </div>
+                    <div class="time-row" style="padding:0 0 10px; border:none;">
+                        <div class="time-col" style="color:#2C3E50; font-weight:700;">13:20</div>
+                        <div class="content-col">
+                            <b>禁忌之旅</b><br>
+                            <span style="font-size:12px; color:#999;">13:20 - 13:50</span>
+                        </div>
+                    </div>
+                    <div class="time-row" style="padding:0 0 10px; border:none;">
+                        <div class="time-col" style="color:#2C3E50; font-weight:700;">13:50</div>
+                        <div class="content-col">
+                            <b>鷹馬的飛行</b><br>
+                            <span style="font-size:12px; color:#999;">13:50 - 14:20</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="expand-item active" style="border-bottom: none;">
+                <div class="expand-header" style="cursor:default;">
+                    <div class="item-name">
+                        <span class="tag" style="background:#F1C40F; color:white;">時段 3</span> 
+                        小小兵樂園
+                    </div>
+                </div>
+                <div class="expand-content" style="display:block;">
+                    <div class="time-row" style="padding:10px 0 0; border:none;">
+                        <div class="time-col" style="color:#F1C40F; font-weight:700;">15:00</div>
+                        <div class="content-col">
+                            <b>小小兵瘋狂乘車遊</b><br>
+                            <span style="font-size:12px; color:#999;">15:00 - 15:30</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header"><div class="location-title"><i class="fas fa-utensils"></i> 園區餐食攻略</div></div>
+        <div class="card-body">
+            <div class="guide-text">
+                <b>🍄 奇諾比奧咖啡 (Kinopio's Cafe)：</b><br>
+                最熱門餐廳！建議拿到任天堂整理券後，<b>一進園區立刻去掃餐廳門口的 QR Code</b> 領取號碼牌。若沒拿到號碼牌幾乎吃不到。<br><br>
+                <b>🦕 替代方案：</b><br>
+                • <b>Yoshi's Snack Island：</b>龜殼炒麵麵包、綠色龜殼披薩餃（適合趕時間）。<br>
+                • <b>三根掃帚 (哈利波特)：</b>烤雞餐份量大，戶外座位可看霍格華茲城堡。
+            </div>
+            
+            <button class="btn-attachment" onclick="openLightbox('https://github.com/eabbycat2/osaka-trip-2026/blob/cbcd58192680274ef19603e75085ebeeaa7e3e2b/%E7%92%B0%E7%90%83%E5%BD%B1%E5%9F%8E%E9%A4%90%E5%BB%B3%E6%8A%98%E5%83%B9%E5%88%B8.pdf')">
+                <i class="fas fa-ticket-alt"></i> 查看餐食折價券 (PDF)
+            </button>
         </div>
     </div>
 
