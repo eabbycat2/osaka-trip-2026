@@ -3,161 +3,171 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>大阪自由行 2026</title>
+    <title>Osaka 2026 | 智慧旅遊助手</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            --jp-red: #E63946;
-            --jp-blue: #457B9D;
-            --bg-color: #FDFCF0; /* 和紙感暖白 */
-            --card-bg: #FFFFFF;
-            --text-main: #2B2D42;
-            --text-sub: #8D99AE;
+            --glass: rgba(255, 255, 255, 0.92);
+            --accent: #E63946;
+            --secondary: #457B9D;
+            --bg: #f0f2f5;
         }
 
-        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-        body { 
-            font-family: "Helvetica Neue", Helvetica, "PingFang TC", "Microsoft JhengHei", sans-serif; 
-            background-color: var(--bg-color); 
-            margin: 0; padding-bottom: 80px; color: var(--text-main);
+        body {
+            margin: 0; font-family: -apple-system, sans-serif;
+            background-color: var(--bg); color: #1d1d1f;
+            padding-bottom: 100px;
         }
 
-        /* 頂部標題 */
-        .header { background: #fff; padding: 20px; text-align: center; border-bottom: 2px solid var(--jp-red); position: sticky; top: 0; z-index: 100; }
-        .header h1 { margin: 0; font-size: 20px; letter-spacing: 2px; color: var(--jp-red); }
-
-        /* 導航按鈕樣式 */
-        .nav-bar {
-            position: fixed; bottom: 0; width: 100%; background: #fff;
-            display: flex; justify-content: space-around; padding: 12px 0;
-            box-shadow: 0 -2px 10px rgba(0,0,0,0.05); z-index: 1000;
+        /* 頂部日期切換 (架構層級 1) */
+        .date-scroller {
+            display: flex; overflow-x: auto; padding: 15px; background: #fff;
+            position: sticky; top: 0; z-index: 100; gap: 10px; border-bottom: 1px solid #eee;
         }
-        .nav-item { text-align: center; color: var(--text-sub); flex: 1; font-size: 12px; text-decoration: none; }
-        .nav-item.active { color: var(--jp-red); }
-        .nav-item i { font-size: 20px; display: block; margin-bottom: 4px; }
+        .date-item {
+            flex: 0 0 60px; height: 70px; border-radius: 15px;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            background: #f5f5f7; color: #86868b; transition: 0.3s; cursor: pointer;
+        }
+        .date-item.active { background: var(--accent); color: white; }
+        .date-item span { font-size: 10px; }
+        .date-item strong { font-size: 16px; }
 
-        /* 行程卡片 */
-        .container { padding: 15px; }
-        .day-section { display: none; }
-        .day-section.active { display: block; }
+        /* 行程卡片架構 (架構層級 2) */
+        .content { padding: 15px; }
+        .card {
+            background: var(--glass); border-radius: 20px; padding: 15px;
+            margin-bottom: 15px; box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+            overflow: hidden; transition: all 0.3s ease;
+        }
+        .card-header { display: flex; justify-content: space-between; align-items: flex-start; }
+        .card-main { flex: 1; }
+        .card-time { font-size: 12px; color: var(--secondary); font-weight: bold; }
+        .card-title { font-size: 18px; font-weight: 700; margin: 4px 0; }
         
-        .weather-info { background: #EDF6F9; border-radius: 12px; padding: 10px 15px; margin-bottom: 15px; display: flex; align-items: center; justify-content: space-between; font-size: 14px; }
-
-        .card { background: var(--card-bg); border-radius: 16px; padding: 18px; margin-bottom: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); border-left: 4px solid var(--jp-blue); }
-        .card-time { color: var(--jp-blue); font-weight: bold; font-size: 14px; margin-bottom: 5px; }
-        .card-title { font-size: 18px; font-weight: bold; margin-bottom: 8px; display: flex; align-items: center; justify-content: space-between; }
-        .card-desc { font-size: 14px; line-height: 1.6; color: #444; white-space: pre-line; }
-
-        /* 功能按鈕 */
-        .btn-group { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
-        .btn { 
-            padding: 8px 12px; border-radius: 20px; font-size: 12px; border: 1px solid #ddd; 
-            background: #fdfdfd; text-decoration: none; color: #555; display: inline-flex; align-items: center;
+        /* 隱藏的細節區 (架構層級 3) */
+        .card-detail {
+            max-height: 0; opacity: 0; transition: all 0.3s ease;
+            margin-top: 0; border-top: 1px solid #f0f0f0; padding-top: 0;
         }
-        .btn i { margin-right: 5px; }
-        .btn-map { background: var(--jp-blue); color: #fff; border: none; }
-        .btn-food { background: #FFB703; color: #fff; border: none; }
+        .card.expanded .card-detail { max-height: 1000px; opacity: 1; margin-top: 12px; padding-top: 12px; }
 
-        /* 記帳分頁樣式 */
-        .budget-card { background: #fff; padding: 20px; border-radius: 15px; margin-top: 20px; }
-        .rate-calc { display: flex; gap: 10px; align-items: center; margin-bottom: 15px; }
-        input { padding: 10px; border-radius: 8px; border: 1px solid #ddd; width: 100px; font-size: 16px; }
+        /* 工具導航按鈕 */
+        .action-row { display: flex; gap: 8px; margin-top: 10px; }
+        .btn {
+            flex: 1; padding: 10px; border-radius: 12px; text-align: center;
+            text-decoration: none; font-size: 13px; font-weight: 600;
+            display: flex; align-items: center; justify-content: center; gap: 5px;
+        }
+        .btn-nav { background: var(--secondary); color: white; }
+        .btn-info { background: #f5f5f7; color: #1d1d1f; }
 
-        /* 標籤 */
-        .tag { font-size: 11px; background: #f0f0f0; padding: 2px 8px; border-radius: 4px; margin-right: 5px; vertical-align: middle; }
+        /* 攻略區塊 */
+        .guide-box {
+            background: #fff9db; border-radius: 12px; padding: 12px;
+            margin-top: 10px; font-size: 13px; border-left: 4px solid #fcc419;
+        }
+
+        /* 底部功能工具列 (架構層級 4) */
+        .dock {
+            position: fixed; bottom: 20px; left: 15px; right: 15px;
+            background: rgba(0,0,0,0.8); backdrop-filter: blur(15px);
+            border-radius: 25px; height: 60px; display: flex;
+            align-items: center; justify-content: space-around;
+        }
+        .dock-item { color: white; text-align: center; font-size: 10px; text-decoration: none; }
+        .dock-item i { font-size: 20px; display: block; margin-bottom: 2px; }
+
+        /* 記帳 Modal */
+        #budget-panel {
+            position: fixed; bottom: -100%; left: 0; width: 100%; height: 80%;
+            background: white; border-radius: 30px 30px 0 0; z-index: 2000;
+            transition: 0.4s; padding: 25px; box-sizing: border-box;
+        }
+        #budget-panel.active { bottom: 0; }
     </style>
 </head>
 <body>
 
-<div class="header">
-    <h1>OSAKA TRIP 2026</h1>
+<div class="date-scroller">
+    <div class="date-item active" onclick="switchDay(1, this)"><span>JAN</span><strong>18</strong></div>
+    <div class="date-item" onclick="switchDay(2, this)"><span>JAN</span><strong>19</strong></div>
+    <div class="date-item" onclick="switchDay(3, this)"><span>JAN</span><strong>20</strong></div>
+    <div class="date-item" onclick="switchDay(4, this)"><span>JAN</span><strong>21</strong></div>
+    <div class="date-item" onclick="switchDay(5, this)"><span>JAN</span><strong>22</strong></div>
+    <div class="date-item" onclick="switchDay(6, this)"><span>JAN</span><strong>23</strong></div>
+    <div class="date-item" onclick="switchDay(7, this)"><span>JAN</span><strong>24</strong></div>
 </div>
 
-<div class="container" id="main-content">
-    
-    <div id="today-page" class="day-section active">
-        <div class="weather-info">
-            <span><i class="fa-solid fa-cloud-sun"></i> 大阪市 1月18日</span>
-            <span>預估 4°C / 11°C</span>
-        </div>
-
-        <div class="card">
-            <div class="card-time">12:35</div>
-            <div class="card-title">關西機場 → 難波 <span class="tag">交通</span></div>
-            <div class="card-desc">搭乘 Rapi:t 特急 (橘色標誌)。
-防迷路：下車找「北改札口」，由「14號出口」搭電梯。</div>
-            <div class="btn-group">
-                <a href="https://www.google.com/maps/dir/?api=1&destination=Nankai+Namba+Station" class="btn btn-map"><i class="fa-solid fa-location-arrow"></i> 難波站導航</a>
-                <a href="https://www.google.com/maps/search/?api=1&query=燒肉+難波" class="btn btn-food"><i class="fa-solid fa-utensils"></i> 朋友美食地圖</a>
+<div class="content">
+    <div id="day-1" class="day-content">
+        <div class="card" onclick="this.classList.toggle('expanded')">
+            <div class="card-header">
+                <div class="card-main">
+                    <div class="card-time">12:35 PM</div>
+                    <div class="card-title">南海電鐵 Rapi:t</div>
+                </div>
+                <i class="fas fa-chevron-down" style="color:#ccc"></i>
+            </div>
+            <div class="action-row">
+                <a href="https://maps.google.com" class="btn btn-nav"><i class="fas fa-location-arrow"></i> 難波站導航</a>
+                <div class="btn btn-info"><i class="fas fa-info-circle"></i> 查看詳情</div>
+            </div>
+            <div class="card-detail">
+                <p><b>📍 乘車指引：</b>由機場 2 樓進入南海電鐵「橘色」區域。請認明圓形窗戶的深藍色列車。</p>
+                <p><b>⚠️ 防迷路：</b>抵達難波站後由「3F 北改札口」出站。</p>
+                <div class="guide-box">
+                    <b>💡 導遊建議：</b>難波站內有非常多行李置物櫃，若太早到可先寄放。
+                </div>
             </div>
         </div>
-
-        <div class="card">
-            <div class="card-time">15:30</div>
-            <div class="card-title">心齋橋 PARCO / Disney Store</div>
-            <div class="card-desc">購買維尼商品！旗艦店位於商店街中心。
-💡 攻略：PARCO 6F 有吉伊卡哇與各類動漫專區。</div>
-            <div class="btn-group">
-                <a href="https://www.google.com/maps/dir/?api=1&destination=Disney+Store+Shinsaibashi" class="btn btn-map"><i class="fa-solid fa-location-arrow"></i> 導航至商店</a>
+        
+        <div class="card" onclick="this.classList.toggle('expanded')">
+            <div class="card-header">
+                <div class="card-main">
+                    <div class="card-time">15:30 PM</div>
+                    <div class="card-title">心齋橋 PARCO</div>
+                </div>
+                <i class="fas fa-chevron-down" style="color:#ccc"></i>
             </div>
-        </div>
-    </div>
-
-    <div id="budget-page" class="day-section">
-        <div class="budget-card">
-            <h3>💴 即時匯率換算</h3>
-            <div class="rate-calc">
-                <input type="number" id="jpy" placeholder="日幣" oninput="convert(this.value)">
-                <span>JPY ≈</span>
-                <strong id="twd">0</strong>
-                <span>TWD</span>
-            </div>
-            <p style="font-size: 12px; color: #888;">* 匯率預設：0.22 (可自行於代碼修改)</p>
-        </div>
-    </div>
-
-    <div id="wallet-page" class="day-section">
-        <div class="card">
-            <div class="card-title">🎫 我的票券夾</div>
-            <p style="font-size: 14px;">請將票券截圖上傳後替換連結</p>
-            <div class="btn-group">
-                <a href="#" class="btn"><i class="fa-solid fa-image"></i> USJ 門票</a>
-                <a href="#" class="btn"><i class="fa-solid fa-image"></i> 演唱會票</a>
-                <a href="https://www.donki.com/service/coupon.php" class="btn"><i class="fa-solid fa-tag"></i> 唐吉訶德優惠券</a>
+            <div class="card-detail">
+                <p><b>🛍️ 購物重點：</b>6F 動漫專區（吉伊卡哇、卡普空）、Disney Store。</p>
+                <p><b>🍩 周邊美食：</b>PABLO 半熟起司塔、心齋橋大丸百貨 B1 美食街。</p>
             </div>
         </div>
     </div>
-
 </div>
 
-<nav class="nav-bar">
-    <a href="javascript:void(0)" onclick="showPage('today-page')" class="nav-item active" id="nav-today">
-        <i class="fa-solid fa-calendar-day"></i>今日
-    </a>
-    <a href="javascript:void(0)" onclick="showPage('budget-page')" class="nav-item" id="nav-budget">
-        <i class="fa-solid fa-wallet"></i>記帳
-    </a>
-    <a href="javascript:void(0)" onclick="showPage('wallet-page')" class="nav-item" id="nav-wallet">
-        <i class="fa-solid fa-ticket"></i>票券
-    </a>
-</nav>
+<div class="dock">
+    <a href="https://maps.app.goo.gl/HMYUMvgcWuHHgouQA" class="dock-item"><i class="fas fa-utensils"></i><span>美食地圖</span></a>
+    <a href="javascript:void(0)" onclick="toggleBudget()" class="dock-item"><i class="fas fa-yen-sign"></i><span>匯率/記帳</span></a>
+    <a href="#" class="dock-item"><i class="fas fa-ticket-alt"></i><span>電子票券</span></a>
+    <a href="#" class="dock-item"><i class="fas fa-clipboard-list"></i><span>行前檢查</span></a>
+</div>
+
+<div id="budget-panel">
+    <div style="width:50px; height:5px; background:#eee; margin:0 auto 20px; border-radius:10px;"></div>
+    <h2>匯率換算 & 記帳</h2>
+    <div style="background:#f5f5f7; padding:20px; border-radius:15px;">
+        <input type="number" id="jpy" placeholder="輸入日幣 JPY" style="width:100%; border:none; background:transparent; font-size:24px; outline:none;" oninput="convert(this.value)">
+        <div style="margin-top:10px; color:var(--accent); font-weight:bold; font-size:20px;">≈ <span id="twd">0</span> TWD</div>
+    </div>
+    <button onclick="toggleBudget()" style="width:100%; margin-top:20px; padding:15px; border-radius:15px; border:none; background:var(--accent); color:white; font-weight:bold;">關閉</button>
+</div>
 
 <script>
-    // 頁面切換功能
-    function showPage(pageId) {
-        document.querySelectorAll('.day-section').forEach(page => page.classList.remove('active'));
-        document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
-        document.getElementById(pageId).classList.add('active');
-        // 抓取導航ID並高亮 (簡化處理)
-        if(pageId === 'today-page') document.getElementById('nav-today').classList.add('active');
-        if(pageId === 'budget-page') document.getElementById('nav-budget').classList.add('active');
-        if(pageId === 'wallet-page') document.getElementById('nav-wallet').classList.add('active');
+    function switchDay(day, el) {
+        document.querySelectorAll('.date-item').forEach(d => d.classList.remove('active'));
+        el.classList.add('active');
+        // 此處可擴充切換不同天數的資料內容
     }
 
-    // 匯率換算 (門外漢可手動改 0.22 這個數字)
+    function toggleBudget() {
+        document.getElementById('budget-panel').classList.toggle('active');
+    }
+
     function convert(val) {
-        let rate = 0.22;
-        document.getElementById('twd').innerText = Math.round(val * rate);
+        document.getElementById('twd').innerText = Math.round(val * 0.22);
     }
 </script>
 
