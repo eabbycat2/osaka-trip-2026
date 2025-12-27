@@ -1,39 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Osaka Pro | Day 1</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* 強制定義 UI 風格 */
+        :root {
+            --friend-color: #FF8552;
+            --ai-color: #457B9D;
+            --guide-bg: #FFF9E6;
+            --bg-ios: #F2F2F7;
+            --accent: #E63946;
+        }
+
+        body { 
+            margin: 0; font-family: -apple-system, sans-serif; 
+            background: var(--bg-ios); color: #1c1c1e; 
+            padding-bottom: 100px; -webkit-font-smoothing: antialiased;
+        }
+
+        /* 頂部狀態列 */
+        .status-header {
+            background: #fff; padding: 15px 20px; border-bottom: 0.5px solid #d1d1d6;
+            display: flex; justify-content: space-between; align-items: center;
+            position: sticky; top: 0; z-index: 100;
+        }
+
+        .weather-pill { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; }
+        .stamina-pill { font-size: 12px; color: var(--accent); background: #FFE5E5; padding: 4px 10px; border-radius: 20px; font-weight: bold; }
+
+        /* 卡片設計 */
+        .card { 
+            background: #fff; border-radius: 24px; padding: 20px; 
+            margin: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border: none; position: relative;
+        }
+
+        .card-time { font-size: 13px; color: #8e8e93; font-weight: 700; margin-bottom: 5px; }
+        .card-title { font-size: 20px; font-weight: 800; margin-bottom: 12px; }
+
+        /* 交通按鈕 */
+        .transit-btn {
+            background: #F2F2F7; padding: 12px 15px; border-radius: 12px;
+            display: flex; align-items: center; justify-content: space-between;
+            font-size: 13px; cursor: pointer; margin-bottom: 15px;
+        }
+
+        /* 導遊攻略 */
+        .guide-card { 
+            background: var(--guide-bg); border-radius: 18px; 
+            padding: 15px; margin-top: 15px; border-left: 5px solid #FFD43B; 
+        }
+
+        .guide-label { font-size: 12px; font-weight: bold; color: #856404; margin-bottom: 8px; display: flex; align-items: center; gap: 5px; }
+        .guide-content { font-size: 13px; line-height: 1.6; color: #533f03; }
+
+        /* 美食區域 */
+        .food-section { margin-top: 15px; border-top: 0.5px solid #eee; padding-top: 15px; }
+        .food-tag { font-size: 11px; font-weight: bold; padding: 2px 8px; border-radius: 6px; margin-bottom: 8px; display: inline-block; }
+        .tag-friend { background: #FFEFE6; color: var(--friend-color); }
+        .tag-ai { background: #E6F0F7; color: var(--ai-color); }
+        .food-item { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+        .food-name { font-size: 14px; font-weight: 600; }
+        .food-dist { font-size: 12px; color: #8e8e93; }
+
+        /* 底部導航 */
+        .dock {
+            position: fixed; bottom: 20px; left: 15px; right: 15px;
+            background: #1c1c1e; border-radius: 25px; height: 65px;
+            display: flex; align-items: center; justify-content: space-around; z-index: 1000;
+        }
+        .dock-item { color: #8e8e93; text-align: center; font-size: 10px; text-decoration: none; flex: 1; }
+        .dock-item i { font-size: 20px; display: block; margin-bottom: 3px; }
+        .dock-item.active { color: white; }
+
+        /* 彈出指引 */
+        .drawer {
+            position: fixed; bottom: -100%; left: 0; width: 100%; height: 60%;
+            background: white; border-radius: 30px 30px 0 0; z-index: 2000;
+            transition: 0.4s cubic-bezier(0.32, 0.72, 0, 1); padding: 25px; box-sizing: border-box;
+            box-shadow: 0 -10px 40px rgba(0,0,0,0.1);
+        }
+        .drawer.active { bottom: 0; }
+    </style>
+</head>
+<body>
+
 <div class="status-header">
-    <div class="weather-pill"><i class="fas fa-cloud-sun"></i> 6°C / 12°C (降雨 10%)</div>
-    <div class="stamina-pill">👟 體力消耗預警：中 (移動日)</div>
+    <div class="weather-pill"><i class="fas fa-sun"></i> 6°C / 12°C</div>
+    <div class="stamina-pill">👟 體力：中 (移動日)</div>
 </div>
 
 <div class="content">
     <div class="card">
         <div class="card-time">12:35 PM</div>
-        <div class="card-title">關西機場 → 南海難波站</div>
-        
-        <div class="transit-btn" onclick="openDrawer('transit-day1-kix')">
-            <span><i class="fas fa-train"></i> Rapi:t 特急：橘色櫃檯與 14 號出口指引</span>
+        <div class="card-title">南海電鐵 Rapi:t (機場→難波)</div>
+        <div class="transit-btn" onclick="openDrawer('transit-kix')">
+            <span><i class="fas fa-train"></i> 實景指引：橘色櫃檯與14號出口</span>
             <i class="fas fa-chevron-right"></i>
         </div>
-
         <div class="guide-card">
             <div class="guide-label"><i class="fas fa-lightbulb"></i> 導遊攻略</div>
             <div class="guide-content">
-                <b>📜 故事：</b>Rapi:t 列車的設計概念是「復古未來主義」，圓型窗戶是模仿飛機座艙。
-                <br><b>📸 取景：</b>進站前別忘了在月台跟這台像「鐵人 28 號」的深藍色車頭合照。
+                <b>📜 故事：</b>Rapi:t 的圓型窗戶是模仿飛機座艙設計。
+                <br><b>📸 取景：</b>進站前別忘了跟深藍色車頭合照！
             </div>
-        </div>
-    </div>
-
-    <div class="card">
-        <div class="card-time">14:30 PM</div>
-        <div class="card-title">心齋橋東方快捷酒店</div>
-        <div class="detail-text">辦理入住手續並稍作休息，或寄放行李後立即出發逛街。</div>
-        <div class="btn-row">
-            <a href="https://maps.app.goo.gl/zTrtuhtAHYLW1E3v61" class="btn btn-map"><i class="fas fa-location-arrow"></i> 飯店位置導航</a>
         </div>
     </div>
 
     <div class="card">
         <div class="card-time">15:30 PM</div>
         <div class="card-title">心齋橋 PARCO & Disney Store</div>
-        
         <div class="guide-card">
-            <div class="guide-label"><i class="fas fa-shopping
+            <div class="guide-label"><i class="fas fa-shopping-bag"></i> 購物點</div>
+            <div class="guide-content">
+                <b>🛍️ 重點：</b>6F 動漫專區與維尼旗艦店。
+            </div>
+        </div>
+        <div class="food-section">
+            <div class="food-tag tag-friend">🧡 朋友標註</div>
+            <div class="food-item">
+                <div class="food-name">松阪牛燒肉 M (法善寺橫丁)</div>
+                <div class="food-dist">步行 8 min</div>
+            </div>
+            <div class="food-tag tag-ai">✨ AI 推薦</div>
+            <div class="food-item">
+                <div class="food-name">PABLO 半熟起司塔</div>
+                <div class="food-dist">步行 2 min</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="dock">
+    <a href="#" class="dock-item active"><i class="fas fa-calendar-day"></i><span>行程</span></a>
+    <a href="https://maps.app.goo.gl/HMYUMvgcWuHHgouQA" class="dock-item"><i class="fas fa-utensils"></i><span>美食地圖</span></a>
+    <a href="#" class="dock-item"><i class="fas fa-yen-sign"></i><span>記帳</span></a>
+    <a href="#" class="dock-item"><i class="fas fa-ticket-alt"></i><span>票券</span></a>
+</div>
+
+<div id="transit-kix" class="drawer">
+    <div style="width:40px; height:5px; background:#D1D1D6; border-radius:10px; margin: -10px auto 20px;" onclick="closeDrawer()"></div>
+    <h3>🚉 機場移動指引</h3>
+    <p>1. 領行李後上2樓進入南海電鐵「橘色」區域。</p>
+    <p>2. 找電子車票專用檢票機進站。</p>
+    <p>3. 難波站抵達後，由「北改札口」往「14號出口」走。</p>
+    <button onclick="closeDrawer()" style="width:100%; padding:15px; border-radius:15px; border:none; background:#eee; margin-top:20px;">關閉</button>
+</div>
+
+<script>
+    function openDrawer(id) { document.getElementById(id).classList.add('active'); }
+    function closeDrawer() { document.querySelectorAll('.drawer').forEach(d => d.classList.remove('active')); }
+</script>
+
+</body>
+</html>
