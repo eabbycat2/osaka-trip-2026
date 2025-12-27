@@ -3,71 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Osaka 2026 | 手機旅遊助手</title>
+    <title>Osaka 2026 | 全行程助手</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        :root {
-            --glass: rgba(255, 255, 255, 0.94);
-            --accent: #E63946;
-            --secondary: #457B9D;
-            --bg: #F2F2F7;
-            --card-shadow: 0 10px 30px rgba(0,0,0,0.06);
-        }
-
-        body {
-            margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            background-color: var(--bg); color: #1c1c1e; padding-bottom: 100px;
-            overflow-x: hidden;
-        }
-
-        /* 頂部日期滾動 (功能架構 L1) */
+        :root { --accent: #E63946; --secondary: #457B9D; --bg: #F2F2F7; }
+        body { margin: 0; font-family: -apple-system, sans-serif; background: var(--bg); padding-bottom: 100px; }
+        
+        /* 頂部日期列 */
         .date-scroller {
-            display: flex; overflow-x: auto; padding: 15px; background: rgba(255,255,255,0.8);
-            backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 100; gap: 12px;
-            border-bottom: 0.5px solid #d1d1d6;
+            display: flex; overflow-x: auto; padding: 15px; background: rgba(255,255,255,0.9);
+            backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 100; gap: 10px; border-bottom: 0.5px solid #ccc;
         }
         .date-item {
-            flex: 0 0 65px; height: 75px; border-radius: 18px;
+            flex: 0 0 60px; height: 70px; border-radius: 15px; background: #fff;
             display: flex; flex-direction: column; align-items: center; justify-content: center;
-            background: #fff; color: #8e8e93; transition: 0.3s; box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            color: #8e8e93; box-shadow: 0 2px 5px rgba(0,0,0,0.05); transition: 0.3s;
         }
         .date-item.active { background: var(--accent); color: white; transform: scale(1.05); }
-        .date-item span { font-size: 11px; margin-bottom: 2px; }
-        .date-item strong { font-size: 18px; }
 
-        /* 內容區 */
-        .content { padding: 16px; }
-        .day-section { display: none; }
-        .day-section.active { display: block; animation: slideUp 0.4s ease; }
+        /* 行程內容 */
+        .content { padding: 15px; }
+        .day-content { display: none; animation: fadeIn 0.4s; }
+        .day-content.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-
-        /* 卡片設計 (功能架構 L2) */
+        /* 卡片設計 */
         .card {
-            background: var(--glass); border-radius: 24px; padding: 20px;
-            margin-bottom: 16px; box-shadow: var(--card-shadow);
-            border: 1px solid rgba(255,255,255,0.5); transition: 0.3s;
+            background: #fff; border-radius: 20px; padding: 15px; margin-bottom: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-left: 5px solid var(--secondary);
         }
         .card-header { display: flex; justify-content: space-between; align-items: center; }
-        .card-time { font-size: 13px; font-weight: 700; color: var(--secondary); margin-bottom: 4px; }
-        .card-title { font-size: 19px; font-weight: 800; color: #000; }
+        .card-time { font-size: 12px; color: var(--secondary); font-weight: bold; }
+        .card-title { font-size: 17px; font-weight: bold; margin: 4px 0; }
+        .detail-drawer { max-height: 0; opacity: 0; overflow: hidden; transition: 0.3s; margin-top: 0; }
+        .card.expanded .detail-drawer { max-height: 1000px; opacity: 1; margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee; }
         
-        /* 展開細節 (功能架構 L3) */
-        .detail-drawer {
-            max-height: 0; opacity: 0; overflow: hidden; transition: all 0.4s ease;
-            margin-top: 0; border-top: 0.5px solid #e5e5ea;
-        }
-        .card.expanded .detail-drawer { max-height: 1500px; opacity: 1; margin-top: 15px; padding-top: 15px; }
-        .detail-text { font-size: 14px; line-height: 1.6; color: #3a3a3c; margin-bottom: 12px; }
-        .detail-text b { color: var(--accent); }
+        .guide-box { background: #FFF9E6; border-radius: 12px; padding: 10px; font-size: 13px; margin-top: 10px; border-left: 4px solid #FFD43B; }
+        .btn-nav { display: inline-flex; align-items: center; background: var(--secondary); color: white; padding: 8px 15px; border-radius: 10px; text-decoration: none; font-size: 13px; margin-top: 10px; }
 
-        /* 導遊推薦盒 (導遊職責) */
-        .guide-box {
-            background: #FFF9E6; border-radius: 16px; padding: 14px;
-            font-size: 13px; border-left: 5px solid #FFD43B; margin-top: 10px;
+        /* 底部 Dock */
+        .dock {
+            position: fixed; bottom: 20px; left: 15px; right: 15px;
+            background: #1c1c1e; border-radius: 25px; height: 65px;
+            display: flex; align-items: center; justify-content: space-around; z-index: 1000;
         }
+        .dock-item { color: #8e8e93; text-align: center; font-size: 10px; text-decoration: none; }
+        .dock-item i { font-size: 20px; display: block; margin-bottom: 3px; }
+        .dock-item.active { color: white; }
+    </style>
+</head>
+<body>
 
-        /* 底部功能鈕 */
-        .btn-row { display: flex; gap: 8px; margin-top: 15px; }
-        .btn {
-            flex: 1; padding:
+<div class="date-scroller">
+    <div class="date-item active" onclick="switchDay(1, this)"><span>1/18</span><strong>D1</strong></div>
+    <div class="date-item" onclick="switchDay(2, this)"><span>1/19</span><strong>D2</strong></div>
+    <div class="date-item" onclick="switchDay(3, this)"><span>1/20</span><strong>D3</strong></div>
+    <div class="date-item" onclick="switchDay(4, this)"><span>1/21</span><strong>D4</strong></div>
+    <div class="date-item" onclick="switchDay(5, this)"><span>1/22</span><strong>D5</strong></div>
+    <div class="date-item" onclick="switchDay(6, this)"><span>1/23</span><strong>D6</strong></div>
+    <div class="date-item" onclick="switchDay(7, this)"><span>1/24</span><strong>D7</strong></div>
+</div>
+
+<div class="content" id="main-content">
+    <div id="day-1" class="day-content active">
+        <div class="card" onclick="this.classList.toggle('expanded')">
+            <div class="card-header">
+                <div><div class="card-time">12:35</div><div class="card-title">南海電鐵 Rapi:t</div></div>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="detail-drawer">
+                <p>📍 機場2樓橘色櫃檯兌換車票。認明深藍色圓窗列車。</p>
+                <p>⚠️ 抵達難波站後由「3F 北改札口」出站。</p>
+                <a href="https://maps.app.goo.gl/9" class="btn-nav"><i class="fas fa-map"></i> 難波站導航</a>
+            </div>
+        </div>
+        </div>
+
+    <div id="day-2" class="day-content">
+        <div class="card" onclick="this.classList.toggle('expanded')">
+            <div class="card-header">
+                <div><div class="card-time">09:00</div><div class="card-title">勝尾寺 (勝運祈福)</div></div>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="detail-drawer">
+                <p>📍 交通：地鐵御堂筋線至「箕面萱野站」轉 6 號公車。</p>
+                <div class="guide-box">💡 導遊攻略：買一尊達摩，許願後畫上左眼，達成後再回來畫右眼。</div>
+                <a href="https://maps.app.goo.gl/10" class="btn-nav"><i class="fas fa-map"></i> 勝尾寺導航</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="day-3" class="day-content">
+        <div class="card"><div class="card-title">環球影城 USJ 全日</div><p>早起 7:30 抵達門口排隊進入。</p></div>
+    </div>
+    
+    <div id="day-4" class="day-content"><div class="card"><div class="card-title">南大阪觀光 / 演唱會</div></div></div>
+    <div id="day-5" class="day-content"><div class="card"><div class="card-title">京都走讀 / 清水寺</div></div></div>
+    <div id="day-6" class="day-content"><div class="card"><div class="card-title">京都 / 天橋立一日團</div></div></div>
+    <div id="day-7" class="day-content"><div class="card"><div class="card-title">臨空城 Outlet / 返程</div></div></div>
+</div>
+
+<div class="dock">
+    <a href="https://maps.app.goo.gl/HMYUMvgcWuHHgouQA" class="dock-item"><i class="fas fa-utensils"></i><span>美食地圖</span></a>
+    <a href="#" class="dock-item active"><i class="fas fa-calendar"></i><span>行程</span></a>
+    <a href="#" class="dock-item"><i class="fas fa-yen-sign"></i><span>記帳</span></a>
+    <a href="#" class="dock-item"><i class="fas fa-ticket"></i><span>票券</span></a>
+</div>
+
+<script>
+    function switchDay(day, el) {
+        // 切換按鈕樣式
+        document.querySelectorAll('.date-item').forEach(d => d.classList.remove('active'));
+        el.classList.add('active');
+        // 切換內容區塊
+        document.querySelectorAll('.day-content').forEach(c => c.classList.remove('active'));
+        document.getElementById('day-' + day).classList.add('active');
+        window.scrollTo(0,0);
+    }
+</script>
+
+</body>
+</html>
