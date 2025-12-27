@@ -15,7 +15,7 @@
             --accent: #A5A58D;
             --text-main: #3F4238;
             --friend: #D4A373; 
-            --ai: #7F90A0; /* 網友推薦色 (冷灰藍) */
+            --ai: #7F90A0;
         }
 
         * { box-sizing: border-box; }
@@ -51,7 +51,7 @@
         .card-body { padding: 0 20px 25px; }
         
         /* 圖片容器 (支援點擊放大) */
-        .img-container { position: relative; width: 100%; height: 180px; overflow: hidden; border-radius: 8px; margin-bottom: 15px; cursor: zoom-in; }
+        .img-container { position: relative; width: 100%; height: 180px; overflow: hidden; border-radius: 8px; margin-bottom: 15px; cursor: zoom-in; background: #eee; }
         .card-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
         .img-hint { position: absolute; bottom: 10px; right: 10px; background: rgba(0,0,0,0.6); color: white; font-size: 10px; padding: 4px 8px; border-radius: 20px; pointer-events: none; }
 
@@ -84,6 +84,10 @@
         /* 換一間按鈕 */
         .swap-btn { font-size: 12px; color: var(--ai); background: none; border: 1px solid var(--ai); padding: 5px 12px; border-radius: 20px; cursor: pointer; display: flex; align-items: center; gap: 5px; margin-left: auto; }
         .swap-btn:active { background: #f0f0f0; }
+
+        /* 購物地圖容器 */
+        .map-container { width: 100%; height: 180px; background: #eee; border-radius: 12px; display: flex; align-items: center; justify-content: center; position: relative; margin-bottom: 20px; overflow: hidden; }
+        .map-img { width: 100%; height: 100%; object-fit: contain; }
 
         /* 底部 Dock */
         .dock { position: fixed; bottom: 25px; left: 25px; right: 25px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(15px); border-radius: 40px; height: 65px; display: flex; align-items: center; justify-content: space-around; z-index: 1000; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05); }
@@ -121,6 +125,30 @@
     <div class="weather-hour"><div class="wh-time">14:00</div><i class="fas fa-cloud-sun wh-icon"></i><div class="wh-temp">10°</div></div>
     <div class="weather-hour"><div class="wh-time">16:00</div><i class="fas fa-cloud wh-icon"></i><div class="wh-temp">9°</div></div>
     <div class="weather-hour"><div class="wh-time">18:00</div><i class="fas fa-moon wh-icon" style="color:#888"></i><div class="wh-temp">7°</div></div>
+</div>
+
+<div class="card">
+    <div class="card-header"><div class="location-title"><i class="fas fa-plane-departure"></i> 桃園機場 (TPE)</div></div>
+    <div class="img-container" onclick="openLightbox(this.querySelector('img').src)">
+        <img src="https://images.unsplash.com/photo-1570710891163-6d3b5c47248b?auto=format&fit=crop&w=800&q=80" class="card-img">
+        <div class="img-hint"><i class="fas fa-search-plus"></i> 查看航廈</div>
+    </div>
+    <div class="card-body">
+        <div class="time-block">
+            <div class="time-label">06:00</div>
+            <div class="event-info">
+                <h3>抵達機場 / 集合</h3>
+                <div class="event-detail">越捷 VJ841 | TPE 07:30 → KIX 11:00</div>
+            </div>
+        </div>
+        <div class="time-block" style="border:none;">
+            <div class="time-label">06:45</div>
+            <div class="event-info">
+                <h3>登機手續 Check-in</h3>
+                <div class="event-detail">⚠️ 行李：手提 1 件 + 託運 15kg<br>💡 記得前 24 小時官網預辦登機</div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <div class="card">
@@ -185,6 +213,10 @@
     <div class="card-header"><div class="location-title"><i class="fas fa-shopping-bag"></i> 心齋橋購物</div></div>
     <div class="card-body">
         
+        <div class="map-container">
+            <img src="https://placehold.co/600x300?text=Upload+Your+Map+Here" class="map-img">
+        </div>
+
         <div class="expand-item" onclick="toggleItem(this)">
             <div class="expand-header">
                 <div class="item-name"><span class="tag tag-special">必逛</span> Mjet 雑貨店 ✨</div>
@@ -215,6 +247,20 @@
 
         <div class="expand-item" onclick="toggleItem(this)">
             <div class="expand-header">
+                <div class="item-name"><span class="tag tag-shop">藥妝</span> SUGI 藥局</div>
+                <i class="fas fa-chevron-down" style="color:#ccc"></i>
+            </div>
+            <div class="expand-content">
+                <div class="img-container" style="height:150px;" onclick="openLightbox(this.querySelector('img').src); event.stopPropagation();">
+                    <img src="https://images.unsplash.com/photo-1585238342024-78d387f4a707?auto=format&fit=crop&w=400&q=60" class="card-img">
+                </div>
+                <div class="event-detail">建議出發前先在手機截圖蒐集優惠券，結帳更划算。</div>
+                <a href="https://maps.google.com/?q=SUGI藥局心齋橋店" class="btn-outline">Google 導航</a>
+            </div>
+        </div>
+
+        <div class="expand-item" onclick="toggleItem(this)">
+            <div class="expand-header">
                 <div class="item-name"><span class="tag tag-shop">古蹟</span> 大丸心齋橋 本館</div>
                 <i class="fas fa-chevron-down" style="color:#ccc"></i>
             </div>
@@ -222,8 +268,78 @@
                 <div class="img-container" style="height:150px;" onclick="openLightbox(this.querySelector('img').src); event.stopPropagation();">
                     <img src="https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?auto=format&fit=crop&w=400&q=60" class="card-img">
                 </div>
-                <div class="event-detail">300年歷史。9樓有寶可夢中心與 Jump Shop。</div>
+                <div class="event-detail">300年歷史，2019年整修重開。9樓有寶可夢中心與 Jump Shop。</div>
                 <a href="https://maps.google.com/?q=大丸心齋橋本館" class="btn-outline">Google 導航</a>
+            </div>
+        </div>
+
+        <div class="expand-item" onclick="toggleItem(this)">
+            <div class="expand-header">
+                <div class="item-name"><span class="tag tag-shop">雜貨</span> 唐吉訶德 道頓堀</div>
+                <i class="fas fa-chevron-down" style="color:#ccc"></i>
+            </div>
+            <div class="expand-content">
+                <div class="img-container" style="height:150px;" onclick="openLightbox(this.querySelector('img').src); event.stopPropagation();">
+                    <img src="https://images.unsplash.com/photo-1607082349566-187342175e2f?auto=format&fit=crop&w=400&q=60" class="card-img">
+                </div>
+                <div class="event-detail">24H 營業。搭乘摩天輪 ¥1,000，詳見官網購票教學。</div>
+                <a href="https://maps.google.com/?q=唐吉訶德道頓堀店" class="btn-outline">Google 導航</a>
+            </div>
+        </div>
+
+        <div class="expand-item" onclick="toggleItem(this)">
+            <div class="expand-header">
+                <div class="item-name"><span class="tag tag-shop">電器</span> Bic Camera 難波</div>
+                <i class="fas fa-chevron-down" style="color:#ccc"></i>
+            </div>
+            <div class="expand-content">
+                <div class="img-container" style="height:150px;" onclick="openLightbox(this.querySelector('img').src); event.stopPropagation();">
+                    <img src="https://placehold.co/400x150?text=Bic+Camera+Photo" class="card-img">
+                </div>
+                <div class="event-detail">整整 7 層樓。吹風機、相機、廚房家電甚至行李箱一次買齊。</div>
+                <a href="https://maps.google.com/?q=唐吉訶德道頓堀店" class="btn-outline">Google 導航</a>
+            </div>
+        </div>
+
+        <div class="expand-item" onclick="toggleItem(this)">
+            <div class="expand-header">
+                <div class="item-name"><span class="tag tag-shop">服飾</span> 心齋橋 UNIQLO</div>
+                <i class="fas fa-chevron-down" style="color:#ccc"></i>
+            </div>
+            <div class="expand-content">
+                <div class="img-container" style="height:150px;" onclick="openLightbox(this.querySelector('img').src); event.stopPropagation();">
+                    <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=400&q=60" class="card-img">
+                </div>
+                <div class="event-detail">買衣服。</div>
+                <a href="https://maps.google.com/?q=Uniqlo心齋橋" class="btn-outline">Google 導航</a>
+            </div>
+        </div>
+
+        <div class="expand-item" onclick="toggleItem(this)">
+            <div class="expand-header">
+                <div class="item-name"><span class="tag tag-shop">服飾</span> GU 心齋橋店</div>
+                <i class="fas fa-chevron-down" style="color:#ccc"></i>
+            </div>
+            <div class="expand-content">
+                <div class="img-container" style="height:150px;" onclick="openLightbox(this.querySelector('img').src); event.stopPropagation();">
+                    <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=400&q=60" class="card-img">
+                </div>
+                <div class="event-detail">買衣服。</div>
+                <a href="https://maps.google.com/?q=Uniqlo心齋橋" class="btn-outline">Google 導航</a>
+            </div>
+        </div>
+
+        <div class="expand-item" onclick="toggleItem(this)">
+            <div class="expand-header">
+                <div class="item-name"><span class="tag tag-shop">科技</span> Apple 心齋橋</div>
+                <i class="fas fa-chevron-down" style="color:#ccc"></i>
+            </div>
+            <div class="expand-content">
+                <div class="img-container" style="height:150px;" onclick="openLightbox(this.querySelector('img').src); event.stopPropagation();">
+                    <img src="https://images.unsplash.com/photo-1563203369-26f2e4a5ccf7?auto=format&fit=crop&w=400&q=60" class="card-img">
+                </div>
+                <div class="event-detail">看要不要買有價差的 iPhone。</div>
+                <a href="https://maps.google.com/?q=Apple心齋橋" class="btn-outline">Google 導航</a>
             </div>
         </div>
 
