@@ -136,19 +136,22 @@
         <div class="card-header"><div class="location-title"><i class="fas fa-plane-departure"></i> 桃園機場 (TPE)</div></div>
         <div class="card-body">
             <div class="time-row">
-                <div class="time-col">06:00</div>
+                <div class="time-col">05:00</div>
                 <div class="content-col">
                     <div class="event-title">集合 / 抵達機場</div>
-                    <div class="event-desc">班機 VJ841 (越捷) | TPE 07:30 → KIX 11:00</div>
+                    <div class="event-desc">
+                        班機 VJ841 (越捷) | TPE 07:30 → KIX 11:00<br>
+                        <span style="color:#E67E22; font-weight:600;">★ 機場接駁請訂 04:30</span>
+                    </div>
                 </div>
             </div>
             <div class="time-row">
-                <div class="time-col">06:45</div>
+                <div class="time-col">06:20前</div>
                 <div class="content-col">
                     <div class="event-title">登機手續 Check-in</div>
                     <div class="event-desc">
-                        ⚠️ 行李：手提 1 件 + 託運 15kg<br>
-                        💡 記得前 24 小時可官網預辦登機
+                        ⚠️ <b>起飛前 40 分鐘關閉登機</b><br>
+                        行李：手提 1 件 + 託運 15kg
                     </div>
                 </div>
             </div>
@@ -169,23 +172,39 @@
                             <li><i class="fas fa-check" style="color:var(--primary); width:20px;"></i> 兌換 Rapi:t 車票 (橘色櫃檯)</li>
                         </ul>
                     </div>
-                    <button class="btn-attachment" onclick="openLightbox('https://raw.githubusercontent.com/eabbycat2/osaka-trip-2026/refs/heads/main/day1%E6%A9%9F%E5%A0%B4%E6%8C%87%E5%BC%95.png')">
-                        <i class="far fa-image"></i> 查看入境指引圖
-                    </button>
+                    <button class="btn-attachment" onclick="openLightbox('https://raw.githubusercontent.com/eabbycat2/osaka-trip-2026/refs/heads/main/day1%E6%A9%9F%E5%A0%B4%E6%8C%87%E5%BC%95.png')"><i class="far fa-image"></i> 查看入境指引圖</button>
                 </div>
             </div>
             <div class="time-row">
                 <div class="time-col">12:35</div>
                 <div class="content-col">
                     <div class="event-title">南海電鐵 Rapi:t</div>
-                    <div class="guide-text">
-                        搭乘復古又前衛的深藍色鐵人列車前往難波。記得走「橘色」閘門，避開藍色 JR。
-                    </div>
-                    <button class="btn-attachment" onclick="openLightbox('https://github.com/eabbycat2/osaka-trip-2026/blob/main/day1%E7%89%B9%E6%80%A5Rapit%20%E6%8C%87%E5%BC%95.png?raw=true')">
-                        <i class="far fa-image"></i> 查看 Rapi:t 指引圖
-                    </button>
+                    <div class="guide-text">搭乘復古又前衛的深藍色鐵人列車前往難波。記得走「橘色」閘門，避開藍色 JR。</div>
+                    <button class="btn-attachment" onclick="openLightbox('https://github.com/eabbycat2/osaka-trip-2026/blob/main/day1%E7%89%B9%E6%80%A5Rapit%20%E6%8C%87%E5%BC%95.png?raw=true')"><i class="far fa-image"></i> 查看 Rapi:t 指引圖</button>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header"><div class="location-title"><i class="fas fa-subway"></i> 難波 → 飯店</div></div>
+        <div class="card-body">
+            
+            <div class="guide-text" style="border-left: 3px solid #E63946;">
+                <b>Step 1：轉乘御堂筋線 <span style="color:#E63946">(紅色)</span></b><br>
+                1. Rapi:t 抵達難波站 3F，請往<b>「北改札口」</b>出站。<br>
+                2. 搭長手扶梯下到 1F，跟著紅色<b>「御堂筋線 M」</b>指標往地下街，搭 1 站到「心齋橋」。
+            </div>
+
+            <div onclick="toggleVisibility('lost-hotel')" style="background:#FFF9E6; border:1px solid #FFEBA8; color:#856404; padding:12px 15px; border-radius:8px; font-size:13px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; margin-top:10px; font-weight:600;">
+                <span><i class="fas fa-map-signs" style="color:#E67E22; width:20px;"></i> 關鍵指引：推行李必看 (1號出口)</span>
+                <i class="fas fa-chevron-down" id="icon-lost-hotel"></i>
+            </div>
+            <div id="lost-hotel" style="display:none; padding:15px; border:1px solid #FFEBA8; border-top:none; border-radius:0 0 8px 8px; font-size:13px; line-height:1.7; color:#333;">
+                <b>1. 電梯出口：</b>在心齋橋站請找<b>「1 號出口」</b>(有電梯)。<br>
+                <b>2. 視覺導航：</b>出來會看到「御堂筋」林蔭大道。飯店在往大丸百貨的反方向巷弄內，步行約 5 分鐘即可抵達。
+            </div>
+            
         </div>
     </div>
 
@@ -196,13 +215,8 @@
                 <div class="time-col">14:30</div>
                 <div class="content-col">
                     <div class="event-title">心齋橋東方快捷酒店</div>
-                    <div class="event-desc">Hotel Oriental Express Osaka Shinsaibashi</div>
-                    <div class="guide-text" style="margin-top:10px;">
-                        若還不能進房，先寄放行李，轉身投入心齋橋的懷抱。
-                    </div>
-                    <a href="https://maps.app.goo.gl/oBDQWRH5VTXpPTnY8" class="btn-outline">
-                        <i class="fas fa-location-arrow"></i> 導航至飯店
-                    </a>
+                    <div class="guide-text" style="margin-top:10px;">若還不能進房，先寄放行李，轉身投入心齋橋的懷抱。</div>
+                    <a href="https://maps.app.goo.gl/oBDQWRH5VTXpPTnY8" class="btn-outline">導航至飯店</a>
                 </div>
             </div>
         </div>
@@ -215,71 +229,12 @@
                 <img src="https://github.com/eabbycat2/osaka-trip-2026/blob/main/%E9%81%93%E9%A0%93%E5%A0%80%E6%95%A3%E6%AD%A5%E5%9C%B0%E5%9C%96.jpg?raw=true" class="map-img">
                 <div class="map-hint"><i class="fas fa-search-plus"></i> 點擊查看散步地圖</div>
             </div>
-
-            <div class="expand-item" onclick="toggleItem(this)">
-                <div class="expand-header"><div class="item-name"><span class="tag tag-special">必逛</span> Mjet 雑貨店</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
-                <div class="expand-content">
-                    <div class="shop-meta"><i class="far fa-clock"></i> 11:00 - 19:00</div>
-                    <div class="guide-text">重點必逛！吉卜力與 Palnart Poc 飾品的合作店家。店內洋溢古埃及神祕風格，想找與眾不同的紀念品來這裡準沒錯。</div>
-                    <a href="https://maps.google.com/?q=Mjet心齋橋店" class="btn-outline">Google 導航</a>
-                </div>
-            </div>
-            <div class="expand-item" onclick="toggleItem(this)">
-                <div class="expand-header"><div class="item-name"><span class="tag tag-shop">百貨</span> PARCO / Hands</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
-                <div class="expand-content">
-                    <div class="shop-meta"><i class="far fa-clock"></i> 10:00 - 20:00</div>
-                    <div class="guide-text">直奔 6 樓！吉伊卡哇、JUMP SHOP 動漫周邊都在這。另外別忘了找 Hands 櫃位，您要的「匠之技指甲剪」就在那。</div>
-                    <a href="https://maps.google.com/?q=心齋橋PARCO" class="btn-outline">Google 導航</a>
-                </div>
-            </div>
-            <div class="expand-item" onclick="toggleItem(this)">
-                <div class="expand-header"><div class="item-name"><span class="tag tag-shop">古蹟</span> 大丸心齋橋 本館</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
-                <div class="expand-content">
-                    <div class="shop-meta"><i class="far fa-clock"></i> 10:00 - 20:30</div>
-                    <div class="guide-text">這棟建築本身就是 300 年歷史的藝術品。逛完 9 樓的寶可夢中心後，一定要去欣賞 Vories 設計的華麗內裝。</div>
-                    <a href="https://maps.google.com/?q=大丸心齋橋本館" class="btn-outline">Google 導航</a>
-                </div>
-            </div>
-            <div class="expand-item" onclick="toggleItem(this)">
-                <div class="expand-header"><div class="item-name"><span class="tag tag-shop">雜貨</span> 唐吉訶德 道頓堀</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
-                <div class="expand-content">
-                    <div class="shop-meta"><i class="far fa-clock"></i> 24H 營業</div>
-                    <div class="guide-text">這就是那個有摩天輪的！搭乘一次 1,000 日圓。建議避開晚上 9-11 點的退稅人潮，或者半夜再來。</div>
-                    <a href="https://maps.google.com/?q=唐吉訶德道頓堀店" class="btn-outline">Google 導航</a>
-                </div>
-            </div>
-            <div class="expand-item" onclick="toggleItem(this)">
-                <div class="expand-header"><div class="item-name"><span class="tag tag-shop">藥妝</span> SUGI 藥局</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
-                <div class="expand-content">
-                    <div class="shop-meta"><i class="far fa-clock"></i> 10:00 - 23:00</div>
-                    <div class="guide-text">動線比唐吉訶德好逛很多。小提醒：出發前先在手機截圖好優惠券。</div>
-                    <a href="https://maps.google.com/?q=SUGI藥局心齋橋店" class="btn-outline">Google 導航</a>
-                </div>
-            </div>
-            <div class="expand-item" onclick="toggleItem(this)">
-                <div class="expand-header"><div class="item-name"><span class="tag tag-shop">電器</span> Bic Camera 難波</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
-                <div class="expand-content">
-                    <div class="shop-meta"><i class="far fa-clock"></i> 10:00 - 21:00</div>
-                    <div class="guide-text">7 層樓的電器天堂。吹風機、美容儀到廚房家電，甚至零食酒水都能一次買齊並退稅，效率最高。</div>
-                    <a href="https://maps.app.goo.gl/5CLXvWwfwQ34XxCk9" class="btn-outline">Google 導航</a>
-                </div>
-            </div>
-            <div class="expand-item" onclick="toggleItem(this)">
-                <div class="expand-header"><div class="item-name"><span class="tag tag-shop">科技</span> Apple 心齋橋</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
-                <div class="expand-content">
-                    <div class="shop-meta"><i class="far fa-clock"></i> 10:00 - 21:00</div>
-                    <div class="guide-text">位於御堂筋側的全玻璃建築。注意：日本 iPhone 拍照快門聲無法關閉喔！</div>
-                    <a href="https://maps.google.com/?q=Apple心齋橋" class="btn-outline">Google 導航</a>
-                </div>
-            </div>
-            <div class="expand-item" onclick="toggleItem(this)">
-                <div class="expand-header"><div class="item-name"><span class="tag tag-shop">服飾</span> UNIQLO & GU</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
-                <div class="expand-content">
-                    <div class="shop-meta"><i class="far fa-clock"></i> 11:00 - 21:00</div>
-                    <div class="guide-text">基礎款發熱衣、羽絨衣價格約為台灣 7 折，非常適合大採購。</div>
-                    <a href="https://maps.google.com/?q=Uniqlo心齋橋" class="btn-outline">Google 導航</a>
-                </div>
-            </div>
+            <div class="expand-item" onclick="toggleItem(this)"><div class="expand-header"><div class="item-name"><span class="tag tag-special">必逛</span> Mjet 雑貨店</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div><div class="expand-content"><div class="guide-text">吉卜力與 Palnart Poc 飾品的合作店家。</div><a href="https://maps.google.com/?q=Mjet心齋橋店" class="btn-outline">導航</a></div></div>
+            <div class="expand-item" onclick="toggleItem(this)"><div class="expand-header"><div class="item-name"><span class="tag tag-shop">百貨</span> PARCO / Hands</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div><div class="expand-content"><div class="guide-text">6F 動漫層。Hands 買指甲剪。</div><a href="https://maps.google.com/?q=心齋橋PARCO" class="btn-outline">導航</a></div></div>
+            <div class="expand-item" onclick="toggleItem(this)"><div class="expand-header"><div class="item-name"><span class="tag tag-shop">古蹟</span> 大丸心齋橋</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div><div class="expand-content"><div class="guide-text">9F 寶可夢中心。欣賞 Vories 建築。</div><a href="https://maps.google.com/?q=大丸心齋橋本館" class="btn-outline">導航</a></div></div>
+            <div class="expand-item" onclick="toggleItem(this)"><div class="expand-header"><div class="item-name"><span class="tag tag-shop">雜貨</span> 唐吉訶德</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div><div class="expand-content"><div class="guide-text">有摩天輪的那間。24H。</div><a href="https://maps.google.com/?q=唐吉訶德道頓堀店" class="btn-outline">導航</a></div></div>
+            <div class="expand-item" onclick="toggleItem(this)"><div class="expand-header"><div class="item-name"><span class="tag tag-shop">電器</span> Bic Camera 難波</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div><div class="expand-content"><div class="guide-text">7層樓電器天堂。</div><a href="https://maps.app.goo.gl/5CLXvWwfwQ34XxCk9" class="btn-outline">導航</a></div></div>
+            <div class="expand-item" onclick="toggleItem(this)"><div class="expand-header"><div class="item-name"><span class="tag tag-shop">服飾</span> UNIQLO & GU</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div><div class="expand-content"><div class="guide-text">價格約為台灣 7 折。</div><a href="https://maps.google.com/?q=Uniqlo心齋橋" class="btn-outline">導航</a></div></div>
         </div>
     </div>
 </div>
