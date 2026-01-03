@@ -1012,27 +1012,44 @@
     <div class="card">
         <div class="card-header"><div class="location-title"><i class="fas fa-train"></i> 移動：前往清水寺</div></div>
         <div class="card-body">
+            
             <div class="guide-text" style="border-left: 3px solid #E63946;">
                 <b>Step 1：御堂筋線 <span style="color:#E63946">(紅色)</span></b><br>
-                從心齋橋搭到 <b>「淀屋橋站」</b>。
+                從心齋橋搭到 <b>「淀屋橋站」</b>。<br>
+                <span style="font-size:12px; color:#666;">(這段像捷運，每班車都會到，隨便搭沒問題)</span>
             </div>
+
             <div class="guide-text" style="border-left: 3px solid #27AE60;">
                 <b>Step 2：京阪電車 <span style="color:#27AE60">(綠色)</span></b><br>
-                轉乘往「出町柳」方向，目標是 <b>「清水五條站」</b>。
+                跟著指標走到京阪車站，目標是 <b>「清水五條站」</b>。<br>
+                <span style="font-size:12px; color:#E67E22;">⚠️ 這裡要注意車種！請看下方密技</span>
             </div>
             
             <div onclick="toggleVisibility('transit-kiyomizu')" style="background:#FFF9E6; border:1px solid #FFEBA8; color:#856404; padding:12px 15px; border-radius:8px; font-size:13px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; margin-top:10px; font-weight:600;">
-                <span><i class="fas fa-lightbulb" style="color:#F39C12; width:20px;"></i> 關鍵：如何搭特急省時間？</span>
+                <span><i class="fas fa-lightbulb" style="color:#F39C12; width:20px;"></i> 關鍵：京阪電車怎麼搭最快？</span>
                 <i class="fas fa-chevron-down" id="icon-transit-kiyomizu"></i>
             </div>
             <div id="transit-kiyomizu" style="display:none; padding:15px; border:1px solid #FFEBA8; border-top:none; border-radius:0 0 8px 8px; font-size:13px; line-height:1.7; color:#333;">
-                <b>🚀 建議搭「特急」(紅色車頭)！</b><br>
-                雖然特急不停「清水五條」，但速度最快。請採取以下策略：<br>
-                1. 先搭特急到<b>「七條站」</b>(七条) 下車。<br>
-                2. <b>不用換月台</b>，原地等下一班「準急」或「普通」列車。<br>
-                3. 再搭一站就會到<b>「清水五條站」</b>。<br><br>
-                <b>出站後：</b>請找 <b>「4 號出口」</b>。過橋後沿著「五條通」緩坡向上走，接上<b>「五條坂」</b>直通大門。
+                <b>因為「清水五條」是小站，快車不停！</b><br>
+                建議使用「快車轉慢車」戰術：<br><br>
+                1. 先搭 <b>特急 (紅色車頭)</b>，速度最快。<br>
+                2. 搭到 <b>「七條站」</b> (七条) 下車。<br>
+                3. <b>不要出站，不要換月台！</b> 直接在原地等下一班「準急」或「普通」列車。<br>
+                4. 再搭一站，就會停 <b>「清水五條站」</b> 了。<br>
+                (這樣比從頭到尾搭慢車省下約 15 分鐘)
             </div>
+
+            <div onclick="toggleVisibility('walk-kiyomizu')" style="background:#F2F2F7; padding:12px 15px; border-radius:8px; font-size:13px; color:#333; cursor:pointer; display:flex; justify-content:space-between; align-items:center; margin-top:10px; font-weight:600;">
+                <span><i class="fas fa-walking" style="color:#27AE60; width:20px;"></i> 關鍵：出站後往哪走？</span>
+                <i class="fas fa-chevron-down" id="icon-walk-kiyomizu"></i>
+            </div>
+            <div id="walk-kiyomizu" style="display:none; padding:15px; border:1px solid #F2F2F7; border-top:none; border-radius:0 0 8px 8px; font-size:13px; line-height:1.7; color:#666;">
+                1. 請找 <b>「4 號出口」</b> 上樓。<br>
+                2. 出來會看到大馬路（五條通）與大河（鴨川）。<br>
+                3. <b>❌ 不要過橋！</b> (過橋是回大阪的方向)<br>
+                4. <b>⭕ 請背對河流，沿著大馬路直走</b>。這是一段長緩坡，走約 10 分鐘會看到一座高架橋岔路，走右邊那條熱鬧的坡道（五條坂）就直通清水寺了。
+            </div>
+
         </div>
     </div>
 
