@@ -839,32 +839,40 @@
     <div class="weather-scroller" id="wb-d4"><div class="wh-loading">載入氣象...</div></div>
 
     <div class="card">
-        <div class="card-header"><div class="location-title"><i class="fas fa-torii-gate"></i> 10:00 四天王寺 (彈性)</div></div>
+        <div class="card-header"><div class="location-title"><i class="fas fa-subway"></i> 移動：前往四天王寺</div></div>
         <div class="card-body">
-            <div class="guide-text" style="margin-bottom:15px; color:#E67E22; font-weight:600;">
-                💡 這是彈性景點，若太累可略過，直接執行下方「方案 A」前往新世界。
-            </div>
-
             <div class="guide-text" style="border-left: 3px solid #8E44AD;">
                 <b>交通：地鐵谷町線 <span style="color:#8E44AD">(紫色)</span></b><br>
                 從「本町」或「心齋橋」出發，搭到 <b>「四天王寺前夕陽丘站」</b>。
             </div>
-            
-            <div onclick="toggleVisibility('lost-tennoji')" style="background:#F2F2F7; padding:12px 15px; border-radius:8px; font-size:13px; color:#333; cursor:pointer; display:flex; justify-content:space-between; align-items:center; margin-top:10px; font-weight:600;">
-                <span><i class="fas fa-map-signs" style="color:var(--primary); width:20px;"></i> 關鍵指引：出口與門票</span>
-                <i class="fas fa-chevron-down" id="icon-lost-tennoji"></i>
+            <div onclick="toggleVisibility('transit-tennoji')" style="background:#F2F2F7; padding:12px 15px; border-radius:8px; font-size:13px; color:#333; cursor:pointer; display:flex; justify-content:space-between; align-items:center; margin-top:10px; font-weight:600;">
+                <span><i class="fas fa-map-signs" style="color:var(--primary); width:20px;"></i> 關鍵指引：出口方向</span>
+                <i class="fas fa-chevron-down" id="icon-transit-tennoji"></i>
             </div>
-            <div id="lost-tennoji" style="display:none; padding:15px; border:1px solid #F2F2F7; border-top:none; border-radius:0 0 8px 8px; font-size:13px; color:#666; line-height:1.7;">
-                <b>1. 出口：</b>請找 <b>「4 號出口」</b>，出站後直走 5 分鐘即達大門。<br>
-                <b>2. 門票攻略：</b><br>
-                四天王寺門票採分區收費。想看五重塔買「中心伽藍」；想逛日式庭園買「本坊庭園」；想看文物去「寶物館」。<br>
-                (持大阪周遊卡可免費進入中心伽藍與庭園)
+            <div id="transit-tennoji" style="display:none; padding:15px; border:1px solid #F2F2F7; border-top:none; border-radius:0 0 8px 8px; font-size:13px; color:#666; line-height:1.7;">
+                <b>找 4 號出口：</b><br>
+                出站後上到地面，直接順著路直走約 5 分鐘，就會抵達寺廟的石鳥居大門。
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header"><div class="location-title"><i class="fas fa-torii-gate"></i> 10:00 四天王寺 (彈性)</div></div>
+        <div class="card-body">
+            <div class="guide-text" style="margin-bottom:15px; color:#E67E22; font-weight:600;">
+                💡 這是彈性景點，若太累可略過，直接看下方的「方案 A」前往新世界。
+            </div>
+            
+            <div class="shop-meta"><i class="far fa-clock"></i> 08:30 - 16:00 (冬季時間)</div>
+            <div class="guide-text">
+                聖德太子建立的日本佛法最早官寺。想看五重塔買「中心伽藍」票；想圖清靜逛「庭園」；想看文物去「寶物館」。
             </div>
 
-            <div class="shop-meta" style="margin-top:15px;"><i class="far fa-clock"></i> 08:30 - 16:00 (冬季)</div>
-            <div class="guide-text">
-                聖德太子建立的日本佛法最早官寺。
+            <div class="map-container" onclick="openLightbox(this.querySelector('img').src)" style="height:180px; margin-top:15px;">
+                <img src="https://github.com/eabbycat2/osaka-trip-2026/blob/main/%E5%9B%9B%E5%A4%A9%E7%8E%8B%E5%AF%BA.png?raw=true" class="map-img">
+                <div class="map-hint"><i class="fas fa-search-plus"></i> 查看境內地圖</div>
             </div>
+
             <a href="https://maps.app.goo.gl/zTrtuhtAHYLW1E3v6" class="btn-outline"><i class="fas fa-map-marker-alt"></i> Google 地標</a>
         </div>
     </div>
@@ -903,7 +911,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 
@@ -912,35 +919,63 @@
         <div class="card-body">
             <div class="shop-meta"><i class="far fa-clock"></i> 商圈約 10:00 - 21:00</div>
             <div class="guide-text">
-                充滿昭和懷舊感的街道。這裡是「炸串 (Kushikatsu)」的發源地，午餐推薦找間熱鬧的炸串店體驗大阪庶民美食。
+                充滿昭和懷舊感的街道，也是「炸串 (Kushikatsu)」的發源地。
             </div>
+            
+            <div class="expand-item" onclick="toggleItem(this)" style="border-top:1px solid #F0F0F0; margin-top:10px;">
+                <div class="expand-header"><div class="item-name"><span class="tag tag-special">必逛</span> 在地體驗推薦</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
+                <div class="expand-content">
+                    <div class="guide-text">
+                        <b>1. 比利肯神像 (Billiken)：</b><br>
+                        隨處可見的尖頭神像。傳說<b>撫摸他的腳底</b>會帶來好運！<br><br>
+                        <b>2. 強強橫丁 (ジャンジャン横丁)：</b><br>
+                        充滿復古昭和氣氛的商店街，有許多老式射擊遊戲場和小鋼珠店。<br><br>
+                        <b>3. 巨大招牌：</b><br>
+                        抬頭看！這裡有誇張的河豚、將棋棋子、壽司等立體招牌，是大阪最經典的拍照背景。
+                    </div>
+                </div>
+            </div>
+
             <a href="https://maps.app.goo.gl/Nq41UFtSmrm2MoHEA" class="btn-outline">Google 導航</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header"><div class="location-title"><i class="fas fa-subway"></i> 移動：前往八阪神社</div></div>
+        <div class="card-body">
+            <div class="guide-text" style="border-left: 3px solid #E63946;">
+                <b>交通：御堂筋線 <span style="color:#E63946">(紅色)</span></b><br>
+                從「動物園前站」搭一站到 <b>「大國町站」</b>。
+            </div>
+            <div class="guide-text">
+                <b>📍 關鍵指引：</b><br>
+                請找 <b>「3 號出口」</b>。出站後步行約 6 分鐘，神社隱藏在寧靜的住宅區巷弄中，看到綠色獅子頭就到了。
+            </div>
         </div>
     </div>
 
     <div class="card">
         <div class="card-header"><div class="location-title"><i class="fas fa-camera"></i> 15:30 難波八阪神社</div></div>
         <div class="card-body">
-            
-            <div class="guide-text" style="border-left: 3px solid #E63946;">
-                <b>交通：御堂筋線 <span style="color:#E63946">(紅色)</span></b><br>
-                從「動物園前站」搭一站到 <b>「大國町站」</b>。
-            </div>
-
-            <div onclick="toggleVisibility('lost-lion')" style="background:#F2F2F7; padding:12px 15px; border-radius:8px; font-size:13px; color:#333; cursor:pointer; display:flex; justify-content:space-between; align-items:center; margin-top:10px; font-weight:600;">
-                <span><i class="fas fa-map-signs" style="color:var(--primary); width:20px;"></i> 關鍵指引：尋找獅子頭</span>
-                <i class="fas fa-chevron-down" id="icon-lost-lion"></i>
-            </div>
-            <div id="lost-lion" style="display:none; padding:15px; border:1px solid #F2F2F7; border-top:none; border-radius:0 0 8px 8px; font-size:13px; color:#666; line-height:1.7;">
-                <b>1. 出口：</b>請找 <b>「3 號出口」</b>。<br>
-                <b>2. 步行：</b>出站後步行約 6 分鐘。神社隱藏在住宅區巷弄中，看到巨大的綠色獅子頭就到了。
-            </div>
-
-            <div class="shop-meta" style="margin-top:15px;"><i class="far fa-clock"></i> 參拜 06:30 - 17:00</div>
+            <div class="shop-meta"><i class="far fa-clock"></i> 參拜 06:30 - 17:00</div>
             <div class="guide-text">
                 以高 12 公尺的巨大獅子殿聞名。據說獅子的大口能將厄運吸入、招來幸運（勝利），必拍！御守販售至 17:00。
             </div>
             <a href="https://maps.app.goo.gl/CTXX1iwb7PRUffCD9" class="btn-outline">Google 導航</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header"><div class="location-title"><i class="fas fa-subway"></i> 移動：前往京瓷巨蛋</div></div>
+        <div class="card-body">
+            <div class="guide-text" style="border-left: 3px solid #E63946;">
+                <b>Step 1：御堂筋線 <span style="color:#E63946">(紅色)</span></b><br>
+                從「大國町站」搭回「心齋橋站」。
+            </div>
+            <div class="guide-text" style="border-left: 3px solid #A9DFBF;">
+                <b>Step 2：長堀鶴見綠地線 <span style="color:#A9DFBF">(淺綠色)</span></b><br>
+                轉乘往大正方向，在 <b>「巨蛋前千代崎站」</b> 下車即達。
+            </div>
         </div>
     </div>
 
@@ -951,16 +986,6 @@
                 <b>地點：</b>大阪京瓷巨蛋 (Kyocera Dome)<br>
                 <b>目標：</b>預留進場與排周邊商品時間。
             </div>
-
-            <div class="guide-text" style="border-left: 3px solid #E63946;">
-                <b>Step 1：御堂筋線 <span style="color:#E63946">(紅色)</span></b><br>
-                從大國町站搭回「心齋橋站」。
-            </div>
-            <div class="guide-text" style="border-left: 3px solid #A9DFBF;">
-                <b>Step 2：長堀鶴見綠地線 <span style="color:#A9DFBF">(淺綠色)</span></b><br>
-                轉乘往大正方向，在 <b>「巨蛋前千代崎站」</b> 下車即達。
-            </div>
-
             <a href="https://www.google.com/maps?cid=6007650140613281009" class="btn-outline"><i class="fas fa-map-marker-alt"></i> 導航至京瓷巨蛋</a>
         </div>
     </div>
