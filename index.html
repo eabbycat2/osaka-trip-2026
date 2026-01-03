@@ -1010,7 +1010,7 @@
     <div class="weather-scroller" id="wb-d5"><div class="wh-loading">載入氣象...</div></div>
 
     <div class="card">
-        <div class="card-header"><div class="location-title"><i class="fas fa-train"></i> 移動：前往清水寺</div></div>
+        <div class="card-header"><div class="location-title"><i class="fas fa-train"></i> 08:00 前往清水寺</div></div>
         <div class="card-body">
             
             <div class="guide-text" style="border-left: 3px solid #E63946;">
@@ -1058,9 +1058,52 @@
         <div class="card-body">
             <div class="shop-meta"><i class="far fa-clock"></i> 06:00 - 18:00</div>
             <div class="guide-text">
-                京都最著名的古剎。必看懸空的「清水舞台」、求姻緣的「地主神社」(整修中但可參拜)，以及接了會長壽/學業進步的「音羽之瀧」。
+                京都最著名的古剎。除了知名的「清水舞台」外，一定要體驗這兩件事：
             </div>
+            
+            <div style="background:#FFF9E6; padding:15px; border-radius:8px; font-size:13px; margin-top:10px; color:#555;">
+                <b>1. 音羽瀑布 (音羽の滝)：</b><br>
+                位於本堂下方。三道水流分別代表「學業、戀愛、健康」。<br>
+                💡 <b>規則：</b>只能選一道喝，且只能喝一口 (喝多據說效果減半)。<br><br>
+                <b>2. 地主神社 (戀愛石)：</b><br>
+                位於本堂後方。地上有兩顆相距 10 公尺的石頭。<br>
+                💡 <b>挑戰：</b>若能閉著眼睛從一顆走到另一顆，戀愛願望就會實現！
+            </div>
+
             <a href="https://maps.app.goo.gl/h6rETefwLt6iqZQ86" class="btn-outline"><i class="fas fa-map-marker-alt"></i> Google 地標</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header"><div class="location-title"><i class="fas fa-utensils"></i> 午餐口袋名單</div></div>
+        <div class="card-body">
+            <div class="guide-text" style="margin-bottom:15px;">
+                參拜完約 11:30，建議在五條坂或松原通附近用餐，吃飽再開始下午的散步。
+            </div>
+
+            <div class="expand-item" onclick="toggleItem(this)">
+                <div class="expand-header"><div class="item-name"><span class="tag tag-special">炸牛排</span> 京都勝牛 本店</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
+                <div class="expand-content">
+                    <div class="guide-text">京都發源的名店。使用高溫快炸，外皮酥脆內部維持三分熟，口感極嫩。</div>
+                    <a href="https://maps.app.goo.gl/sample1" class="btn-outline">Google 導航</a>
+                </div>
+            </div>
+
+            <div class="expand-item" onclick="toggleItem(this)">
+                <div class="expand-header"><div class="item-name"><span class="tag tag-shop">特色</span> Yubasen (湯葉泉)</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
+                <div class="expand-content">
+                    <div class="guide-text">專賣「京湯葉 (豆皮)」料理。口感細緻清爽，是京都才有的健康美味。</div>
+                    <a href="https://maps.app.goo.gl/sample2" class="btn-outline">Google 導航</a>
+                </div>
+            </div>
+
+            <div class="expand-item" onclick="toggleItem(this)">
+                <div class="expand-header"><div class="item-name"><span class="tag tag-shop">拉麵</span> 一寸法師</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
+                <div class="expand-content">
+                    <div class="guide-text">評價極高的醬油拉麵。湯頭鮮甜，叉燒美味，適合想快速解決一餐的人。</div>
+                    <a href="https://maps.app.goo.gl/sample3" class="btn-outline">Google 導航</a>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -1079,6 +1122,15 @@
                 4. 從 <b>圓山公園</b> 側門進入八坂神社
             </div>
 
+            <div class="expand-item" onclick="toggleItem(this)" style="border-top:1px solid #F0F0F0; margin-top:10px;">
+                <div class="expand-header"><div class="item-name"><span class="tag tag-special">打卡</span> 八坂庚申堂</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
+                <div class="expand-content">
+                    <div class="guide-text">
+                        就在八坂之塔正下方。掛滿色彩繽紛的球型布偶（許願猴），是 IG 上超紅的拍照點。
+                    </div>
+                </div>
+            </div>
+
             <div class="guide-text" style="background:#F2F2F7; border:none; padding:12px; border-radius:8px; margin-top:10px;">
                 <b>👀 防迷路關鍵：</b><br>
                 如果您沿途看到一座高高的五重塔<b>「法觀寺 八坂之塔」</b>，代表方向正確！<br>
@@ -1091,8 +1143,7 @@
         <div class="card-header"><div class="location-title"><i class="fas fa-camera"></i> 12:00 八坂神社 & 祇園</div></div>
         <div class="card-body">
             <div class="guide-text">
-                京都市區香火最鼎盛的神社。祇園周邊有非常多午餐選擇，建議在此用餐稍作休息。<br>
-                推薦閱讀：<a href="https://www.gltjp.com/zh-hant/article/item/20409/" target="_blank" style="color:#27AE60; text-decoration:underline;">祇園豆知識</a>
+                京都市區香火最鼎盛的神社，也是「祇園祭」的舉辦地。境內的「美御前社」有美容水，據說沾了會變美。
             </div>
             <a href="https://maps.app.goo.gl/BTmNZXQonB2KRUcS7" class="btn-outline">Google 導航</a>
         </div>
