@@ -1220,66 +1220,59 @@
         </div>
         <div class="card-body">
             <div class="guide-text" style="color:#C0392B; font-weight:bold; margin-bottom:15px;">
-                ⚠️ 巴士準時發車，建議提早 15 分鐘 (07:45) 抵達。
+                ⚠️ 建議提早 15 分鐘 (07:45) 抵達集合地點。
             </div>
             
             <div class="guide-text" style="border-left: 3px solid #E63946;">
                 <b>交通方式：御堂筋線 <span style="color:#E63946">(紅色)</span> + 千日前線 <span style="color:#F06292">(粉色)</span></b><br>
-                1. 從「心齋橋站」搭御堂筋線到 <b>「難波站」</b>。<br>
-                2. 站內轉乘千日前線 (往南巽方向)，搭一站到 <b>「日本橋站」</b>。
+                1. 從「心齋橋站」搭御堂筋線至 <b>「難波站」</b>。<br>
+                2. 站內轉乘千日前線，搭一站至 <b>「日本橋站」</b>。
             </div>
 
-            <div class="guide-text" style="background:#FFF9E6; border:none; padding:12px; border-radius:8px; margin-top:10px;">
-                <b>📍 防迷路關鍵：</b><br>
-                雖然寫「近鐵」，但它與地鐵是共構的。下車後直接找黃色指標的 <b>「2 號出口」</b>。<br>
-                上到地面後，集合地點通常就在出口旁，請尋找舉著 Klook 牌子的工作人員。
+            <div onclick="toggleVisibility('lost-meet-d6')" style="background:#FFF9E6; border:1px solid #FFEBA8; color:#856404; padding:12px 15px; border-radius:8px; font-size:13px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; margin-top:10px; font-weight:600;">
+                <span><i class="fas fa-map-signs" style="color:#F39C12; width:20px;"></i> 關鍵：找不到近鐵怎麼辦？</span>
+                <i class="fas fa-chevron-down" id="icon-lost-meet-d6"></i>
+            </div>
+            <div id="lost-meet-d6" style="display:none; padding:15px; border:1px solid #FFEBA8; border-top:none; border-radius:0 0 8px 8px; font-size:13px; line-height:1.7; color:#333;">
+                <b>雖然集合點寫「近鐵」，但地鐵與近鐵是共構的。</b><br>
+                下地鐵後：<br>
+                1. 請直接看黃色指標找 <b>「2 號出口」</b>。<br>
+                2. 上到地面後，集合地點通常就在出口旁。<br>
+                3. 請尋找舉著 <b>Klook 牌子</b> 的工作人員。
             </div>
             
-            <a href="https://maps.google.com/?q=唐吉訶德道頓堀店3" class="btn-outline" style="background:#C0392B; color:white; border:none;">
+            <a href="https://maps.google.com/?q=唐吉訶德道頓堀店3" class="btn-outline" style="background:#C0392B; color:white; border:none; margin-top:15px;">
                 <i class="fas fa-map-marker-alt"></i> 導航至日本橋站 2 號出口
             </a>
-
-            <div class="expand-item" onclick="toggleItem(this)" style="margin-top:15px; border-top:1px dashed #DDD;">
-                <div class="expand-header"><div class="item-name"><span class="tag tag-shop">必備</span> 長途巴士生存包</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
-                <div class="expand-content">
-                    <div class="guide-text">
-                        單程車程約 2.5 - 3 小時，強烈建議準備：<br>
-                        💊 <b>暈車藥：</b>山路蜿蜒，容易暈車者必吃。<br>
-                        🧥 <b>保暖衣物：</b>海邊風大，且車上空調可能較冷。<br>
-                        🍫 <b>零食/水：</b>中途雖有休息站，但車上備著比較安心。
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 
     <div class="card">
         <div class="card-header"><div class="location-title"><i class="fas fa-ship"></i> 伊根舟屋 & 遊船</div></div>
         <div class="card-body">
-            <div class="event-desc">
-                被譽為「世界最美海灣」的小漁村。包含 30 分鐘遊船與 1.5 小時岸上自由活動。
+            <div class="guide-text" style="margin-bottom:15px;">
+                被譽為「世界最美海灣」與「日本威尼斯」。漫步在古樸的舟屋街道，彷彿穿越回江戶時代。
             </div>
 
             <div class="expand-item" onclick="toggleItem(this)">
-                <div class="expand-header"><div class="item-name"><span class="tag tag-special">體驗</span> 伊根灣遊覽船</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
+                <div class="expand-header"><div class="item-name"><span class="tag tag-special">重點 1</span> 伊根舟屋散策</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
                 <div class="expand-content">
                     <div class="guide-text">
-                        <b>亮點：</b>從海上觀看一整排舟屋（船庫）的獨特景色。<br>
-                        <b>互動：</b>船上有賣蝦味先。海鷗與老鷹會飛得非常近搶食，刺激好玩！(請小心手指)
+                        <b>活動時間：約 1.5 小時</b><br>
+                        站在觀景臺欣賞獨特的舟屋建築群。推薦探索：<br>
+                        - 伊根浦公園 (近距離觀賞)<br>
+                        - 船谷郡展望台<br>
+                        - Ine Cafe (海景咖啡)
                     </div>
                 </div>
             </div>
 
             <div class="expand-item" onclick="toggleItem(this)">
-                <div class="expand-header"><div class="item-name"><span class="tag tag-shop">散步</span> 自由時間去哪裡？</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
+                <div class="expand-header"><div class="item-name"><span class="tag" style="background:#2980B9; color:white;">重點 2</span> 伊根灣觀光船</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
                 <div class="expand-content">
                     <div class="guide-text">
-                        <b>1. Ine Cafe (伊根咖啡)：</b><br>
-                        超人氣打卡點！擁有大片落地窗，彷彿坐在海面上喝咖啡。<br>
-                        <b>2. 向井酒造：</b><br>
-                        伊根唯一的酒造，必買著名的<b>「伊根滿開」</b>(紅色清酒)，帶有酸甜果香。<br>
-                        <b>3. 舟屋日和：</b><br>
-                        海邊的複合設施，可以在這裡拍到很美的舟屋街道視角。
+                        <b>活動時間：約 30 分鐘</b><br>
+                        乘船從海上欣賞舟屋奇景。這裏的海鷗與老鷹非常親人，可以體驗餵食互動，盡享海上樂趣！
                     </div>
                 </div>
             </div>
@@ -1287,45 +1280,21 @@
     </div>
 
     <div class="card">
-        <div class="card-header"><div class="location-title"><i class="fas fa-mountain"></i> 天橋立 & View Land</div></div>
+        <div class="card-header"><div class="location-title"><i class="fas fa-mountain"></i> 日本三景：天橋立</div></div>
         <div class="card-body">
-            <div class="guide-text" style="color:#C0392B; font-weight:600; margin-bottom:15px;">
-                ⚠️ 停留時間約 2 小時，需在此自理午餐，時間非常寶貴！
-            </div>
-
-            <div class="guide-text" style="border-left: 3px solid #F1C40F;">
-                <b>👨‍🏫 導遊建議順序：</b><br>
-                1. <b>先上山：</b>搭纜車/吊椅上 View Land 看飛龍觀 (約 50 分鐘)。<br>
-                2. <b>吃午餐：</b>下山後在商店街用餐 (約 40 分鐘)。<br>
-                3. <b>逛寺廟/沙洲：</b>智恩寺參拜、看迴旋橋、走一小段沙洲 (約 30 分鐘)。
-            </div>
-
-            <div class="expand-item" onclick="toggleItem(this)" style="margin-top:10px;">
-                <div class="expand-header"><div class="item-name"><span class="tag tag-special">必看</span> 飛龍觀 (View Land)</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
-                <div class="expand-content">
-                    <div class="guide-text">
-                        <b>上山：</b>推薦搭<b>「單人吊椅」</b>(隨到隨坐，視野無遮蔽)。<br>
-                        <b>儀式：</b>抵達後請背對沙洲彎腰從跨下看，天橋立會變成一條飛龍。
-                    </div>
-                </div>
+            <div class="guide-text" style="margin-bottom:15px;">
+                <b>活動時間：約 2 小時</b><br>
+                乘坐特色纜車，將狹長沙洲的美景盡收眼底。
             </div>
 
             <div class="expand-item" onclick="toggleItem(this)">
-                <div class="expand-header"><div class="item-name"><span class="tag tag-shop">午餐</span> 推薦：蛤蜊丼</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
+                <div class="expand-header"><div class="item-name"><span class="tag tag-shop">必訪</span> 推薦景點清單</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
                 <div class="expand-content">
                     <div class="guide-text">
-                        天橋立名產是<b>「あさり丼 (蛤蜊蓋飯)」</b>。<br>
-                        車站對面的<b>「橋立大丸」</b>或智恩寺門前的食堂都有賣，鮮甜好吃！
-                    </div>
-                </div>
-            </div>
-
-            <div class="expand-item" onclick="toggleItem(this)">
-                <div class="expand-header"><div class="item-name"><span class="tag tag-shop">景點</span> 智恩寺 & 迴旋橋</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
-                <div class="expand-content">
-                    <div class="guide-text">
-                        <b>智恩寺：</b>供奉智慧之神。特色是掛在松樹上的<b>「扇子籤」</b>。<br>
-                        <b>迴旋橋：</b>連接沙洲的小橋。有船經過時會旋轉 90 度，運氣好才看得到！
+                        1. <b>Amanohashidate Viewland：</b>搭纜車上去看「飛龍在天」奇景。<br>
+                        2. <b>智恩寺：</b>參觀古老寺廟與獨特的「扇籤」。<br>
+                        3. <b>迴旋橋 (Kaisen Bridge)：</b>運氣好可以看到橋身旋轉讓船通過。<br>
+                        4. <b>沙洲散步：</b>在水質清澈的沙灘上悠然散步。
                     </div>
                 </div>
             </div>
@@ -1333,19 +1302,14 @@
     </div>
 
     <div class="card">
-        <div class="card-header"><div class="location-title"><i class="fas fa-undo"></i> 18:30 返回日本橋</div></div>
+        <div class="card-header"><div class="location-title"><i class="fas fa-undo-alt"></i> 18:30 返回難波</div></div>
         <div class="card-body">
             <div class="guide-text">
-                預計 18:30 - 19:00 抵達日本橋站解散 (視路況而定)。
-            </div>
-            <div class="guide-text" style="border-left: 3px solid #E67E22;">
-                <b>晚餐建議：</b><br>
-                下車點就在<b>「黑門市場」</b>與<b>「道頓堀」</b>附近。<br>
-                建議步行至道頓堀吃拉麵、章魚燒，或去唐吉訶德做最後補貨。
+                搭乘巴士返回，預計於 18:30 抵達 <b>近鐵日本橋站 2 號出口</b>。<br>
+                <span style="font-size:12px; color:#666;">(晚餐建議可直接在附近的道頓堀或黑門市場解決)</span>
             </div>
         </div>
     </div>
-
 </div>
 <div id="day7" class="day-section"><div class="hero"><div class="hero-title">Day 7 - 待續</div></div></div>
 
