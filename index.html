@@ -1219,13 +1219,19 @@
             <div class="location-title" style="color:#F39C12;"><i class="fas fa-suitcase-rolling"></i> 長途巴士生存指南</div>
         </div>
         <div class="card-body">
-            <div class="guide-text" style="color:#555;">
-                單程車程約 2.5 - 3 小時，為了讓旅遊品質更好，建議準備：
+            <div class="guide-text" style="color:#555; margin-bottom:10px;">
+                單程車程約 2.5 - 3 小時，建議準備好隨身物品。
             </div>
-            <div class="guide-text" style="background:#fff; border:1px solid #F39C12; border-left:4px solid #F39C12; border-radius:4px;">
-                <b>💊 暈車藥：</b> 尾段沿海路段彎道較多，建議早餐後服用。<br>
-                <b>🧥 頸枕/外套：</b> 車上空調通常較強，適合補眠。<br>
-                <b>🔋 行動電源：</b> 車上不一定有充電孔，手機有電很重要。
+            
+            <div onclick="toggleVisibility('bus-guide-d6')" style="background:#fff; border:1px solid #F39C12; color:#F39C12; padding:10px 15px; border-radius:8px; font-size:13px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-weight:600;">
+                <span><i class="fas fa-list-ul"></i> 展開建議準備清單</span>
+                <i class="fas fa-chevron-down" id="icon-bus-guide-d6"></i>
+            </div>
+            <div id="bus-guide-d6" style="display:none; padding:15px; border:1px solid #F39C12; border-top:none; border-radius:0 0 8px 8px; font-size:13px; line-height:1.7; color:#333;">
+                <b>1. 💊 暈車藥：</b> 尾段沿海路段彎道較多，建議早餐後服用。<br>
+                <b>2. 🧥 頸枕/外套：</b> 車上空調通常較強，適合補眠。<br>
+                <b>3. 🔋 行動電源：</b> 車上不一定有充電孔，手機有電很重要。<br>
+                <b>4. 🍫 零食/水：</b> 雖然有休息站，但隨身帶一點比較安心。
             </div>
         </div>
     </div>
@@ -1238,10 +1244,16 @@
             <div class="guide-text" style="margin-bottom:15px; font-weight:600; color:#C0392B;">
                 ⚠️ 巴士準時發車，建議提早 15 分鐘 (07:45) 抵達。
             </div>
-            
-            <div class="map-container" onclick="openLightbox('https://github.com/eabbycat2/osaka-trip-2026/blob/main/%E4%B8%80%E6%97%A5%E9%81%8A%E6%86%91%E8%A8%BC.jpg?raw=true')" style="margin-bottom:15px; border:1px solid #DDD;">
-                <img src="https://github.com/eabbycat2/osaka-trip-2026/blob/main/%E4%B8%80%E6%97%A5%E9%81%8A%E6%86%91%E8%A8%BC.jpg?raw=true" class="map-img" style="height:100px; object-fit:cover;">
-                <div class="map-hint"><i class="fas fa-file-alt"></i> 點擊查看一日遊行程憑證</div>
+
+            <div onclick="toggleVisibility('voucher-d6')" style="background:#fff; border:1px solid #C0392B; color:#C0392B; padding:10px 15px; border-radius:8px; font-size:13px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-weight:600; margin-bottom:15px;">
+                <span><i class="fas fa-ticket-alt"></i> 查看一日遊行程憑證</span>
+                <i class="fas fa-chevron-down" id="icon-voucher-d6"></i>
+            </div>
+            <div id="voucher-d6" style="display:none; margin-bottom:15px; border:1px solid #DDD; border-radius:8px; padding:5px;">
+                <div class="map-container" onclick="openLightbox('https://github.com/eabbycat2/osaka-trip-2026/blob/main/%E4%B8%80%E6%97%A5%E9%81%8A%E6%86%91%E8%A8%BC.jpg?raw=true')">
+                    <img src="https://github.com/eabbycat2/osaka-trip-2026/blob/main/%E4%B8%80%E6%97%A5%E9%81%8A%E6%86%91%E8%A8%BC.jpg?raw=true" class="map-img" style="height:150px; object-fit:contain;">
+                    <div class="map-hint"><i class="fas fa-search-plus"></i> 點擊放大憑證</div>
+                </div>
             </div>
 
             <div style="margin-bottom:15px; border-left:3px solid #C0392B; padding-left:10px;">
@@ -1284,7 +1296,7 @@
                         <div class="guide-text">
                              唯一能俯瞰整個伊根灣與舟屋群全貌的絕佳地點。
                         </div>
-                        <a href="https://share.google/G9Ub3zFdajmpJ67Ao" target="_blank" class="btn-outline">導航至 船谷郡展望台</a>
+                        <a href="https://maps.app.goo.gl/BxSchPrKJXLKQpV87" target="_blank" class="btn-outline">導航至 船谷郡展望台</a>
                     </div>
                 </div>
 
@@ -1311,16 +1323,20 @@
 
             <div style="border-left: 4px solid #27AE60; padding-left: 15px;">
                 <div class="event-title" style="color:#27AE60; margin-bottom:10px;">Step 2. 伊根灣遊船 (約 30mins)</div>
-                
-                <div class="guide-text" style="background:#E8F5E9; border:none; padding:12px; border-radius:8px;">
-                    <b>💡 網友經驗談：小心老鷹！</b><br>
-                    船上可以買蝦味先餵食海鷗，但<b>老鷹 (Kite)</b> 也會混在裡面搶食！<br>
-                    1. <b>手指小心：</b> 拿餅乾時手指盡量捏下面一點，老鷹爪子利。<br>
-                    2. <b>帽子戴好：</b> 海風很大，且鳥類會低飛掠過頭頂。<br>
-                    3. <b>怕鳥者：</b> 建議待在船艙內隔著玻璃看就好，非常安全。
+                <div class="guide-text" style="margin-bottom:10px; border:none; padding:0;">
+                    船上可以買蝦味先餵食海鷗，享受被鳥群包圍的樂趣。
+                </div>
+
+                <div onclick="toggleVisibility('eagle-tips-d6')" style="background:#E8F5E9; color:#2E7D32; padding:10px 15px; border-radius:8px; font-size:13px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-weight:600;">
+                    <span><i class="fas fa-exclamation-circle"></i> 💡 網友經驗談：遊船注意老鷹！</span>
+                    <i class="fas fa-chevron-down" id="icon-eagle-tips-d6"></i>
+                </div>
+                <div id="eagle-tips-d6" style="display:none; padding:15px; border:1px solid #E8F5E9; border-top:none; border-radius:0 0 8px 8px; font-size:13px; line-height:1.7; color:#333;">
+                    <b>1. 手指小心：</b> 拿餅乾時手指盡量捏下面一點，老鷹視力好、爪子利。<br>
+                    <b>2. 帽子戴好：</b> 海風很大，且鳥類會低飛掠過頭頂。<br>
+                    <b>3. 怕鳥者：</b> 建議待在船艙內隔著玻璃看就好，非常安全。
                 </div>
             </div>
-
         </div>
     </div>
 
@@ -1335,22 +1351,27 @@
             </div>
             
             <div style="border-left: 4px solid #E67E22; padding-left: 15px; margin-bottom: 25px;">
-                <div class="event-title" style="color:#E67E22; margin-bottom:10px;">Step 1. 登山看飛龍 (View Land)</div>
+                <div class="event-title" style="color:#E67E22; margin-bottom:10px;">Step 1. 先搭纜車上山 (View Land)</div>
                 
                 <div class="guide-text" style="margin-top:5px; border:none; padding:0; margin-bottom:10px;">
-                    這是看「飛龍在天」景色的最佳地點。記得要<b>「彎腰從跨下看」</b>喔！
+                    <b>攻略順序：</b>抵達後請先搭纜車或吊椅往「高處」走，到 View Land 看完風景後，再「下山」參觀寺廟與沙洲。這也是看「飛龍在天」景色的最佳地點，記得要<b>「彎腰從跨下看」</b>喔！
                 </div>
 
-                <div class="guide-text" style="background:#fff; border:1px dashed #E67E22; padding:12px; border-radius:8px;">
-                    <b>💡 網友推薦：選「單人吊椅」！</b><br>
-                    網友一致推薦<b>單人吊椅 (Chair Lift)</b>！雖然沒有安全帶，但隨時可以跳下來（離地很近），視野完全無遮蔽，非常刺激好玩！<br>
+                <div onclick="toggleVisibility('lift-tips-d6')" style="background:#fff; border:1px solid #E67E22; color:#E67E22; padding:10px 15px; border-radius:8px; font-size:13px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-weight:600;">
+                    <span><i class="fas fa-chair"></i> 💡 網友推薦：為什麼要選「單人吊椅」？</span>
+                    <i class="fas fa-chevron-down" id="icon-lift-tips-d6"></i>
+                </div>
+                <div id="lift-tips-d6" style="display:none; padding:15px; border:1px solid #E67E22; border-top:none; border-radius:0 0 8px 8px; font-size:13px; line-height:1.7; color:#333;">
+                    網友一致推薦<b>單人吊椅 (Chair Lift)</b>！<br>
+                    雖然沒有安全帶，但隨時可以跳下來（離地很近），視野完全無遮蔽，非常刺激好玩！<br>
                     <span style="font-size:12px; color:#666;">(懼高或有小孩者，請選單軌電車)</span>
                 </div>
-                <a href="https://www.google.com/maps/search/?api=1&query=Amanohashidate+View+Land" target="_blank" class="btn-outline" style="margin-top:10px;">導航至 纜車站</a>
+
+                <a href="https://www.google.com/maps/search/?api=1&query=Amanohashidate+View+Land" target="_blank" class="btn-outline" style="margin-top:15px;">導航至 纜車站</a>
             </div>
 
             <div style="border-left: 4px solid #8E44AD; padding-left: 15px;">
-                <div class="event-title" style="color:#8E44AD; margin-bottom:15px;">Step 2. 山下散步</div>
+                <div class="event-title" style="color:#8E44AD; margin-bottom:15px;">Step 2. 下山後再逛寺廟/沙洲</div>
 
                 <div class="expand-item" onclick="toggleItem(this)">
                     <div class="expand-header"><div class="item-name"><span class="tag tag-shop">參拜</span> 智恩寺</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
