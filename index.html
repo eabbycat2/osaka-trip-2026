@@ -1209,18 +1209,18 @@
 <div id="day6" class="day-section">
     <div class="hero">
         <div class="hero-date">Day 6 . Jan 23</div>
-        <div class="hero-title">海之京都探險</div>
-        <div class="hero-desc">遠離城市喧囂，前往「日本三景」天橋立與「海上浮村」伊根舟屋的一日大冒險。</div>
+        <div class="hero-title">海之京都</div>
+        <div class="hero-desc">搭乘巴士遠離塵囂，探索「日本威尼斯」伊根舟屋與「日本三景」天橋立。</div>
     </div>
     <div class="weather-scroller" id="wb-d6"><div class="wh-loading">載入氣象...</div></div>
 
     <div class="card" style="border: 2px solid #E74C3C;">
         <div class="card-header" style="background:#FFF5F5;">
-            <div class="location-title" style="color:#C0392B;"><i class="fas fa-bus"></i> 08:00 集合出發</div>
+            <div class="location-title" style="color:#C0392B;"><i class="fas fa-bus"></i> 08:00 集合 (日本橋站)</div>
         </div>
         <div class="card-body">
             <div class="guide-text" style="color:#C0392B; font-weight:bold; margin-bottom:15px;">
-                ⚠️ 巴士準時發車，強烈建議 07:45 抵達日本橋站 2 號出口。
+                ⚠️ 巴士準時發車，請務必於 07:45 抵達。
             </div>
             
             <div class="guide-text" style="border-left: 3px solid #E63946;">
@@ -1230,12 +1230,12 @@
             </div>
 
             <div onclick="toggleVisibility('lost-meet-d6')" style="background:#FFF9E6; border:1px solid #FFEBA8; color:#856404; padding:12px 15px; border-radius:8px; font-size:13px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; margin-top:10px; font-weight:600;">
-                <span><i class="fas fa-map-signs" style="color:#F39C12; width:20px;"></i> 關鍵：找不到集合點怎麼辦？</span>
+                <span><i class="fas fa-map-signs" style="color:#F39C12; width:20px;"></i> 關鍵：找不到集合點？</span>
                 <i class="fas fa-chevron-down" id="icon-lost-meet-d6"></i>
             </div>
             <div id="lost-meet-d6" style="display:none; padding:15px; border:1px solid #FFEBA8; border-top:none; border-radius:0 0 8px 8px; font-size:13px; line-height:1.7; color:#333;">
                 <b>雖然寫「近鐵」，但它跟地鐵共構。</b><br>
-                下車後：<br>
+                下地鐵後：<br>
                 1. 直接找黃色指標的 <b>「2 號出口」</b>。<br>
                 2. 上到地面後，Klook 工作人員會舉牌在出口旁等候。
             </div>
@@ -1247,32 +1247,50 @@
     </div>
 
     <div class="card">
-        <div class="card-header" style="background:#E8F5E9;">
-            <div class="location-title" style="color:#2E7D32;">
-                <i class="fas fa-camera"></i> 第一站：伊根舟屋散策
-            </div>
-        </div>
+        <div class="card-header"><div class="location-title"><i class="fas fa-ship"></i> 伊根舟屋 & 遊船</div></div>
         <div class="card-body">
-            <div class="guide-text" style="margin-bottom:15px;">
-                <b>預計停留：1.5 小時</b><br>
-                這裡是「日本威尼斯」，一樓是船庫、二樓是住家的獨特建築。
+            <div class="guide-text" style="margin-bottom:15px; color:#666;">
+                下車後會停留約 2 小時（含遊船）。建議依照以下順序遊玩：
             </div>
 
-            <div class="guide-text" style="border-left: 3px solid #2E7D32; background:#F1F8E9;">
-                <b><i class="fas fa-star" style="color:#FBC02D;"></i> 導遊私房攻略：</b><br>
-                下車後別只在原地！推薦去這幾個點：<br>
-                1. <b>Ine Cafe (伊根咖啡)：</b>超人氣打卡點，窗外就是海，拍照絕美。<br>
-                2. <b>向井酒造：</b>伊根唯一的酒造，必買紅色的清酒「伊根滿開」（喝起來像粉紅酒）。<br>
-                3. <b>舟屋日和：</b>這裡的角度拍舟屋群最完整。
+            <div style="border-left: 4px solid #2980B9; padding-left: 15px; margin-bottom: 25px;">
+                <div class="event-title" style="color:#2980B9; margin-bottom:5px;">Step 1. 伊根灣遊船</div>
+                <div class="guide-text" style="margin-top:5px; border:none; padding:0;">
+                    <b>體驗重點：</b>從海上看舟屋群。<br>
+                    船上有賣蝦味先，可以體驗被海鷗（和老鷹）包圍的刺激感。
+                </div>
             </div>
 
-            <div class="expand-item" onclick="toggleItem(this)">
-                <div class="expand-header"><div class="item-name"><span class="tag tag-shop">景點</span> 詳細清單</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
-                <div class="expand-content">
-                    <div class="guide-text">
-                        - 伊根浦公園 (近距離看舟屋)<br>
-                        - 船谷郡展望台 (高處俯瞰)<br>
-                        - 舟屋街道 (感受江戶時代氣息)
+            <div style="border-left: 4px solid #27AE60; padding-left: 15px; margin-bottom: 25px;">
+                <div class="event-title" style="color:#27AE60; margin-bottom:15px;">Step 2. 岸上散步建議路線</div>
+                
+                <div class="expand-item" onclick="toggleItem(this)">
+                    <div class="expand-header"><div class="item-name"><span class="tag tag-special">拍照</span> Ine Cafe (伊根咖啡)</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
+                    <div class="expand-content">
+                        <div class="guide-text">
+                            擁有大片落地窗的海景咖啡廳，拍照效果極佳。若人多需排隊，建議在門口拍外觀即可。
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Ine+Cafe" target="_blank" class="btn-outline">導航至 Ine Cafe</a>
+                    </div>
+                </div>
+
+                <div class="expand-item" onclick="toggleItem(this)">
+                    <div class="expand-header"><div class="item-name"><span class="tag tag-shop">伴手禮</span> 向井酒造</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
+                    <div class="expand-content">
+                        <div class="guide-text">
+                            伊根唯一的酒造。必買紅色清酒<b>「伊根滿開」</b>，帶有酸甜果香，非常特別。
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Mukai+Shuzo+Ine" target="_blank" class="btn-outline">導航至 向井酒造</a>
+                    </div>
+                </div>
+
+                <div class="expand-item" onclick="toggleItem(this)">
+                    <div class="expand-header"><div class="item-name"><span class="tag" style="background:#555; color:white;">攝影</span> 舟屋日和</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
+                    <div class="expand-content">
+                        <div class="guide-text">
+                            海邊的複合設施，這裡的岸邊角度可以拍到很美的舟屋街道延伸感。
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Funaya+Hiyori" target="_blank" class="btn-outline">導航至 舟屋日和</a>
                     </div>
                 </div>
             </div>
@@ -1280,55 +1298,54 @@
     </div>
 
     <div class="card">
-        <div class="card-header" style="background:#E3F2FD;">
-            <div class="location-title" style="color:#1565C0;">
-                <i class="fas fa-ship"></i> 第二站：伊根灣遊船
-            </div>
-        </div>
+        <div class="card-header"><div class="location-title"><i class="fas fa-mountain"></i> 日本三景：天橋立</div></div>
         <div class="card-body">
-            <div class="guide-text" style="margin-bottom:15px;">
-                <b>預計停留：30 分鐘</b><br>
-                換個角度，搭船從海上看舟屋群，這才是伊根最美的樣子。
+            <div class="guide-text" style="margin-bottom:15px; color:#666;">
+                停留時間約 2 小時。請先搭纜車看風景，再下來逛寺廟與沙洲。
             </div>
 
-            <div class="guide-text" style="border-left: 3px solid #1565C0; background:#EBF5FB;">
-                <b><i class="fas fa-crow" style="color:#5D6D7E;"></i> 互動體驗重點：</b><br>
-                船上通常有賣「卡樂比蝦味先」。<br>
-                買一包拿在手上，海鷗（有時還有老鷹）會飛得超級近來刁走，非常刺激！<br>
-                <span style="font-size:12px; color:#666;">(⚠️ 怕鳥的人請躲進船艙，或是戴好帽子)</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="card">
-        <div class="card-header" style="background:#FFF3E0;">
-            <div class="location-title" style="color:#E65100;">
-                <i class="fas fa-mountain"></i> 第三站：天橋立 & 纜車
-            </div>
-        </div>
-        <div class="card-body">
-            <div class="guide-text" style="margin-bottom:15px;">
-                <b>預計停留：2 小時 (含午餐自理)</b><br>
-                日本三景之一。一條種滿松樹的沙洲，像橋一樣橫跨海面。
+            <div style="border-left: 4px solid #E67E22; padding-left: 15px; margin-bottom: 25px;">
+                <div class="event-title" style="color:#E67E22; margin-bottom:10px;">Step 1. 飛龍觀 (纜車)</div>
+                <div class="guide-text" style="margin-top:5px; border:none; padding:0;">
+                    搭乘纜車或單人吊椅上山。到達 View Land 後，記得<b>「彎腰從跨下看」</b>，沙洲會變成飛龍的形狀。
+                </div>
+                <a href="https://www.google.com/maps/search/?api=1&query=Amanohashidate+View+Land" target="_blank" class="btn-outline" style="margin-top:10px;">導航至 纜車站</a>
             </div>
 
-            <div class="guide-text" style="border-left: 3px solid #E65100; background:#FEF5E7;">
-                <b><i class="fas fa-tram" style="color:#E65100;"></i> 必做三件事：</b><br>
-                1. <b>搭纜車/吊椅：</b> 推薦上山搭「單人吊椅 (Chair Lift)」，腳懸空看風景超爽；下山若怕高可搭單軌電車。<br>
-                2. <b>View Land 飛龍觀：</b> 到達山頂後，請務必「背對風景彎腰從跨下看」，沙洲會瞬間變成一隻飛向天空的龍！<br>
-                3. <b>智慧之輪：</b> 智恩寺旁有個石燈籠，傳說繞著它走三圈會變聰明。
-            </div>
+            <div style="border-left: 4px solid #8E44AD; padding-left: 15px;">
+                <div class="event-title" style="color:#8E44AD; margin-bottom:15px;">Step 2. 山下散步建議路線</div>
 
-            <div class="expand-item" onclick="toggleItem(this)">
-                <div class="expand-header"><div class="item-name"><span class="tag tag-shop">景點</span> 詳細清單</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
-                <div class="expand-content">
-                    <div class="guide-text">
-                        - 智恩寺 (求學業、扇子籤)<br>
-                        - 迴旋橋 (會旋轉的橋)<br>
-                        - 松林沙洲散步 (水質非常清澈)
+                <div class="expand-item" onclick="toggleItem(this)">
+                    <div class="expand-header"><div class="item-name"><span class="tag tag-shop">參拜</span> 智恩寺</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
+                    <div class="expand-content">
+                        <div class="guide-text">
+                            供奉智慧文殊菩薩。特色是<b>「扇子籤」</b>，抽完可以掛在松樹上，很可愛。
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Chionji+Temple+Amanohashidate" target="_blank" class="btn-outline">導航至 智恩寺</a>
+                    </div>
+                </div>
+
+                <div class="expand-item" onclick="toggleItem(this)">
+                    <div class="expand-header"><div class="item-name"><span class="tag tag-special">必看</span> 迴旋橋 (Kaisen Bridge)</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
+                    <div class="expand-content">
+                        <div class="guide-text">
+                            連接沙洲的小橋。如果有大船經過，橋身會旋轉 90 度，運氣好才看得到！
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Kaisen+Bridge+Amanohashidate" target="_blank" class="btn-outline">導航至 迴旋橋</a>
+                    </div>
+                </div>
+
+                 <div class="expand-item" onclick="toggleItem(this)">
+                    <div class="expand-header"><div class="item-name"><span class="tag" style="background:#27AE60; color:white;">散步</span> 天橋立沙洲</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
+                    <div class="expand-content">
+                        <div class="guide-text">
+                            白沙青松的步道，水質非常清澈。走過迴旋橋後就是沙洲入口。
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Amanohashidate+Sandbar" target="_blank" class="btn-outline">導航至 沙洲入口</a>
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 
@@ -1336,8 +1353,8 @@
         <div class="card-header"><div class="location-title"><i class="fas fa-undo-alt"></i> 18:30 返回難波</div></div>
         <div class="card-body">
             <div class="guide-text">
-                預計 18:30 左右抵達原集合點。<br>
-                經歷了一整天的海風吹拂，建議晚餐直接在附近的<b>道頓堀</b>吃個熱騰騰的拉麵或大阪燒暖暖胃。
+                預計 18:30 抵達日本橋站。<br>
+                建議晚餐可直接在附近的<b>道頓堀</b>或<b>黑門市場</b>享用。
             </div>
         </div>
     </div>
