@@ -1010,198 +1010,170 @@
     <div class="weather-scroller" id="wb-d5"><div class="wh-loading">載入氣象...</div></div>
 
     <div class="card">
-        <div class="card-header"><div class="location-title"><i class="fas fa-train"></i> 移動：前往清水寺</div></div>
+        <div class="card-header">
+            <div class="location-title"><i class="fas fa-train"></i> 移動：前往清水寺</div>
+        </div>
         <div class="card-body">
-            <div class="guide-text" style="border-left: 3px solid #E63946;">
-                <b>Step 1：御堂筋線 <span style="color:#E63946">(紅色)</span></b><br>
-                從心齋橋搭到 <b>「淀屋橋站」</b>。<br>
-                <span style="font-size:12px; color:#666;">(這段像捷運，每班車都會到)</span>
-            </div>
-            <div class="guide-text" style="border-left: 3px solid #27AE60;">
-                <b>Step 2：京阪電車 <span style="color:#27AE60">(綠色)</span></b><br>
-                跟著指標走到京阪車站，目標是 <b>「清水五條站」</b>。<br>
-                <span style="font-size:12px; color:#E67E22;">⚠️ 這裡要注意車種！請看下方密技</span>
-            </div>
-            
-            <div onclick="toggleVisibility('transit-kiyomizu')" style="background:#FFF9E6; border:1px solid #FFEBA8; color:#856404; padding:12px 15px; border-radius:8px; font-size:13px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; margin-top:10px; font-weight:600;">
-                <span><i class="fas fa-lightbulb" style="color:#F39C12; width:20px;"></i> 關鍵：京阪電車怎麼搭最快？</span>
-                <i class="fas fa-chevron-down" id="icon-transit-kiyomizu"></i>
-            </div>
-            <div id="transit-kiyomizu" style="display:none; padding:15px; border:1px solid #FFEBA8; border-top:none; border-radius:0 0 8px 8px; font-size:13px; line-height:1.7; color:#333;">
-                <b>因為「清水五條」是小站，快車不停！</b><br>
-                建議使用「快車轉慢車」戰術：<br><br>
-                1. 先搭 <b>特急 (紅色車頭)</b>，速度最快。<br>
-                2. 搭到 <b>「七條站」</b> (七条) 下車。<br>
-                3. <b>不要出站，不要換月台！</b> 直接在原地等下一班「準急」或「普通」列車。<br>
-                4. 再搭一站，就會停 <b>「清水五條站」</b> 了。<br>
-                (這樣比從頭到尾搭慢車省下約 15 分鐘)
+            <div class="guide-text" style="margin-bottom:15px;">
+                目標是京阪電車的<b>「清水五條站」</b>。由於是小站，交通上有個「快車轉慢車」的省時訣竅。
             </div>
 
-            <div onclick="toggleVisibility('walk-kiyomizu')" style="background:#F2F2F7; padding:12px 15px; border-radius:8px; font-size:13px; color:#333; cursor:pointer; display:flex; justify-content:space-between; align-items:center; margin-top:10px; font-weight:600;">
-                <span><i class="fas fa-walking" style="color:#27AE60; width:20px;"></i> 關鍵：出站後往哪走？</span>
-                <i class="fas fa-chevron-down" id="icon-walk-kiyomizu"></i>
+            <div onclick="toggleVisibility('traffic-kiyomizu')" style="background:#FFF9E6; border:1px solid #FFEBA8; color:#856404; padding:12px 15px; border-radius:8px; font-size:13px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-weight:600; margin-bottom:15px;">
+                <span><i class="fas fa-map-signs" style="color:#F39C12;"></i> 交通與防迷路關鍵</span>
+                <i class="fas fa-chevron-down" id="icon-traffic-kiyomizu"></i>
             </div>
-            <div id="walk-kiyomizu" style="display:none; padding:15px; border:1px solid #F2F2F7; border-top:none; border-radius:0 0 8px 8px; font-size:13px; line-height:1.7; color:#666;">
-                1. 請找 <b>「4 號出口」</b> 上樓。<br>
-                2. 出來會看到大馬路（五條通）與大河（鴨川）。<br>
-                3. <b>❌ 不要過橋！</b> (過橋是回大阪的方向)<br>
-                4. <b>⭕ 請背對河流，沿著大馬路直走</b>。這是一段長緩坡，走約 10 分鐘會看到一座高架橋岔路，走右邊那條熱鬧的坡道（五條坂）就直通清水寺了。
+            <div id="traffic-kiyomizu" style="display:none; padding:15px; border:1px solid #FFEBA8; border-top:none; border-radius:0 0 8px 8px; font-size:13px; line-height:1.7; color:#333;">
+                <b>1. 移動路徑：</b><br>
+                心齋橋 (御堂筋線) ➔ 淀屋橋站 (轉乘京阪電車) ➔ <b>清水五條站</b>。<br><br>
+                
+                <b>2. 省時密技 (快車轉慢車)：</b><br>
+                清水五條是小站，特急不停。建議：<br>
+                - 先搭<b>特急 (紅色)</b> 到「七條站」。<br>
+                - 原地轉乘下一班<b>準急/普通</b>，搭一站即達。<br><br>
+
+                <b>3. 出站指引：</b><br>
+                找<b>「4 號出口」</b>。出站後背對鴨川，沿著大馬路直走約 10 分鐘，看到右邊熱鬧的坡道（五條坂）就是入口。
             </div>
         </div>
     </div>
 
     <div class="card">
-        <div class="card-header"><div class="location-title"><i class="fas fa-map-marked-alt"></i> 09:30 京都黃金散策</div></div>
+        <div class="card-header">
+            <div class="location-title"><i class="fas fa-map-marked-alt"></i> 09:30 京都黃金散策</div>
+        </div>
         <div class="card-body">
             
-            <div class="map-container" onclick="openLightbox(this.querySelector('img').src)">
+            <div class="map-container" onclick="openLightbox(this.querySelector('img').src)" style="margin-bottom:20px;">
                 <img src="https://github.com/eabbycat2/osaka-trip-2026/blob/main/%E6%B8%85%E6%B0%B4%E5%AF%BA%E5%91%A8%E9%82%8A%E6%95%A3%E6%AD%A5%E8%B7%AF%E7%B7%9Al.png?raw=true" class="map-img">
                 <div class="map-hint"><i class="fas fa-search-plus"></i> 查看散步路線地圖</div>
             </div>
-            <a href="https://www.google.com/maps/d/viewer?mid=1U0NG6GSH0SF4rGCe3xxbTs4k1BC639xZ&ll=34.99855920000004%2C135.77923540000003&z=17" class="btn-outline" style="margin-bottom:25px; margin-top:-10px;">
-                <i class="fas fa-map"></i> 開啟完整 Google 路線圖
-            </a>
 
-            <div style="border-left: 5px solid #2E7D32; padding-left: 15px; margin-bottom: 25px;">
+            <div class="guide-text" style="border-left: 3px solid #2E7D32; margin-bottom:25px; padding-left:15px; border-radius:0;">
                 <div class="event-title" style="color:#2E7D32; margin-bottom:5px;">1. 清水寺 (起點)</div>
-                <div class="shop-meta" style="color:#666;"><i class="far fa-clock"></i> 06:00 - 18:00</div>
-                <div class="guide-text" style="margin-top:10px; border:none; padding:0; background:none;">
-                    京都最著名的古剎。除了知名的「清水舞台」外，一定要體驗：<br>
-                    💧 <b>音羽瀑布：</b>選一道水喝 (學業/戀愛/健康)。<br>
-                    ❤️ <b>地主神社：</b>閉眼挑戰戀愛占卜石。
+                <div style="font-size:13px; color:#666; margin-bottom:10px;">
+                    必訪「清水舞台」、音羽瀑布 (喝水祈福) 與地主神社 (戀愛石)。
                 </div>
-                <a href="https://maps.app.goo.gl/h6rETefwLt6iqZQ86" class="btn-outline" style="width:auto; display:inline-flex; padding:6px 15px; font-size:12px; margin-top:10px; border-color:#2E7D32; color:#2E7D32;">清水寺導航</a>
+                <a href="https://maps.app.goo.gl/h6rETefwLt6iqZQ86" target="_blank" class="btn-outline" style="font-size:12px; padding:5px 12px;">導航</a>
             </div>
 
-            <div style="border-left: 5px solid #E67E22; padding-left: 15px; margin-bottom: 25px;">
-                <div class="event-title" style="color:#E67E22; margin-bottom:15px;">2. 散步路徑導航</div>
-                
-                <div class="expand-item" onclick="toggleItem(this)">
-                    <div class="expand-header"><div class="item-name"><span class="tag" style="background:#D35400; color:white;">Step 1</span> 三年坂 (產寧坂)</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
-                    <div class="expand-content">
-                        <div class="guide-text">
-                            從清水寺仁王門直走下坡 (松原通)，看到著名的<b>「七味家本舖」</b>時，請<b>右轉</b>走下石階。<br>
-                            傳說在這裡跌倒會倒楣三年，請小心腳步！
-                        </div>
-                        <a href="https://maps.app.goo.gl/VnUCdzNEWky37Q1P9" class="btn-outline">導航</a>
-                    </div>
+            <div class="guide-text" style="border-left: 3px solid #E67E22; margin-bottom:25px; padding-left:15px; border-radius:0;">
+                <div class="event-title" style="color:#E67E22; margin-bottom:10px;">2. 散步路徑導航</div>
+                <div style="font-size:13px; color:#666; margin-bottom:10px;">
+                    順序：三年坂 ➔ 二年坂 ➔ 八坂通 ➔ 寧寧之道。
                 </div>
 
-                <div class="expand-item" onclick="toggleItem(this)">
-                    <div class="expand-header"><div class="item-name"><span class="tag" style="background:#E67E22; color:white;">Step 2</span> 二年坂 (二寧坂)</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
-                    <div class="expand-content">
-                        <div class="guide-text">
-                            走完三年坂後，會接上一段較平緩的石板路。<br>
-                            注意右手邊有一間<b>「榻榻米星巴克」</b>，外觀非常低調。
-                        </div>
-                        <a href="https://maps.app.goo.gl/hyeTrV9hSecXVtQA8" class="btn-outline">導航</a>
-                    </div>
+                <div onclick="toggleVisibility('route-details-d5')" style="background:#fff; border:1px solid #E67E22; color:#E67E22; padding:8px 12px; border-radius:6px; font-size:12px; cursor:pointer; display:inline-flex; align-items:center;">
+                    <span><i class="fas fa-route"></i> 展開各站導航與亮點</span>
                 </div>
-
-                <div class="expand-item" onclick="toggleItem(this)">
-                    <div class="expand-header"><div class="item-name"><span class="tag tag-special">必拍</span> 八坂通 (八坂塔)</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
-                    <div class="expand-content">
-                        <div class="guide-text">
-                            東山最經典視角！木造町家配上五重塔。<br>
-                            塔的正下方就是<b>「八坂庚申堂」</b>(彩色許願猴)，IG 必拍。
+                <div id="route-details-d5" style="display:none; margin-top:10px;">
+                    <div class="expand-item" onclick="toggleItem(this)">
+                        <div class="expand-header"><div class="item-name">Step 1. 三年坂 (七味家本舖右轉)</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
+                        <div class="expand-content">
+                            <div class="guide-text">傳說跌倒會倒楣三年，請小心腳步。</div>
+                            <a href="https://maps.app.goo.gl/VnUCdzNEWky37Q1P9" target="_blank" class="btn-outline">導航</a>
                         </div>
-                        <a href="https://maps.app.goo.gl/XCyw3uy6yp3CNwpT6" class="btn-outline">經典拍攝點導航</a>
                     </div>
-                </div>
-
-                <div class="expand-item" onclick="toggleItem(this)">
-                    <div class="expand-header"><div class="item-name"><span class="tag" style="background:#F1C40F; color:white;">Step 3</span> 寧寧之道 & 高台寺</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
-                    <div class="expand-content">
-                        <div class="guide-text">
-                            路幅較寬的優雅石板路。會經過「石塀小路」入口與「高台寺」。走到底會進入圓山公園。
+                    <div class="expand-item" onclick="toggleItem(this)">
+                        <div class="expand-header"><div class="item-name">Step 2. 二年坂 (榻榻米星巴克)</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
+                        <div class="expand-content">
+                            <div class="guide-text">右邊有一間外觀低調的星巴克，內有榻榻米座位。</div>
+                            <a href="https://maps.app.goo.gl/hyeTrV9hSecXVtQA8" target="_blank" class="btn-outline">導航</a>
                         </div>
-                        <a href="https://maps.app.goo.gl/J2Ag6to1oVVLScDd8" class="btn-outline">導航</a>
+                    </div>
+                    <div class="expand-item" onclick="toggleItem(this)">
+                        <div class="expand-header"><div class="item-name">Step 3. 八坂通 (拍五重塔)</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
+                        <div class="expand-content">
+                            <div class="guide-text">經典拍攝點，背景是八坂塔。</div>
+                            <a href="https://maps.app.goo.gl/XCyw3uy6yp3CNwpT6" target="_blank" class="btn-outline">導航</a>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div style="border-left: 5px solid #C0392B; padding-left: 15px;">
+            <div class="guide-text" style="border-left: 3px solid #C0392B; padding-left:15px; border-radius:0;">
                 <div class="event-title" style="color:#C0392B; margin-bottom:5px;">3. 八坂神社 (終點)</div>
-                <div class="guide-text" style="margin-top:10px; border:none; padding:0; background:none;">
-                    穿過圓山公園就會抵達八坂神社後方。京都市區香火最鼎盛的神社，正門（西樓門）面對著熱鬧的祇園商店街。
+                <div style="font-size:13px; color:#666; margin-bottom:10px;">
+                    穿過圓山公園即達。正門面對熱鬧的祇園商店街。
                 </div>
-                <a href="https://maps.app.goo.gl/BTmNZXQonB2KRUcS7" class="btn-outline" style="width:auto; display:inline-flex; padding:6px 15px; font-size:12px; margin-top:10px; border-color:#C0392B; color:#C0392B;">八坂神社導航</a>
+                <a href="https://maps.app.goo.gl/BTmNZXQonB2KRUcS7" target="_blank" class="btn-outline" style="font-size:12px; padding:5px 12px;">導航</a>
             </div>
 
         </div>
     </div>
 
     <div class="card">
-        <div class="card-header"><div class="location-title"><i class="fas fa-utensils"></i> 午餐口袋名單</div></div>
+        <div class="card-header">
+            <div class="location-title"><i class="fas fa-utensils"></i> 午餐口袋名單</div>
+        </div>
         <div class="card-body">
-            <div class="guide-text" style="margin-bottom:15px; color:#666;">
-                💡 <b>小提醒：</b>以下餐廳多位於「清水寺/五條坂」周邊。若您已走到八坂神社，建議直接在祇園商店街覓食會更順路。
+            <div class="guide-text" style="margin-bottom:15px;">
+                建議在清水寺周邊或走到祇園享用午餐。
             </div>
-            <div class="expand-item" onclick="toggleItem(this)">
-                <div class="expand-header"><div class="item-name"><span class="tag tag-special">炸牛排</span> 京都勝牛 本店</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
-                <div class="expand-content">
-                    <div class="guide-text">京都發源的名店。使用高溫快炸，外皮酥脆內部維持三分熟，口感極嫩。</div>
-                    <a href="https://maps.app.goo.gl/sample1" class="btn-outline">Google 導航</a>
-                </div>
+            <div onclick="toggleVisibility('lunch-list-d5')" style="background:#F2F2F7; padding:12px 15px; border-radius:8px; font-size:13px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; color:#333; font-weight:600;">
+                <span><i class="fas fa-list-ul" style="color:#666;"></i> 推薦餐廳清單</span>
+                <i class="fas fa-chevron-down" id="icon-lunch-list-d5"></i>
             </div>
-            <div class="expand-item" onclick="toggleItem(this)">
-                <div class="expand-header"><div class="item-name"><span class="tag tag-shop">特色</span> Yubasen (湯葉泉)</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
-                <div class="expand-content">
-                    <div class="guide-text">專賣「京湯葉 (豆皮)」料理。口感細緻清爽，是京都才有的健康美味。</div>
-                    <a href="https://maps.app.goo.gl/sample2" class="btn-outline">Google 導航</a>
-                </div>
-            </div>
-            <div class="expand-item" onclick="toggleItem(this)">
-                <div class="expand-header"><div class="item-name"><span class="tag tag-shop">拉麵</span> 一寸法師</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
-                <div class="expand-content">
-                    <div class="guide-text">評價極高的醬油拉麵。湯頭鮮甜，叉燒美味，適合想快速解決一餐的人。</div>
-                    <a href="https://maps.app.goo.gl/sample3" class="btn-outline">Google 導航</a>
-                </div>
+            <div id="lunch-list-d5" style="display:none; padding:15px; border:1px solid #F2F2F7; border-top:none; border-radius:0 0 8px 8px; font-size:13px; line-height:1.7; color:#666;">
+                <b>1. 京都勝牛 (炸牛排)：</b> 外酥內嫩，必吃名店。<br>
+                <b>2. Yubasen (湯葉泉)：</b> 精緻的豆皮料理，清爽健康。<br>
+                <b>3. 一寸法師 (拉麵)：</b> 評價極高的醬油拉麵。
             </div>
         </div>
     </div>
 
     <div class="card">
-        <div class="card-header"><div class="location-title"><i class="fas fa-subway"></i> 移動：前往下鴨神社</div></div>
+        <div class="card-header">
+            <div class="location-title"><i class="fas fa-subway"></i> 移動：前往下鴨神社</div>
+        </div>
         <div class="card-body">
-            <div class="guide-text" style="border-left: 3px solid #27AE60;">
-                <b>交通：京阪電車 <span style="color:#27AE60">(綠色)</span></b><br>
-                從八坂神社正門出來，直走抵達「祇園四條站」。<br>
-                搭乘往「出町柳」方向，到終點 <b>「出町柳站」</b>。
+            
+            <div class="guide-text" style="margin-bottom:15px;">
+                從祇園四條搭乘京阪電車，前往鴨川上游的森林。
             </div>
-            <div onclick="toggleVisibility('lost-shimogamo')" style="background:#F2F2F7; padding:12px 15px; border-radius:8px; font-size:13px; color:#333; cursor:pointer; display:flex; justify-content:space-between; align-items:center; margin-top:10px; font-weight:600;">
-                <span><i class="fas fa-map-signs" style="color:var(--primary); width:20px;"></i> 關鍵指引：跳烏龜與森林</span>
-                <i class="fas fa-chevron-down" id="icon-lost-shimogamo"></i>
+
+            <div onclick="toggleVisibility('traffic-shimogamo')" style="background:#FFF9E6; border:1px solid #FFEBA8; color:#856404; padding:12px 15px; border-radius:8px; font-size:13px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-weight:600; margin-bottom:15px;">
+                <span><i class="fas fa-map-signs" style="color:#F39C12;"></i> 交通與防迷路關鍵</span>
+                <i class="fas fa-chevron-down" id="icon-traffic-shimogamo"></i>
             </div>
-            <div id="lost-shimogamo" style="display:none; padding:15px; border:1px solid #F2F2F7; border-top:none; border-radius:0 0 8px 8px; font-size:13px; color:#666; line-height:1.7;">
-                <b>1. 出口：</b>請找 <b>「5 號出口」</b>。<br>
-                <b>2. 視覺導航：</b>出站左轉會看到鴨川著名的<b>「跳烏龜」</b>(石頭階梯)。過橋後進入那片茂密的森林<b>「糾之森」</b>，沿著參道直走 10 分鐘即達。
+            <div id="traffic-shimogamo" style="display:none; padding:15px; border:1px solid #FFEBA8; border-top:none; border-radius:0 0 8px 8px; font-size:13px; line-height:1.7; color:#333;">
+                <b>1. 移動路徑：</b><br>
+                祇園四條站 ➔ <b>出町柳站</b> (終點站)。<br><br>
+                
+                <b>2. 步行指引：</b><br>
+                找<b>「5 號出口」</b>。出站左轉會看到鴨川著名的「跳烏龜」石階，過橋後進入「糾之森」即抵達神社。
             </div>
         </div>
     </div>
 
     <div class="card">
-        <div class="card-header"><div class="location-title"><i class="fas fa-leaf"></i> 14:00 下鴨神社</div></div>
+        <div class="card-header">
+            <div class="location-title"><i class="fas fa-leaf"></i> 14:00 下鴨神社</div>
+        </div>
         <div class="card-body">
-            <div class="guide-text">
-                <b>河合神社：</b>位於參道入口，供奉日本第一美麗神，必畫「鏡繪馬」祈求變美。<br>
-                <b>下鴨神社：</b>京都最古老神社之一，這裡的「蕾絲御守」和「媛守」非常有名，建議一到就先去買。
+            <div class="guide-text" style="color:#555; font-style:italic; margin-bottom:15px; border:none; padding:0;">
+                <i class="fas fa-quote-left" style="color:#ccc; margin-right:8px;"></i>
+                京都最古老的神社之一。入口處的「河合神社」供奉美麗之神，必畫鏡繪馬；本殿的「蕾絲御守」更是夢幻逸品。
             </div>
-            <a href="https://maps.app.goo.gl/xdAwqSevkNFJoDu59" class="btn-outline">Google 導航</a>
+            <a href="https://maps.app.goo.gl/xdAwqSevkNFJoDu59" target="_blank" class="btn-outline">
+                <i class="fas fa-map-marker-alt"></i> 導航至 下鴨神社
+            </a>
         </div>
     </div>
 
     <div class="card">
-        <div class="card-header"><div class="location-title"><i class="fas fa-bed"></i> 18:30 返回大阪難波</div></div>
+        <div class="card-header">
+            <div class="location-title"><i class="fas fa-bed"></i> 18:30 返回大阪難波</div>
+        </div>
         <div class="card-body">
-            <div class="guide-text" style="border-left: 3px solid #27AE60;">
-                <b>Step 1：京阪電車 (起點站優勢)</b><br>
-                回到「出町柳站」。這是起點站，<b>一定有位置坐</b>！<br>
-                這對走了一整天的您非常重要，可以搭特急一路睡回終點「淀屋橋站」。
+            <div onclick="toggleVisibility('traffic-return-d5')" style="background:#FFF9E6; border:1px solid #FFEBA8; color:#856404; padding:12px 15px; border-radius:8px; font-size:13px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-weight:600;">
+                <span><i class="fas fa-map-signs" style="color:#F39C12;"></i> 交通與防迷路關鍵</span>
+                <i class="fas fa-chevron-down" id="icon-traffic-return-d5"></i>
             </div>
-            <div class="guide-text" style="border-left: 3px solid #E63946;">
-                <b>Step 2：御堂筋線</b><br>
-                在淀屋橋轉乘地鐵回「心齋橋站」。
+            <div id="traffic-return-d5" style="display:none; padding:15px; border:1px solid #FFEBA8; border-top:none; border-radius:0 0 8px 8px; font-size:13px; line-height:1.7; color:#333;">
+                <b>1. 起點優勢：</b><br>
+                出町柳是京阪電車的起點，<b>一定有位置坐</b>。建議搭乘特急一路睡回「淀屋橋站」。<br><br>
+                <b>2. 轉乘回飯店：</b><br>
+                在淀屋橋站轉乘御堂筋線回心齋橋/難波。
             </div>
         </div>
     </div>
