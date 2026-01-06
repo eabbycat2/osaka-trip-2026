@@ -1214,31 +1214,45 @@
     </div>
     <div class="weather-scroller" id="wb-d6"><div class="wh-loading">載入氣象...</div></div>
 
-    <div class="card" style="border: 2px solid #E74C3C;">
-        <div class="card-header" style="background:#FFF5F5;">
-            <div class="location-title" style="color:#C0392B;"><i class="fas fa-tasks"></i> 出發前必讀 & 集合</div>
+    <div class="card">
+        <div class="card-header" style="background:#FFF9E6;">
+            <div class="location-title" style="color:#F39C12;"><i class="fas fa-suitcase-rolling"></i> 長途巴士生存指南</div>
         </div>
         <div class="card-body">
-            <div class="guide-text" style="background:#FFF9E6; border-left: 3px solid #F39C12; color:#333; margin-bottom:15px;">
-                <b>🎒 長途巴士生存指南 (單程約 2.5 小時)：</b><br>
-                1. <b>暈車藥：</b> 山路蜿蜒，容易暈車者請在「早餐後」服用。<br>
-                2. <b>頸枕/外套：</b> 車程長適合補眠，車上空調通常較冷。<br>
-                3. <b>零食/水：</b> 雖然中途會停休息站，但建議隨身帶一點。<br>
-                4. <b>行動電源：</b> 車上不一定有插座，手機充飽電很重要。
+            <div class="guide-text" style="color:#555;">
+                單程車程約 2.5 - 3 小時，為了讓旅遊品質更好，建議準備：
             </div>
+            <div class="guide-text" style="background:#fff; border:1px solid #F39C12; border-left:4px solid #F39C12; border-radius:4px;">
+                <b>💊 暈車藥：</b> 雖然大部分走高速公路，但尾段沿海路段彎道較多，建議早餐後服用。<br>
+                <b>🧥 頸枕/外套：</b> 車上空調通常較強，適合補眠。<br>
+                <b>🔋 行動電源：</b> 車上不一定有充電孔，手機有電很重要。
+            </div>
+        </div>
+    </div>
 
-            <div class="guide-text" style="color:#C0392B; border-top:1px dashed #E74C3C; padding-top:10px;">
-                <b>📍 08:00 集合 (日本橋站 2 號出口)</b><br>
-                <span style="font-size:13px; color:#666;">建議提早 15 分鐘 (07:45) 抵達。</span>
+    <div class="card">
+        <div class="card-header" style="background:#Fdedec;">
+            <div class="location-title" style="color:#C0392B;"><i class="fas fa-clock"></i> 08:00 集合出發</div>
+        </div>
+        <div class="card-body">
+            <div class="guide-text" style="margin-bottom:15px; font-weight:600; color:#C0392B;">
+                ⚠️ 巴士準時發車，建議提早 15 分鐘 (07:45) 抵達。
             </div>
             
-            <div onclick="toggleVisibility('lost-meet-d6')" style="background:#F2F2F7; padding:12px 15px; border-radius:8px; font-size:13px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; margin-top:10px; font-weight:600;">
-                <span><i class="fas fa-map-signs" style="color:#555; width:20px;"></i> 關鍵：找不到集合點？</span>
+            <div style="margin-bottom:15px; border-left:3px solid #C0392B; padding-left:10px;">
+                <b>集合地點：日本橋站 2 號出口</b><br>
+                <span style="font-size:13px; color:#666;">認明舉著 Klook 牌子的工作人員。</span>
+            </div>
+
+            <div onclick="toggleVisibility('lost-meet-d6')" style="background:#F2F2F7; padding:12px 15px; border-radius:8px; font-size:13px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-weight:600;">
+                <span><i class="fas fa-subway" style="color:#555; width:20px;"></i> 交通與防迷路關鍵</span>
                 <i class="fas fa-chevron-down" id="icon-lost-meet-d6"></i>
             </div>
             <div id="lost-meet-d6" style="display:none; padding:15px; border:1px solid #F2F2F7; border-top:none; border-radius:0 0 8px 8px; font-size:13px; line-height:1.7; color:#333;">
-                1. 雖然寫「近鐵」，但它跟地鐵共構，請直接找地鐵的<b>「2 號出口」</b>。<br>
-                2. 上到地面後，尋找舉著 <b>Klook 牌子</b> 的工作人員。
+                <b>交通方式：</b><br>
+                從心齋橋搭御堂筋線 <span style="color:#E63946">(紅色)</span> 到難波，轉乘千日前線 <span style="color:#F06292">(粉色)</span> 到日本橋站。<br><br>
+                <b>關鍵指引：</b><br>
+                雖然行程單寫「近鐵」，但它跟地鐵共構。下車後直接找地鐵的<b>「2 號出口」</b>上地面即可。
             </div>
         </div>
     </div>
@@ -1247,14 +1261,29 @@
         <div class="card-header"><div class="location-title"><i class="fas fa-ship"></i> 伊根舟屋 (停留約 2 小時)</div></div>
         <div class="card-body">
             
+            <div class="guide-text" style="background:#EBF5FB; color:#2c3e50; font-style:italic; margin-bottom:20px; border:none;">
+                <i class="fas fa-info-circle" style="color:#2980B9;"></i> <b>導遊說故事：</b><br>
+                這裡被譽為「日本威尼斯」。最獨特的是沿著海灣興建的 230 多間「舟屋」，一樓是船庫、二樓是住家。這種讓家家戶戶漂浮在海上的奇景，是江戶時代留下來的珍貴遺產。
+            </div>
+
             <div style="border-left: 4px solid #2980B9; padding-left: 15px; margin-bottom: 25px;">
                 <div class="event-title" style="color:#2980B9; margin-bottom:5px;">Step 1. 岸上自由探索 (約 1.5hr)</div>
-                <div class="guide-text" style="margin-top:5px; border:none; padding:0;">
-                    下車後建議先去拍照、買伴手禮。
+                <div class="guide-text" style="margin-top:5px; border:none; padding:0; margin-bottom:10px;">
+                    建議利用這段時間前往高處眺望全景，或在海邊咖啡廳拍照。
                 </div>
                 
                 <div class="expand-item" onclick="toggleItem(this)">
-                    <div class="expand-header"><div class="item-name"><span class="tag tag-special">拍照</span> Ine Cafe (伊根咖啡)</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
+                    <div class="expand-header"><div class="item-name"><span class="tag tag-special">制高點</span> 舟屋之里公園/展望台</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
+                    <div class="expand-content">
+                        <div class="guide-text">
+                            位於山丘上的休息站，擁有<b>「船谷郡展望台」</b>。這裡是唯一能俯瞰整個伊根灣與舟屋群全貌的絕佳地點。
+                        </div>
+                        <a href="https://maps.app.goo.gl/hyeTrV9hSecXVtQA84" target="_blank" class="btn-outline">導航至 舟屋之里公園</a>
+                    </div>
+                </div>
+
+                <div class="expand-item" onclick="toggleItem(this)">
+                    <div class="expand-header"><div class="item-name"><span class="tag tag-shop">拍照</span> Ine Cafe (伊根咖啡)</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
                     <div class="expand-content">
                         <div class="guide-text">
                             擁有大片落地窗的海景咖啡廳。若人多需排隊，建議在門口拍外觀，或者改去旁邊的「舟屋日和」拍照。
@@ -1280,7 +1309,7 @@
                 <div class="guide-text" style="background:#E8F5E9; border:none; padding:12px; border-radius:8px;">
                     <b>💡 網友經驗談：小心老鷹！</b><br>
                     船上可以買蝦味先餵食海鷗，但<b>老鷹 (Kite)</b> 也會混在裡面搶食！<br>
-                    1. <b>手指小心：</b> 拿餅乾時手指盡量捏下面一點，老鷹視力好、爪子利。<br>
+                    1. <b>手指小心：</b> 拿餅乾時手指盡量捏下面一點，老鷹爪子利。<br>
                     2. <b>帽子戴好：</b> 海風很大，且鳥類會低飛掠過頭頂。<br>
                     3. <b>怕鳥者：</b> 建議待在船艙內隔著玻璃看就好，非常安全。
                 </div>
@@ -1292,18 +1321,22 @@
     <div class="card">
         <div class="card-header"><div class="location-title"><i class="fas fa-mountain"></i> 天橋立 (停留約 2 小時)</div></div>
         <div class="card-body">
+
+            <div class="guide-text" style="background:#FEF5E7; color:#5D4037; font-style:italic; margin-bottom:20px; border:none;">
+                <i class="fas fa-info-circle" style="color:#E67E22;"></i> <b>導遊說故事：</b><br>
+                與宮島、松島並列「日本三景」。傳說這條 3.6 公里的沙洲是神明往來天地的梯子倒塌後形成的。當您背對景色、彎腰從跨下觀看時，沙洲會瞬間變成一條飛向天空的青龍。
+            </div>
             
             <div style="border-left: 4px solid #E67E22; padding-left: 15px; margin-bottom: 25px;">
                 <div class="event-title" style="color:#E67E22; margin-bottom:10px;">Step 1. 登山看飛龍 (View Land)</div>
                 
                 <div class="guide-text" style="margin-top:5px; border:none; padding:0; margin-bottom:10px;">
-                    這是看「飛龍在天」景色的最佳地點。記得要<b>「彎腰從跨下看 (Matanozoki)」</b>喔！
+                    這是看「飛龍在天」景色的最佳地點。記得要<b>「彎腰從跨下看」</b>喔！
                 </div>
 
-                <div class="guide-text" style="background:#FEF5E7; border:none; padding:12px; border-radius:8px;">
+                <div class="guide-text" style="background:#fff; border:1px dashed #E67E22; padding:12px; border-radius:8px;">
                     <b>💡 網友推薦：選「單人吊椅」！</b><br>
-                    上山有兩種選擇：單軌電車 (Monorail) 或 單人吊椅 (Chair Lift)。<br>
-                    網友一致推薦<b>單人吊椅</b>！雖然沒有安全帶（只有扶手），但隨時可以跳下來（離地很近），視野完全無遮蔽，非常刺激好玩！<br>
+                    網友一致推薦<b>單人吊椅 (Chair Lift)</b>！雖然沒有安全帶，但隨時可以跳下來（離地很近），視野完全無遮蔽，非常刺激好玩！<br>
                     <span style="font-size:12px; color:#666;">(懼高或有小孩者，請選單軌電車)</span>
                 </div>
                 <a href="https://www.google.com/maps/search/?api=1&query=Amanohashidate+View+Land" target="_blank" class="btn-outline" style="margin-top:10px;">導航至 纜車站</a>
