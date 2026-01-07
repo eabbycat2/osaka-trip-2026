@@ -2251,7 +2251,131 @@
     </div>
 </div>
 
-<div id="tickets" class="day-section"><div class="hero"><div class="hero-title">電子票夾</div></div></div>
+<div id="tickets" class="day-section">
+    <div class="hero" style="background: linear-gradient(135deg, #1D976C, #93F9B9);">
+        <div class="hero-date">Coupons & Tickets</div>
+        <div class="hero-title">電子票夾</div>
+        <div class="hero-desc">結帳前請出示此頁面，包含優惠券與已預訂的入場憑證。</div>
+    </div>
+
+    <div class="card">
+        <div class="card-header"><div class="location-title"><i class="fas fa-plug"></i> 電器與3C 優惠券</div></div>
+        <div class="card-body">
+            <div class="guide-text" style="margin-bottom:15px; color:#666;">
+                結帳時出示條碼，可享 <b>10% 免稅 + 7% 折扣</b>。
+                <br><span style="font-size:12px; color:#E67E22;">*部分蘋果產品、遊戲機可能不適用折扣。</span>
+            </div>
+
+            <div style="display:flex; gap:15px; overflow-x:auto; padding-bottom:10px;">
+                <div style="min-width:200px; border:1px solid #eee; border-radius:12px; overflow:hidden;">
+                    <div style="background:#B71C1C; color:white; padding:8px 10px; font-weight:bold; font-size:14px;">Bic Camera</div>
+                    <div style="padding:15px; text-align:center;">
+                        <div style="font-size:24px; font-weight:800; color:#B71C1C;">17% OFF</div>
+                        <div style="font-size:12px; color:#555; margin-bottom:10px;">免稅 10% + 折扣 7%</div>
+                        <button class="btn-attachment" style="width:100%; justify-content:center;" onclick="openLightbox('https://www.biccamera.com.t.lj.hp.transer.com/img/inbound/coupon-cn_2020.jpg')">
+                            <i class="fas fa-qrcode"></i> 出示條碼
+                        </button>
+                    </div>
+                </div>
+
+                <div style="min-width:200px; border:1px solid #eee; border-radius:12px; overflow:hidden;">
+                    <div style="background:#1565C0; color:white; padding:8px 10px; font-weight:bold; font-size:14px;">EDION 愛電王</div>
+                    <div style="padding:15px; text-align:center;">
+                        <div style="font-size:24px; font-weight:800; color:#1565C0;">17% OFF</div>
+                        <div style="font-size:12px; color:#555; margin-bottom:10px;">免稅 10% + 折扣 7%</div>
+                        <button class="btn-attachment" style="width:100%; justify-content:center;" onclick="openLightbox('https://img.edion.com/mobile/images/app/coupon/cp_taxfree.png')">
+                            <i class="fas fa-qrcode"></i> 出示條碼
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header"><div class="location-title"><i class="fas fa-shopping-basket"></i> 藥妝雜貨優惠</div></div>
+        <div class="card-body">
+            
+            <div class="expand-item" onclick="toggleItem(this)">
+                <div class="expand-header"><div class="item-name"><span class="tag tag-special" style="background:#FFD700; color:#333; border:none;">必備</span> 唐吉訶德 (Donki)</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
+                <div class="expand-content">
+                    <div class="guide-text" style="border-left:3px solid #FFD700;">
+                        <b>⚠️ 重要：截圖無效！</b><br>
+                        唐吉訶德規定必須點擊下方按鈕，連結到官網產生「動態條碼」給店員掃描。<br>
+                        (滿 10,000 円折 5% / 滿 30,000 円折 7%)
+                    </div>
+                    <a href="https://www.djapanpass.com/coupon/0002000103" target="_blank" class="btn-outline" style="background:#333; color:#FFF; border:none;">
+                        <i class="fas fa-external-link-alt"></i> 開啟動態優惠券
+                    </a>
+                </div>
+            </div>
+
+            <div class="expand-item" onclick="toggleItem(this)">
+                <div class="expand-header"><div class="item-name"><span class="tag tag-shop">藥妝</span> 松本清</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
+                <div class="expand-content">
+                    <div class="guide-text">
+                        滿 10,000 円享 3% 折扣；滿 30,000 円享 5% 折扣。
+                    </div>
+                    <button class="btn-attachment" style="width:100%;" onclick="openLightbox('https://www.matsukiyococokara-online.com/images/cp/inbound/common/img_main.png')">
+                        <i class="fas fa-image"></i> 出示優惠條碼
+                    </button>
+                </div>
+            </div>
+
+            <div class="expand-item" onclick="toggleItem(this)">
+                <div class="expand-header"><div class="item-name"><span class="tag tag-shop">藥妝</span> SUGI 藥局</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
+                <div class="expand-content">
+                    <div class="guide-text">
+                        滿 30,000 円享 5% 折扣；滿 50,000 円享 8% 折扣。
+                    </div>
+                    <button class="btn-attachment" style="width:100%;" onclick="openLightbox('https://www.sugi-net.jp/content/dam/sugi-holdings/sugi-net/en/coupon_202306.png')">
+                        <i class="fas fa-image"></i> 出示優惠條碼
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header"><div class="location-title"><i class="fas fa-store"></i> 百貨與 Outlet 攻略</div></div>
+        <div class="card-body">
+            
+            <div class="expand-item" onclick="toggleItem(this)">
+                <div class="expand-header"><div class="item-name"><span class="tag tag-special">領卡</span> 大丸百貨 (心齋橋/梅田)</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
+                <div class="expand-content">
+                    <div class="guide-text">
+                        <b>享 5% 折扣 (部分專櫃除外)</b><br>
+                        請先攜帶護照至 <b>1F 服務台 (Information)</b>，換取「外國人專用 Hello Kitty 優惠卡」。
+                    </div>
+                </div>
+            </div>
+
+            <div class="expand-item" onclick="toggleItem(this)">
+                <div class="expand-header"><div class="item-name"><span class="tag tag-special">掃碼</span> Rinku Premium Outlets</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
+                <div class="expand-content">
+                    <div class="guide-text">
+                        抵達 Outlet 後，請先前往 <b>遊客中心 (Information Center)</b>，出示護照掃描 QR Code，換取電子優惠券連結 (E-Coupon)。
+                    </div>
+                    <a href="https://www.premiumoutlets.co.jp/en/rinku/events/news2401.html" target="_blank" class="btn-outline">
+                        <i class="fas fa-info-circle"></i> 查看官網說明
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header"><div class="location-title"><i class="fas fa-ticket-alt"></i> 我的預訂憑證</div></div>
+        <div class="card-body">
+            <div class="guide-text" style="color:#999; text-align:center; padding:20px;">
+                此處可存放您的 USJ 門票、Rapi:t 車票截圖。<br>
+                (請自行將圖片連結加入此處)
+            </div>
+            </div>
+    </div>
+</div>
 <div id="expenses" class="day-section"><div class="hero"><div class="hero-title">旅費記帳</div></div></div>
 
 <div id="lightbox" class="lightbox" onclick="closeLightbox()">
