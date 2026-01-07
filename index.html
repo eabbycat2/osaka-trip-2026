@@ -2415,49 +2415,54 @@
 
         <div class="calc-row">
             <span class="currency-flag">🇯🇵</span>
-            <input type="number" id="val-jpy" class="calc-input" placeholder="0" oninput="calculate('jpy')">
+            <input type="number" id="val-jpy" class="calc-input" placeholder="輸入日幣" oninput="calculate('jpy')">
         </div>
-        <div style="text-align:center; margin:-10px 0 5px; color:#ddd;"><i class="fas fa-arrow-down"></i></div>
         <div class="calc-row">
             <span class="currency-flag">🇹🇼</span>
-            <input type="number" id="val-twd" class="calc-input" placeholder="0" oninput="calculate('twd')">
+            <input type="number" id="val-twd" class="calc-input" placeholder="約台幣" oninput="calculate('twd')">
         </div>
 
-        <div class="guide-text" style="margin:10px 0 5px; border:none; padding:0; font-size:12px;">快速加總 (日幣)：</div>
-        <div class="calc-btn-grid">
+        <div style="margin-bottom:15px; position:relative;">
+            <i class="fas fa-pen" style="position:absolute; left:15px; top:50%; transform:translateY(-50%); color:#AAA;"></i>
+            <input type="text" id="expense-note" style="width:100%; padding:12px 12px 12px 40px; border:1px solid #EEE; border-radius:8px; font-size:14px; background:#FAFAFA;" placeholder="輸入備註 (例如: 藥妝)">
+        </div>
+
+        <div class="calc-btn-grid" style="grid-template-columns: 1fr 1fr 1fr 1fr;">
             <button class="calc-btn" onclick="addJpy(100)">+100</button>
             <button class="calc-btn" onclick="addJpy(500)">+500</button>
-            <button class="calc-btn" onclick="addJpy(1000)">+1,000</button>
-            <button class="calc-btn" onclick="addJpy(5000)">+5,000</button>
-            <button class="calc-btn" onclick="addJpy(10000)">+1萬</button>
-            <button class="calc-btn" style="background:#FFE0B2; color:#D35400;" onclick="clearCalc()">歸零</button>
+            <button class="calc-btn" onclick="addJpy(1000)">+1k</button>
+            
+            <button class="calc-btn" style="background:#2980B9; color:white;" onclick="saveExpense()">
+                <i class="fas fa-save"></i> 記帳
+            </button>
+            
+            <button class="calc-btn" onclick="addJpy(5000)">+5k</button>
+            <button class="calc-btn" onclick="addJpy(10000)">+1w</button>
+            
+            <button class="calc-btn" style="background:#FFE0B2; color:#D35400; grid-column: span 2;" onclick="clearCalc()">
+                <i class="fas fa-undo"></i> 清除輸入
+            </button>
         </div>
     </div>
 
     <div class="card">
         <div class="card-header">
-            <div class="location-title"><i class="fas fa-file-invoice-dollar"></i> 最新消費紀錄</div>
-            <button style="border:none; background:none; color:var(--accent-gold); font-weight:bold;">新增</button>
+            <div class="location-title"><i class="fas fa-file-invoice-dollar"></i> 消費紀錄</div>
+            <div style="font-size:12px; color:#666;">
+                總計: <span id="total-jpy" style="font-weight:bold; color:#E74C3C;">0</span> 円
+            </div>
         </div>
         <div class="card-body">
             <div id="expense-list">
-                <div class="expense-item">
-                    <div>
-                        <div class="expense-name">環球影城 瑪利歐賽車爆米花桶</div>
-                        <div class="expense-date">Day 3 - 11:30</div>
-                    </div>
-                    <div class="expense-price">¥ 5,200</div>
-                </div>
-                <div class="expense-item">
-                    <div>
-                        <div class="expense-name">LAWSON 宵夜</div>
-                        <div class="expense-date">Day 2 - 22:15</div>
-                    </div>
-                    <div class="expense-price">¥ 1,450</div>
+                <div style="text-align:center; color:#CCC; padding:20px; font-size:13px;">
+                    暫無紀錄，試著輸入金額並點擊「記帳」
                 </div>
             </div>
-            <div style="text-align:center; margin-top:20px; color:#999; font-size:12px;">
-                目前為離線預覽模式
+            
+            <div style="text-align:center; margin-top:20px;">
+                <button onclick="clearAllExpenses()" style="border:none; background:none; color:#999; font-size:12px; text-decoration:underline; cursor:pointer;">
+                    清空所有紀錄
+                </button>
             </div>
         </div>
     </div>
@@ -2533,14 +2538,21 @@
         } catch (e) { console.log(e); }
     }
     fetchWeather('d1');
-// 匯率計算機邏輯
+// --- 匯率與記帳全功能邏輯 ---
+
+    // 1. 初始化：載入歷史紀錄
+    document.addEventListener('DOMContentLoaded', () => {
+        renderExpenses(); 
+    });
+
+    // 2. 計算機邏輯
     function calculate(source) {
         const rateInput = document.getElementById('calc-rate');
         const jpyInput = document.getElementById('val-jpy');
         const twdInput = document.getElementById('val-twd');
         
         let rate = parseFloat(rateInput.value);
-        if (!rate) rate = 0.22; // 防呆預設值
+        if (!rate) rate = 0.218;
 
         if (source === 'jpy') {
             const jpy = parseFloat(jpyInput.value);
@@ -2557,7 +2569,6 @@
                 jpyInput.value = '';
             }
         } else if (source === 'rate') {
-            // 匯率變動時，優先以日幣欄位重新計算台幣
             const jpy = parseFloat(jpyInput.value);
             if (!isNaN(jpy)) {
                 twdInput.value = Math.round(jpy * rate);
@@ -2570,12 +2581,90 @@
         let current = parseFloat(jpyInput.value);
         if (isNaN(current)) current = 0;
         jpyInput.value = current + amount;
-        calculate('jpy'); // 觸發換算
+        calculate('jpy');
     }
 
     function clearCalc() {
         document.getElementById('val-jpy').value = '';
         document.getElementById('val-twd').value = '';
+        document.getElementById('expense-note').value = '';
+    }
+
+    // 3. 記帳核心功能 (存入 LocalStorage)
+    function saveExpense() {
+        const jpy = document.getElementById('val-jpy').value;
+        const note = document.getElementById('expense-note').value;
+        
+        if (!jpy) {
+            alert("請先輸入金額！");
+            return;
+        }
+
+        const record = {
+            id: Date.now(), // 唯一 ID
+            date: new Date().toLocaleString('zh-TW', { month: 'numeric', day: 'numeric', hour: '2-digit', minute:'2-digit' }),
+            note: note || "一般消費",
+            price: parseInt(jpy)
+        };
+
+        // 取出舊資料 -> 加入新資料 -> 存回
+        let expenses = JSON.parse(localStorage.getItem('osaka_expenses')) || [];
+        expenses.unshift(record); // 新的放最前面
+        localStorage.setItem('osaka_expenses', JSON.stringify(expenses));
+
+        renderExpenses(); // 更新畫面
+        clearCalc();      // 清空輸入框
+    }
+
+    // 4. 渲染列表 (顯示畫面)
+    function renderExpenses() {
+        const listEl = document.getElementById('expense-list');
+        const totalEl = document.getElementById('total-jpy');
+        let expenses = JSON.parse(localStorage.getItem('osaka_expenses')) || [];
+        
+        if (expenses.length === 0) {
+            listEl.innerHTML = '<div style="text-align:center; color:#CCC; padding:20px; font-size:13px;">暫無紀錄，試著輸入金額並點擊「記帳」</div>';
+            totalEl.innerText = '0';
+            return;
+        }
+
+        let html = '';
+        let total = 0;
+
+        expenses.forEach(item => {
+            total += item.price;
+            html += `
+                <div class="expense-item">
+                    <div style="flex:1;">
+                        <div class="expense-name">${item.note}</div>
+                        <div class="expense-date">${item.date}</div>
+                    </div>
+                    <div style="display:flex; align-items:center; gap:10px;">
+                        <div class="expense-price">¥ ${item.price.toLocaleString()}</div>
+                        <i class="fas fa-trash-alt" style="color:#DDD; cursor:pointer;" onclick="deleteExpense(${item.id})"></i>
+                    </div>
+                </div>
+            `;
+        });
+
+        listEl.innerHTML = html;
+        totalEl.innerText = total.toLocaleString();
+    }
+
+    // 5. 刪除單筆
+    function deleteExpense(id) {
+        if(!confirm("確定刪除這筆紀錄嗎？")) return;
+        let expenses = JSON.parse(localStorage.getItem('osaka_expenses')) || [];
+        expenses = expenses.filter(item => item.id !== id);
+        localStorage.setItem('osaka_expenses', JSON.stringify(expenses));
+        renderExpenses();
+    }
+
+    // 6. 清空全部
+    function clearAllExpenses() {
+        if(!confirm("確定要清空所有記帳紀錄嗎？此動作無法復原。")) return;
+        localStorage.removeItem('osaka_expenses');
+        renderExpenses();
     }
     
 </script>
