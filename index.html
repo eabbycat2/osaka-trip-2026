@@ -337,113 +337,82 @@
             <div class="location-title"><i class="fas fa-utensils"></i> 美食口袋名單</div>
         </div>
         <div class="card-body">
-            <div class="guide-text" style="margin-bottom:15px; color:#666;">
-                道頓堀與心齋橋周邊精選。請依當下飢餓度與排隊狀況彈性選擇。
+            <div class="guide-text" style="margin-bottom:10px; color:#666;">
+                道頓堀與心齋橋精選。請左右滑動依心情挑選：
             </div>
 
-            <div style="font-size:12px; font-weight:bold; color:#888; margin-bottom:10px; border-bottom:1px solid #eee; padding-bottom:5px;">
-                🍽️ 晚餐推薦 (Dinner)
-            </div>
+            <div style="display: flex; overflow-x: auto; gap: 15px; padding: 5px 0 20px 0; -webkit-overflow-scrolling: touch; scrollbar-width: none;">
+                
+                <div style="min-width: 260px; background: #fff; border: 1px solid #eee; border-radius: 12px; padding: 15px; flex-shrink: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+                    <div style="margin-bottom:10px;">
+                        <span class="tag" style="background:#E67E22; color:white; font-size:11px;">正餐</span>
+                        <span style="font-weight:bold; color:#333;">矢場とん (松竹座店)</span>
+                    </div>
+                    <div style="font-size:12px; color:#555; line-height:1.6; margin-bottom:15px;">
+                        <b><i class="far fa-clock"></i> 11:00 - 22:00</b><br>
+                        名古屋名店，淋上濃郁「紅味噌醬」的炸豬排，口味偏重超下飯。<br>
+                        <span style="color:#E67E22;">★ 必點：鐵板味噌腰內豬排</span>
+                    </div>
+                    <a href="https://maps.app.goo.gl/5t8UsdsRWPAjDeU99" target="_blank" class="btn-outline" style="width:100%; text-align:center; display:block;">導航前往</a>
+                </div>
 
-            <div class="expand-item" onclick="toggleItem(this)">
-                <div class="expand-header">
-                    <div class="item-name">
-                        <span class="tag" style="background:#E67E22; color:white;">炸豬排</span> 矢場とん (大阪松竹座店)
+                <div style="min-width: 260px; background: #fff; border: 1px solid #eee; border-radius: 12px; padding: 15px; flex-shrink: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+                    <div style="margin-bottom:10px;">
+                        <span class="tag" style="background:#C0392B; color:white; font-size:11px;">正餐/點心</span>
+                        <span style="font-weight:bold; color:#333;">あっちち本舗</span>
                     </div>
-                    <i class="fas fa-chevron-down" style="color:#DDD"></i>
-                </div>
-                <div class="expand-content">
-                    <div class="guide-text">
-                        <b><i class="far fa-clock"></i> 營業時間：</b>11:00 - 22:00<br>
-                        <b><i class="fas fa-info-circle"></i> 特色：</b>
-                        來自名古屋的名店。特色是淋上濃郁的「紅味噌醬」，口味偏重但非常下飯。就在松竹座樓下，位置便利。<br>
-                        <b><i class="fas fa-thumbs-up"></i> 網友必點：</b>
-                        鐵板味噌腰內豬排 (上桌時會滋滋作響，香氣十足)。
+                    <div style="font-size:12px; color:#555; line-height:1.6; margin-bottom:15px;">
+                        <b><i class="far fa-clock"></i> 09:00 - 02:00</b><br>
+                        河畔排隊名店。正統關西口感「皮薄軟、內餡爆漿」，小心燙口！<br>
+                        <span style="color:#C0392B;">★ 必點：醬汁+美乃滋+蔥花</span>
                     </div>
-                    <a href="https://maps.app.goo.gl/5t8UsdsRWPAjDeU99" target="_blank" class="btn-outline">Google 導航</a>
+                    <a href="https://maps.app.goo.gl/saDFEWenKhsHQTht8" target="_blank" class="btn-outline" style="width:100%; text-align:center; display:block;">導航前往</a>
                 </div>
-            </div>
 
-            <div class="expand-item" onclick="toggleItem(this)">
-                <div class="expand-header">
-                    <div class="item-name">
-                        <span class="tag" style="background:#C0392B; color:white;">章魚燒</span> あっちち本舗
+                <div style="min-width: 260px; background: #fff; border: 1px solid #eee; border-radius: 12px; padding: 15px; flex-shrink: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+                    <div style="margin-bottom:10px;">
+                        <span class="tag" style="background:#F1C40F; color:white; font-size:11px;">正餐</span>
+                        <span style="font-weight:bold; color:#333;">たろじろう天婦羅</span>
                     </div>
-                    <i class="fas fa-chevron-down" style="color:#DDD"></i>
-                </div>
-                <div class="expand-content">
-                    <div class="guide-text">
-                        <b><i class="far fa-clock"></i> 營業時間：</b>09:00 - 02:00 (深夜)<br>
-                        <b><i class="fas fa-info-circle"></i> 特色：</b>
-                        道頓堀河畔排隊名店。屬於「外皮薄軟、內餡爆漿」的關西正統口感，一定要小心燙口！就在太左衛門橋旁。<br>
-                        <b><i class="fas fa-thumbs-up"></i> 網友必點：</b>
-                        醬汁+美乃滋+滿滿蔥花 (招牌組合)。
+                    <div style="font-size:12px; color:#555; line-height:1.6; margin-bottom:15px;">
+                        <b><i class="far fa-clock"></i> 17:00 - 24:00</b><br>
+                        隱藏版小店。現點現炸，麵衣薄脆不油膩，價格親民。<br>
+                        <span style="color:#F39C12;">★ 必點：半熟蛋天婦羅、大根</span>
                     </div>
-                    <a href="https://maps.app.goo.gl/saDFEWenKhsHQTht8" target="_blank" class="btn-outline">Google 導航</a>
+                    <a href="https://maps.app.goo.gl/bWSUbwFyAESXzcc29" target="_blank" class="btn-outline" style="width:100%; text-align:center; display:block;">導航前往</a>
                 </div>
-            </div>
 
-            <div class="expand-item" onclick="toggleItem(this)">
-                <div class="expand-header">
-                    <div class="item-name">
-                        <span class="tag" style="background:#F1C40F; color:white;">天婦羅</span> 心斎橋天ぷら たろじろう
+                <div style="min-width: 260px; background: #fff; border: 1px solid #eee; border-radius: 12px; padding: 15px; flex-shrink: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+                    <div style="margin-bottom:10px;">
+                        <span class="tag" style="background:#95A5A6; color:white; font-size:11px;">備案</span>
+                        <span style="font-weight:bold; color:#333;">天ぷら定食まきの</span>
                     </div>
-                    <i class="fas fa-chevron-down" style="color:#DDD"></i>
-                </div>
-                <div class="expand-content">
-                    <div class="guide-text">
-                        <b><i class="far fa-clock"></i> 營業時間：</b>17:00 - 24:00<br>
-                        <b><i class="fas fa-info-circle"></i> 特色：</b>
-                        隱藏版小店，氣氛輕鬆。現點現炸，麵衣薄脆不油膩，價格在心齋橋區非常佛心。<br>
-                        <b><i class="fas fa-thumbs-up"></i> 網友必點：</b>
-                        半熟蛋天婦羅、大根(蘿蔔)天婦羅。
+                    <div style="font-size:12px; color:#555; line-height:1.6; margin-bottom:15px;">
+                        <b><i class="far fa-clock"></i> 11:00 - 22:00</b><br>
+                        若上面客滿可來這。採一道道上菜的高級模式，開放式廚房視覺感佳。<br>
+                        <span style="color:#7F8C8D;">★ 必點：玉子天炸蛋飯</span>
                     </div>
-                    <a href="https://maps.app.goo.gl/bWSUbwFyAESXzcc29" target="_blank" class="btn-outline">Google 導航</a>
+                    <a href="https://maps.app.goo.gl/fYKxHPeY9jh4b1EcA" target="_blank" class="btn-outline" style="width:100%; text-align:center; display:block;">導航前往</a>
                 </div>
-            </div>
 
-            <div class="expand-item" onclick="toggleItem(this)">
-                <div class="expand-header">
-                    <div class="item-name">
-                        <span class="tag" style="background:#95A5A6; color:white;">備案</span> 天ぷら定食まきの (難波千日前)
+                <div style="min-width: 260px; background: #fff; border: 1px solid #eee; border-radius: 12px; padding: 15px; flex-shrink: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+                    <div style="margin-bottom:10px;">
+                        <span class="tag" style="background:#2C3E50; color:white; font-size:11px;">宵夜</span>
+                        <span style="font-weight:bold; color:#333;">一蘭 (道頓堀別館)</span>
                     </div>
-                    <i class="fas fa-chevron-down" style="color:#DDD"></i>
-                </div>
-                <div class="expand-content">
-                    <div class="guide-text">
-                        <b><i class="far fa-clock"></i> 營業時間：</b>11:00 - 22:00<br>
-                        <b><i class="fas fa-info-circle"></i> 特色：</b>
-                        如果上面那間客滿可來這。丸龜製麵同集團，採「一道一道上菜」的高級服務模式，但價格親民。開放式廚房視覺感很棒。<br>
-                        <b><i class="fas fa-thumbs-up"></i> 網友必點：</b>
-                        玉子天炸蛋飯 (把半熟炸蛋戳破拌飯吃)。
+                    <div style="font-size:12px; color:#555; line-height:1.6; margin-bottom:15px;">
+                        <b><i class="far fa-clock"></i> 24 小時營業</b><br>
+                        比起本館，別館排隊稍快一些。獨立座位適合深夜安靜吸麵。<br>
+                        <span style="color:#2C3E50;">★ 必點：加點半熟蛋+抹茶豆腐</span>
                     </div>
-                    <a href="https://maps.app.goo.gl/fYKxHPeY9jh4b1EcA" target="_blank" class="btn-outline">Google 導航</a>
+                    <a href="https://maps.app.goo.gl/vuJmgibVZ1Nvaj2aA" target="_blank" class="btn-outline" style="width:100%; text-align:center; display:block;">導航前往</a>
                 </div>
-            </div>
 
-            <div style="font-size:12px; font-weight:bold; color:#888; margin:15px 0 10px 0; border-bottom:1px solid #eee; padding-bottom:5px;">
-                🌙 深夜食堂 (Late Night)
             </div>
-
-            <div class="expand-item" onclick="toggleItem(this)">
-                <div class="expand-header">
-                    <div class="item-name">
-                        <span class="tag" style="background:#2C3E50; color:white;">拉麵</span> 一蘭 (道頓堀店別館)
-                    </div>
-                    <i class="fas fa-chevron-down" style="color:#DDD"></i>
-                </div>
-                <div class="expand-content">
-                    <div class="guide-text">
-                        <b><i class="far fa-clock"></i> 營業時間：</b>24 小時營業<br>
-                        <b><i class="fas fa-info-circle"></i> 特色：</b>
-                        台灣人最愛。這間是「別館」，雖然還是要排隊，但通常比本館快一點點。獨自一格的座位適合深夜安靜吸麵。<br>
-                        <b><i class="fas fa-thumbs-up"></i> 網友必點：</b>
-                        加點半熟蛋 + 抹茶杏仁豆腐。
-                    </div>
-                    <a href="https://maps.app.goo.gl/vuJmgibVZ1Nvaj2aA" target="_blank" class="btn-outline">Google 導航</a>
-                </div>
+            
+            <div style="font-size:12px; color:#999; text-align:center; margin-top:-10px;">
+                <i class="fas fa-hand-point-left"></i> 左右滑動查看更多 <i class="fas fa-hand-point-right"></i>
             </div>
-
         </div>
     </div>
 </div>
