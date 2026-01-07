@@ -1013,22 +1013,22 @@
         <div class="card-header"><div class="location-title"><i class="fas fa-train"></i> 移動：前往清水寺</div></div>
         <div class="card-body">
             <div class="guide-text" style="margin-bottom:15px;">
-                目標是京阪電車的<b>「清水五條站」</b>。由於是小站，交通上有個「快車轉慢車」的省時訣竅。
+                目標是京阪電車的<b>「清水五條站」</b>。
             </div>
 
-            <div onclick="toggleVisibility('traffic-kiyomizu')" style="background:#FFF9E6; border:1px solid #FFEBA8; color:#856404; padding:12px 15px; border-radius:8px; font-size:13px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-weight:600; margin-bottom:10px;">
-                <span><i class="fas fa-map-signs" style="color:#F39C12;"></i> 交通與防迷路關鍵</span>
+            <div onclick="toggleVisibility('traffic-kiyomizu')" style="background:#F2F2F7; padding:12px 15px; border-radius:8px; font-size:13px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-weight:600; color:#333;">
+                <span><i class="fas fa-map-signs" style="color:#555;"></i> 關鍵指引</span>
                 <i class="fas fa-chevron-down" id="icon-traffic-kiyomizu"></i>
             </div>
-            <div id="traffic-kiyomizu" style="display:none; padding:15px; border:1px solid #FFEBA8; border-top:none; border-radius:0 0 8px 8px; font-size:13px; line-height:1.7; color:#333;">
-                <b>1. 地鐵轉京阪：</b><br>
-                從心齋橋搭御堂筋線 <span style="color:#E63946">(紅色)</span> 至「淀屋橋站」，轉乘京阪電車 <span style="color:#27AE60">(綠色)</span>。<br><br>
+            <div id="traffic-kiyomizu" style="display:none; padding:15px; border:1px solid #F2F2F7; border-top:none; border-radius:0 0 8px 8px; font-size:13px; line-height:1.7; color:#333;">
+                <b>1. 先搭地鐵 (御堂筋線)：</b><br>
+                從心齋橋搭紅色御堂筋線，到<b>「淀屋橋站」</b>下車。這段像捷運，每班車都會到。<br><br>
                 
-                <b>2. 省時密技 (快車轉慢車)：</b><br>
-                清水五條是小站，特急不停。建議：<br>
-                - 先搭<b>特急 (紅色車頭)</b> 到「七條站」。<br>
-                - 原地轉乘下一班<b>準急/普通</b>，搭一站即達。<br>
-                (比全程搭慢車省 15 分鐘)<br><br>
+                <b>2. 轉乘京阪電車 (綠色)：</b><br>
+                在淀屋橋站轉搭京阪電車。<b>⚠️ 省時密技用在這裡：</b><br>
+                因為目的地「清水五條」是小站，特急不停。建議：<br>
+                (1) 先搭<b>特急 (紅色車頭)</b> 衝到「七條站」。<br>
+                (2) 原地轉乘下一班<b>準急/普通</b>，搭一站即達。<br><br>
 
                 <b>3. 出站後往哪走？</b><br>
                 請找<b>「4 號出口」</b>。出站後背對鴨川，沿著大馬路直走約 10 分鐘，看到右邊熱鬧的坡道（五條坂）就是入口。
@@ -1122,47 +1122,17 @@
     </div>
 
     <div class="card">
-        <div class="card-header"><div class="location-title"><i class="fas fa-utensils"></i> 午餐口袋名單</div></div>
-        <div class="card-body">
-            <div class="guide-text" style="margin-bottom:15px; color:#666;">
-                💡 <b>小提醒：</b>以下餐廳多位於「清水寺/五條坂」周邊。若您已走到八坂神社，建議直接在祇園商店街覓食會更順路。
-            </div>
-            <div class="expand-item" onclick="toggleItem(this)">
-                <div class="expand-header"><div class="item-name"><span class="tag tag-special">炸牛排</span> 京都勝牛 本店</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
-                <div class="expand-content">
-                    <div class="guide-text">京都發源的名店。使用高溫快炸，外皮酥脆內部維持三分熟，口感極嫩。</div>
-                    <a href="https://maps.app.goo.gl/sample1" class="btn-outline">Google 導航</a>
-                </div>
-            </div>
-            <div class="expand-item" onclick="toggleItem(this)">
-                <div class="expand-header"><div class="item-name"><span class="tag tag-shop">特色</span> Yubasen (湯葉泉)</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
-                <div class="expand-content">
-                    <div class="guide-text">專賣「京湯葉 (豆皮)」料理。口感細緻清爽，是京都才有的健康美味。</div>
-                    <a href="https://maps.app.goo.gl/sample2" class="btn-outline">Google 導航</a>
-                </div>
-            </div>
-            <div class="expand-item" onclick="toggleItem(this)">
-                <div class="expand-header"><div class="item-name"><span class="tag tag-shop">拉麵</span> 一寸法師</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
-                <div class="expand-content">
-                    <div class="guide-text">評價極高的醬油拉麵。湯頭鮮甜，叉燒美味，適合想快速解決一餐的人。</div>
-                    <a href="https://maps.app.goo.gl/sample3" class="btn-outline">Google 導航</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="card">
         <div class="card-header"><div class="location-title"><i class="fas fa-subway"></i> 移動：前往下鴨神社</div></div>
         <div class="card-body">
             <div class="guide-text" style="margin-bottom:10px;">
                 從八坂神社正門直走至「祇園四條站」，前往鴨川上游的森林。
             </div>
 
-            <div onclick="toggleVisibility('traffic-shimogamo')" style="background:#FFF9E6; border:1px solid #FFEBA8; color:#856404; padding:12px 15px; border-radius:8px; font-size:13px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-weight:600; margin-bottom:10px;">
-                <span><i class="fas fa-map-signs" style="color:#F39C12;"></i> 交通與防迷路關鍵</span>
+            <div onclick="toggleVisibility('traffic-shimogamo')" style="background:#F2F2F7; padding:12px 15px; border-radius:8px; font-size:13px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-weight:600; color:#333; margin-bottom:10px;">
+                <span><i class="fas fa-map-signs" style="color:#555;"></i> 關鍵指引</span>
                 <i class="fas fa-chevron-down" id="icon-traffic-shimogamo"></i>
             </div>
-            <div id="traffic-shimogamo" style="display:none; padding:15px; border:1px solid #FFEBA8; border-top:none; border-radius:0 0 8px 8px; font-size:13px; color:#333; line-height:1.7;">
+            <div id="traffic-shimogamo" style="display:none; padding:15px; border:1px solid #F2F2F7; border-top:none; border-radius:0 0 8px 8px; font-size:13px; color:#333; line-height:1.7;">
                 <b>1. 電車路線：</b><br>
                 祇園四條站 (京阪電車) ➔ <b>出町柳站</b> (終點站)。<br><br>
                 <b>2. 出站指引：</b><br>
@@ -1189,11 +1159,11 @@
                 利用「出町柳」的起點優勢，一路睡回大阪。
             </div>
 
-            <div onclick="toggleVisibility('traffic-return-d5')" style="background:#FFF9E6; border:1px solid #FFEBA8; color:#856404; padding:12px 15px; border-radius:8px; font-size:13px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-weight:600;">
-                <span><i class="fas fa-map-signs" style="color:#F39C12;"></i> 交通與防迷路關鍵</span>
+            <div onclick="toggleVisibility('traffic-return-d5')" style="background:#F2F2F7; padding:12px 15px; border-radius:8px; font-size:13px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-weight:600; color:#333;">
+                <span><i class="fas fa-map-signs" style="color:#555;"></i> 關鍵指引</span>
                 <i class="fas fa-chevron-down" id="icon-traffic-return-d5"></i>
             </div>
-            <div id="traffic-return-d5" style="display:none; padding:15px; border:1px solid #FFEBA8; border-top:none; border-radius:0 0 8px 8px; font-size:13px; line-height:1.7; color:#333;">
+            <div id="traffic-return-d5" style="display:none; padding:15px; border:1px solid #F2F2F7; border-top:none; border-radius:0 0 8px 8px; font-size:13px; line-height:1.7; color:#333;">
                 <b>1. 京阪電車 (起點優勢)：</b><br>
                 回到「出町柳站」。因為是起點，<b>一定有位置坐</b>！建議搭特急一路睡回終點「淀屋橋站」。<br><br>
                 <b>2. 地鐵轉乘：</b><br>
