@@ -133,6 +133,8 @@
 <body>
 
 <div class="dock-container">
+    <div class="dock-item" id="btn-pre-trip" onclick="switchDay('pre-trip')"><i class="fas fa-suitcase-rolling"></i>行前</div>
+    
     <div class="dock-item active" id="btn-day1" onclick="switchDay('day1')"><i class="fas fa-calendar-day"></i>Day 1</div>
     <div class="dock-item" id="btn-day2" onclick="switchDay('day2')"><i class="fas fa-calendar-day"></i>Day 2</div>
     <div class="dock-item" id="btn-day3" onclick="switchDay('day3')"><i class="fas fa-calendar-day"></i>Day 3</div>
@@ -147,7 +149,143 @@
     <div class="dock-item" id="btn-tickets" onclick="switchDay('tickets')" style="color:var(--accent-gold);"><i class="fas fa-ticket-alt"></i>票夾</div>
     <div class="dock-item" id="btn-expenses" onclick="switchDay('expenses')" style="color:var(--accent-gold);"><i class="fas fa-wallet"></i>記帳</div>
 </div>
+<div id="pre-trip" class="day-section">
+    <div class="hero" style="background: linear-gradient(135deg, #2c3e50, #4ca1af);">
+        <div class="hero-date">Checklist</div>
+        <div class="hero-title">行前準備清單</div>
+        <div class="hero-desc">萬無一失的打包攻略，從證件檢查到行李法規一次搞定。</div>
+    </div>
 
+    <div class="card">
+        <div class="card-header">
+            <div class="location-title"><i class="fas fa-passport"></i> 重要證件與金流</div>
+        </div>
+        <div class="card-body">
+            <div class="guide-text" style="margin-bottom:15px; border-left:3px solid #C0392B;">
+                <b>⚠️ 出門前最後確認：</b><br>
+                沒有這些無法登機！請務必再次檢查。
+            </div>
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px; font-size:14px; color:#333;">
+                <div><i class="far fa-check-square" style="color:#ddd;"></i> 護照 (效期>6個月)</div>
+                <div><i class="far fa-check-square" style="color:#ddd;"></i> 身分證</div>
+                <div><i class="far fa-check-square" style="color:#ddd;"></i> 電子簽證/截圖</div>
+                <div><i class="far fa-check-square" style="color:#ddd;"></i> 機票/登機證</div>
+                <div><i class="far fa-check-square" style="color:#ddd;"></i> 信用卡 (開通海外)</div>
+                <div><i class="far fa-check-square" style="color:#ddd;"></i> 日幣現金/台幣</div>
+                <div><i class="far fa-check-square" style="color:#ddd;"></i> 網卡 (SIM/eSIM)</div>
+                <div><i class="far fa-check-square" style="color:#ddd;"></i> 駕照 (若需租車)</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <div class="location-title"><i class="fas fa-suitcase"></i> 行李打包檢查表</div>
+        </div>
+        <div class="card-body">
+            <div class="guide-text" style="margin-bottom:15px; color:#666;">
+                點擊下方分類展開檢查清單：
+            </div>
+
+            <div onclick="toggleVisibility('list-3c')" style="background:#F2F2F7; padding:12px 15px; border-radius:8px; font-size:13px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-weight:600; color:#333; margin-bottom:10px;">
+                <span><i class="fas fa-mobile-alt" style="color:#555; width:20px;"></i> 3C 電子產品</span>
+                <i class="fas fa-chevron-down" id="icon-list-3c"></i>
+            </div>
+            <div id="list-3c" style="display:none; padding:15px; border:1px solid #F2F2F7; border-top:none; border-radius:0 0 8px 8px; font-size:13px; line-height:1.8; color:#333; margin-bottom:10px;">
+                □ 手機 / 耳機 / 藍牙耳機<br>
+                □ 充電器 (線+頭) / 萬國插頭<br>
+                □ 相機 / 記憶卡 / 備用電池<br>
+                □ 自拍棒 (管徑<1cm, 收合<60cm)<br>
+                □ 行動電源 (須標示Wh, 限隨身)<br>
+                □ 網卡針 (換SIM卡用)
+            </div>
+
+            <div onclick="toggleVisibility('list-clothes')" style="background:#F2F2F7; padding:12px 15px; border-radius:8px; font-size:13px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-weight:600; color:#333; margin-bottom:10px;">
+                <span><i class="fas fa-tshirt" style="color:#555; width:20px;"></i> 服裝穿搭</span>
+                <i class="fas fa-chevron-down" id="icon-list-clothes"></i>
+            </div>
+            <div id="list-clothes" style="display:none; padding:15px; border:1px solid #F2F2F7; border-top:none; border-radius:0 0 8px 8px; font-size:13px; line-height:1.8; color:#333; margin-bottom:10px;">
+                □ 上衣 / 下身 / 外套<br>
+                □ 內衣褲 / 睡衣<br>
+                □ 發熱衣 / 發熱褲 (冬天必備)<br>
+                □ 襪子 / 好走的鞋 / 拖鞋<br>
+                □ 配件：帽子 / 圍巾 / 手套 / 墨鏡<br>
+                □ 飾品 (耳環/項鍊)
+            </div>
+
+            <div onclick="toggleVisibility('list-living')" style="background:#F2F2F7; padding:12px 15px; border-radius:8px; font-size:13px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-weight:600; color:#333; margin-bottom:10px;">
+                <span><i class="fas fa-pump-soap" style="color:#555; width:20px;"></i> 生活與盥洗</span>
+                <i class="fas fa-chevron-down" id="icon-list-living"></i>
+            </div>
+            <div id="list-living" style="display:none; padding:15px; border:1px solid #F2F2F7; border-top:none; border-radius:0 0 8px 8px; font-size:13px; line-height:1.8; color:#333; margin-bottom:10px;">
+                □ 盥洗：牙刷 / 洗面乳 / 沐浴組<br>
+                □ 隱眼：眼鏡 /藥水 / 盒子<br>
+                □ 藥品：感冒/腸胃/止痛/OK繃<br>
+                □ 衛生用品：衛生紙/濕紙巾/衛生棉<br>
+                □ 整理：折疊傘 / 購物袋 / 暖暖包<br>
+                □ 電器：離子夾/刮鬍刀 (需托運)
+            </div>
+
+            <div onclick="toggleVisibility('list-makeup')" style="background:#F2F2F7; padding:12px 15px; border-radius:8px; font-size:13px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-weight:600; color:#333;">
+                <span><i class="fas fa-magic" style="color:#555; width:20px;"></i> 化妝保養品</span>
+                <i class="fas fa-chevron-down" id="icon-list-makeup"></i>
+            </div>
+            <div id="list-makeup" style="display:none; padding:15px; border:1px solid #F2F2F7; border-top:none; border-radius:0 0 8px 8px; font-size:13px; line-height:1.8; color:#333;">
+                □ 底妝：防曬 / 粉底 / 遮瑕 / 蜜粉<br>
+                □ 眼妝：眉筆 / 眼影 / 眼線 / 睫毛膏<br>
+                □ 唇頰：口紅 / 護唇膏 / 腮紅<br>
+                □ 卸妝：卸妝油 / 洗臉巾 / 面膜<br>
+                □ 工具：刷具 / 小鏡子 / 髮捲
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <div class="location-title"><i class="fas fa-exclamation-triangle"></i> 託運/隨身 違禁品法規</div>
+        </div>
+        <div class="card-body">
+            <div class="guide-text" style="background:#E3F2FD; border:1px solid #2196F3; color:#0D47A1; margin-bottom:10px;">
+                <b>🎒 只能隨身 (不可託運)：</b><br>
+                1. <b>行動電源</b> (嚴格執行)<br>
+                2. 備用鋰電池<br>
+                3. 打火機 (限1個，隨身放口袋)<br>
+                4. 貴重物品 (現金/筆電/平板)
+            </div>
+            <div class="guide-text" style="background:#FFF3E0; border:1px solid #FF9800; color:#E65100; margin-bottom:10px;">
+                <b>🧳 只能託運 (不可隨身)：</b><br>
+                1. <b>超過 100ml 的液體</b> (水/乳液/膠狀)<br>
+                2. 刀具 (剪刀/指甲剪/刮鬍刀)<br>
+                3. 腳架/自拍棒 (管徑>1cm, 收合>60cm)<br>
+                4. 噴霧罐 (若有標示易燃需注意)
+            </div>
+            <div class="guide-text" style="background:#FFEBEE; border:1px solid #F44336; color:#B71C1C;">
+                <b>❌ 嚴禁攜帶 (兩邊都不行)：</b><br>
+                1. 鉛酸電池 (舊式電瓶)<br>
+                2. 超量酒精 (>70%)<br>
+                3. 易燃物/爆裂物/殺蟲劑
+            </div>
+        </div>
+    </div>
+
+    <div class="card" style="border:2px solid #333;">
+        <div class="card-header" style="background:#333;">
+            <div class="location-title" style="color:#FFF;"><i class="fas fa-battery-full"></i> 行動電源特別解說</div>
+        </div>
+        <div class="card-body">
+            <div style="font-size:13px; line-height:1.7; color:#333;">
+                <b>1. 容量限制：</b><br>
+                通常限制在 <b>160Wh (約 43,000mAh)</b> 以下。若標示不清可能被拒載。<br><br>
+                <b>2. 攜帶數量：</b><br>
+                每人通常限帶 <b>2 顆</b>。<br><br>
+                <b>3. 絕緣保護：</b><br>
+                建議單顆分開包裝，或用絕緣膠帶貼住接口。<br><br>
+                <b>4. 飛行中：</b><br>
+                嚴禁在機上使用行動電源充電。
+            </div>
+        </div>
+    </div>
+</div>
 <div id="day1" class="day-section active">
     <div class="hero">
         <div class="hero-date">Day 1 . Jan 18</div>
