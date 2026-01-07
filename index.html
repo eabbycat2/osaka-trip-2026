@@ -134,7 +134,10 @@
 
 <div class="dock-container">
     <div class="dock-item" id="btn-pre-trip" onclick="switchDay('pre-trip')"><i class="fas fa-suitcase-rolling"></i>行前</div>
+    <div class="dock-item" id="btn-guide" onclick="switchDay('guide')"><i class="fas fa-book-open"></i>指南</div>
     
+    <div style="width:1px; height:20px; background:#EEE; margin:0 5px; flex-shrink:0;"></div>
+
     <div class="dock-item active" id="btn-day1" onclick="switchDay('day1')"><i class="fas fa-calendar-day"></i>Day 1</div>
     <div class="dock-item" id="btn-day2" onclick="switchDay('day2')"><i class="fas fa-calendar-day"></i>Day 2</div>
     <div class="dock-item" id="btn-day3" onclick="switchDay('day3')"><i class="fas fa-calendar-day"></i>Day 3</div>
@@ -286,6 +289,204 @@
         </div>
     </div>
 </div>
+<div id="guide" class="day-section">
+    <div class="hero" style="background: linear-gradient(135deg, #FF9966, #FF5E62);">
+        <div class="hero-date">Travel Guide</div>
+        <div class="hero-title">落地生存指南</div>
+        <div class="hero-desc">從開口說日語到參拜禮儀，解決旅途中的所有「怎麼辦」。</div>
+    </div>
+
+    <div class="card">
+        <div class="card-header"><div class="location-title"><i class="fas fa-comments"></i> 實用日語會話</div></div>
+        <div class="card-body">
+            <div class="guide-text" style="margin-bottom:15px; color:#666;">
+                點擊喇叭圖示 <i class="fas fa-volume-up"></i> 可直接朗讀給對方聽。
+            </div>
+
+            <div style="display:flex; flex-direction:column; gap:10px;">
+                <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #eee; padding-bottom:10px;">
+                    <div>
+                        <div style="font-weight:700; color:#333;">不好意思 / 借過</div>
+                        <div style="font-size:12px; color:#888;">Sumimasen</div>
+                    </div>
+                    <button class="btn-attachment" style="margin:0;" onclick="speakJapanese('すみません')"><i class="fas fa-volume-up"></i></button>
+                </div>
+                <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #eee; padding-bottom:10px;">
+                    <div>
+                        <div style="font-weight:700; color:#333;">謝謝</div>
+                        <div style="font-size:12px; color:#888;">Arigatou gozaimasu</div>
+                    </div>
+                    <button class="btn-attachment" style="margin:0;" onclick="speakJapanese('ありがとうございます')"><i class="fas fa-volume-up"></i></button>
+                </div>
+
+                <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #eee; padding-bottom:10px;">
+                    <div>
+                        <div style="font-weight:700; color:#333;">請給我菜單</div>
+                        <div style="font-size:12px; color:#888;">Menyu- Onegaishimasu</div>
+                    </div>
+                    <button class="btn-attachment" style="margin:0;" onclick="speakJapanese('メニューお願いします')"><i class="fas fa-volume-up"></i></button>
+                </div>
+                <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #eee; padding-bottom:10px;">
+                    <div>
+                        <div style="font-weight:700; color:#333;">我要這個 (指圖片)</div>
+                        <div style="font-size:12px; color:#888;">Kore Onegaishimasu</div>
+                    </div>
+                    <button class="btn-attachment" style="margin:0;" onclick="speakJapanese('これお願いします')"><i class="fas fa-volume-up"></i></button>
+                </div>
+                <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #eee; padding-bottom:10px;">
+                    <div>
+                        <div style="font-weight:700; color:#333;">我要結帳</div>
+                        <div style="font-size:12px; color:#888;">Okaikei Onegaishimasu</div>
+                    </div>
+                    <button class="btn-attachment" style="margin:0;" onclick="speakJapanese('お会計お願いします')"><i class="fas fa-volume-up"></i></button>
+                </div>
+
+                <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #eee; padding-bottom:10px;">
+                    <div>
+                        <div style="font-weight:700; color:#333;">可以免稅嗎？</div>
+                        <div style="font-size:12px; color:#888;">Menzei Dekimasuka?</div>
+                    </div>
+                    <button class="btn-attachment" style="margin:0;" onclick="speakJapanese('免税できますか')"><i class="fas fa-volume-up"></i></button>
+                </div>
+                <div style="display:flex; justify-content:space-between; align-items:center; padding-bottom:5px;">
+                    <div>
+                        <div style="font-weight:700; color:#333;">廁所在哪裡？</div>
+                        <div style="font-size:12px; color:#888;">Toire wa doko desuka?</div>
+                    </div>
+                    <button class="btn-attachment" style="margin:0;" onclick="speakJapanese('トイレはどこですか')"><i class="fas fa-volume-up"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header"><div class="location-title"><i class="fas fa-tshirt"></i> 冬季穿搭攻略</div></div>
+        <div class="card-body">
+            <div class="guide-text" style="border-left: 3px solid #3498DB;">
+                <b>1月氣溫：</b>市區 3~10°C / 郊區 0~6°C。<br>
+                室內暖氣極強 (25°C)，切記<b>「洋蔥式穿法」</b>。
+            </div>
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px; margin-top:10px;">
+                <div style="background:#F2F2F7; padding:10px; border-radius:8px; font-size:13px;">
+                    <b>🧥 外層 (關鍵)</b><br>
+                    必須<b>防風</b>！推薦長版羽絨或防風大衣。擋住海風就不冷。
+                </div>
+                <div style="background:#F2F2F7; padding:10px; border-radius:8px; font-size:13px;">
+                    <b>👕 內層</b><br>
+                    一般發熱衣即可。<b>不要穿高領毛衣</b>，進室內會熱到中暑。
+                </div>
+                <div style="background:#F2F2F7; padding:10px; border-radius:8px; font-size:13px;">
+                    <b>🧣 配件</b><br>
+                    圍巾、<b>手套</b> (重要)、毛帽。脖子暖了全身就暖。
+                </div>
+                <div style="background:#F2F2F7; padding:10px; border-radius:8px; font-size:13px;">
+                    <b>🧴 保濕</b><br>
+                    日本極乾燥。護唇膏、護手霜必備，防靜電。
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header"><div class="location-title"><i class="fas fa-utensils"></i> 用餐潛規則</div></div>
+        <div class="card-body">
+            <div class="expand-item" onclick="toggleItem(this)">
+                <div class="expand-header"><div class="item-name"><span class="tag tag-special" style="background:#E74C3C;">禁忌</span> 筷子使用鐵律</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
+                <div class="expand-content">
+                    <div class="guide-text">
+                        ❌ <b>不可「筷子傳筷子」：</b> 這是葬禮撿骨動作，極不吉利。<br>
+                        ❌ <b>不可「舔筷子/刺食物」：</b> 視為不雅。<br>
+                        ❌ <b>不可「插在飯上」：</b> 祭拜亡者做法。
+                    </div>
+                </div>
+            </div>
+            <div class="expand-item" onclick="toggleItem(this)">
+                <div class="expand-header"><div class="item-name"><span class="tag tag-shop">收費</span> 居酒屋潛規則</div><i class="fas fa-chevron-down" style="color:#DDD"></i></div>
+                <div class="expand-content">
+                    <div class="guide-text">
+                        <b>1. 小菜費 (お通し)：</b>入座後端上來的小菜是<b>強制收費</b>的座位費 (約300-500円)，不能退。<br>
+                        <b>2. 點餐習慣：</b>坐下後習慣「先點飲料」，乾杯後再慢慢看菜單。
+                    </div>
+                </div>
+            </div>
+            <div class="guide-text" style="background:#FFF9E6; border:none; color:#856404; margin-top:15px; border-radius:8px; padding:10px;">
+                <b>💰 關於小費：</b><br>
+                日本<b>完全不收小費</b>。硬給會造成店員困擾，請把錢收好即可。
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header"><div class="location-title"><i class="fas fa-shopping-bag"></i> 購物與退稅須知</div></div>
+        <div class="card-body">
+            <div class="guide-text">
+                <b>門檻：</b>同一天、同店家，未稅滿 <b>5,000 日圓</b>。<br>
+                <b>憑證：</b>必須出示護照 (需有入境章/VJW)。
+            </div>
+            <div style="background:#FFEBEE; border:1px solid #FFCDD2; color:#B71C1C; padding:10px; border-radius:8px; font-size:13px; line-height:1.6;">
+                <b>⚠️ 消耗品鐵律 (藥妝/零食/液體)：</b><br>
+                店家會用「特殊透明袋」密封。在<b>離開日本前絕對不能拆封</b>！若被海關查到拆封，需補繳 10% 消費稅。
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header"><div class="location-title"><i class="fas fa-plug"></i> 插座與電壓</div></div>
+        <div class="card-body">
+            <div style="display:flex; align-items:center; gap:15px; margin-bottom:15px;">
+                <i class="fas fa-charging-station" style="font-size:30px; color:#555;"></i>
+                <div style="font-size:13px; color:#333;">
+                    <b>電壓：</b>日本 100V (台灣 110V)，手機/相機變壓器皆通用，<b>不需</b>帶變壓器。
+                </div>
+            </div>
+            <div class="guide-text" style="border-left:3px solid #F39C12;">
+                <b>⚠️ 筆電族注意：</b><br>
+                日本插座是<b>「兩孔扁插」</b>，通常<b>沒有接地圓孔</b>。<br>
+                若您的筆電充電器是三腳的，請務必自備<b>「3轉2轉接頭」</b>，否則插不進去！
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header"><div class="location-title"><i class="fas fa-praying-hands"></i> 參拜禮儀小教室</div></div>
+        <div class="card-body">
+            <div class="guide-text" style="margin-bottom:15px; color:#666;">
+                神社 vs 寺廟，關鍵在於「拍手」。
+            </div>
+
+            <div style="display:flex; gap:10px; margin-bottom:20px;">
+                <div style="flex:1; background:#FFF5F5; border:1px solid #FFCDD2; border-radius:8px; padding:15px; text-align:center;">
+                    <div style="color:#C0392B; font-weight:700; font-size:16px; margin-bottom:5px;">⛩️ 神社</div>
+                    <div style="font-size:12px; color:#E57373; margin-bottom:8px;">八坂、難波八阪</div>
+                    <div style="font-size:24px; color:#C0392B; margin-bottom:5px;"><i class="fas fa-hands-wash"></i></div>
+                    <div style="font-weight:bold; color:#C0392B; font-size:14px;">要拍手 👏</div>
+                    <div style="font-size:12px; color:#B71C1C; margin-top:5px;">二禮．二拍．一禮</div>
+                </div>
+                
+                <div style="flex:1; background:#F3E5F5; border:1px solid #E1BEE7; border-radius:8px; padding:15px; text-align:center;">
+                    <div style="color:#8E44AD; font-weight:700; font-size:16px; margin-bottom:5px;">卍 寺廟</div>
+                    <div style="font-size:12px; color:#BA68C8; margin-bottom:8px;">清水、勝尾、四天王</div>
+                    <div style="font-size:24px; color:#8E44AD; margin-bottom:5px;"><i class="fas fa-praying-hands"></i></div>
+                    <div style="font-weight:bold; color:#8E44AD; font-size:14px;">不拍手 ❌</div>
+                    <div style="font-size:12px; color:#4A235A; margin-top:5px;">雙手合十．默念</div>
+                </div>
+            </div>
+
+            <div onclick="toggleVisibility('guide-temizuya')" style="background:#E3F2FD; color:#1565C0; padding:10px 15px; border-radius:8px; font-size:13px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-weight:600; margin-bottom:10px;">
+                <span><i class="fas fa-tint"></i> 手水舍洗手步驟</span>
+                <i class="fas fa-chevron-down" id="icon-guide-temizuya"></i>
+            </div>
+            <div id="guide-temizuya" style="display:none; padding:15px; border:1px solid #E3F2FD; border-top:none; border-radius:0 0 8px 8px; font-size:13px; line-height:1.7; color:#333; margin-bottom:10px;">
+                <b>口訣：一杓水完成所有動作</b><br>
+                1. 洗左手 ➔ 2. 洗右手 ➔ 3. 倒水漱口 (勿直接對嘴) ➔ 4. 直立清洗杓柄。
+            </div>
+
+            <div class="guide-text" style="border:none; background:#FFF9E6; color:#856404; padding:10px; margin:0;">
+                <b>💰 賽錢推薦：</b> 投入 <b>5 円 (Go-en)</b>，象徵「結好緣」。避免 10 円 (遠緣)。
+            </div>
+        </div>
+    </div>
+</div>                    
 <div id="day1" class="day-section active">
     <div class="hero">
         <div class="hero-date">Day 1 . Jan 18</div>
@@ -2067,6 +2268,14 @@
         if(btn) btn.classList.add('active');
         window.scrollTo(0, 0);
         if(id.startsWith('day')) fetchWeather(id.replace('day', 'd'));
+    }
+
+    // 新增：日語發音功能
+    function speakJapanese(text) {
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'ja-JP'; // 設定語言為日文
+        utterance.rate = 0.9;     // 語速稍微放慢，比較清楚
+        window.speechSynthesis.speak(utterance);
     }
     
     function toggleVisibility(id) {
