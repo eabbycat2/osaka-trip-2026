@@ -128,6 +128,28 @@
         .lightbox-close { color: #333; font-size: 16px; margin-top: 20px; cursor: pointer; padding: 10px 20px; background: #eee; border-radius: 30px; }
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* 計算機專用樣式 */
+        .calc-container { background: #fff; padding: 20px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); margin: 0 20px 20px; }
+        .calc-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 15px; position: relative; }
+        .calc-label { font-size: 14px; color: #888; width: 40px; font-weight: 600; }
+        .calc-input { width: 100%; border: none; background: #F5F5F7; padding: 15px 15px 15px 50px; border-radius: 12px; font-size: 24px; font-weight: 700; color: #333; outline: none; transition: 0.2s; font-family: sans-serif; }
+        .calc-input:focus { background: #FFF; box-shadow: 0 0 0 2px var(--accent-gold); }
+        .currency-flag { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); font-size: 18px; }
+        
+        .rate-setting { display: flex; justify-content: flex-end; align-items: center; gap: 10px; margin-bottom: 20px; font-size: 13px; color: #666; }
+        .rate-input { width: 60px; padding: 5px; border: 1px solid #ddd; border-radius: 6px; text-align: center; color: #555; }
+
+        .calc-btn-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-top: 10px; }
+        .calc-btn { background: #F5F5F7; border: none; padding: 12px; border-radius: 8px; font-size: 14px; font-weight: 600; color: #555; cursor: pointer; transition: 0.1s; }
+        .calc-btn:active { background: #E0E0E0; transform: scale(0.98); }
+        
+        /* 記帳列表樣式 */
+        .expense-item { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #F0F0F0; }
+        .expense-name { font-size: 14px; color: #333; font-weight: 500; }
+        .expense-price { font-size: 14px; color: #E74C3C; font-weight: 700; font-family: sans-serif; }
+        .expense-date { font-size: 11px; color: #999; }
+        
     </style>
 </head>
 <body>
@@ -2376,7 +2398,70 @@
             </div>
     </div>
 </div>
-<div id="expenses" class="day-section"><div class="hero"><div class="hero-title">旅費記帳</div></div></div>
+<div id="expenses" class="day-section">
+    <div class="hero" style="background: linear-gradient(135deg, #FFC371, #FF5F6D);">
+        <div class="hero-date">Calculator & Wallet</div>
+        <div class="hero-title">匯率與記帳</div>
+        <div class="hero-desc">即時換算日幣價格，並記錄這趟旅程的每一筆開銷。</div>
+    </div>
+
+    <div class="calc-container">
+        <div class="rate-setting">
+            <i class="fas fa-sync-alt" style="color:#ccc;"></i>
+            <span>目前匯率: 1 JPY = </span>
+            <input type="number" id="calc-rate" class="rate-input" value="0.218" step="0.001" oninput="calculate('rate')">
+            <span>TWD</span>
+        </div>
+
+        <div class="calc-row">
+            <span class="currency-flag">🇯🇵</span>
+            <input type="number" id="val-jpy" class="calc-input" placeholder="0" oninput="calculate('jpy')">
+        </div>
+        <div style="text-align:center; margin:-10px 0 5px; color:#ddd;"><i class="fas fa-arrow-down"></i></div>
+        <div class="calc-row">
+            <span class="currency-flag">🇹🇼</span>
+            <input type="number" id="val-twd" class="calc-input" placeholder="0" oninput="calculate('twd')">
+        </div>
+
+        <div class="guide-text" style="margin:10px 0 5px; border:none; padding:0; font-size:12px;">快速加總 (日幣)：</div>
+        <div class="calc-btn-grid">
+            <button class="calc-btn" onclick="addJpy(100)">+100</button>
+            <button class="calc-btn" onclick="addJpy(500)">+500</button>
+            <button class="calc-btn" onclick="addJpy(1000)">+1,000</button>
+            <button class="calc-btn" onclick="addJpy(5000)">+5,000</button>
+            <button class="calc-btn" onclick="addJpy(10000)">+1萬</button>
+            <button class="calc-btn" style="background:#FFE0B2; color:#D35400;" onclick="clearCalc()">歸零</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <div class="location-title"><i class="fas fa-file-invoice-dollar"></i> 最新消費紀錄</div>
+            <button style="border:none; background:none; color:var(--accent-gold); font-weight:bold;">新增</button>
+        </div>
+        <div class="card-body">
+            <div id="expense-list">
+                <div class="expense-item">
+                    <div>
+                        <div class="expense-name">環球影城 瑪利歐賽車爆米花桶</div>
+                        <div class="expense-date">Day 3 - 11:30</div>
+                    </div>
+                    <div class="expense-price">¥ 5,200</div>
+                </div>
+                <div class="expense-item">
+                    <div>
+                        <div class="expense-name">LAWSON 宵夜</div>
+                        <div class="expense-date">Day 2 - 22:15</div>
+                    </div>
+                    <div class="expense-price">¥ 1,450</div>
+                </div>
+            </div>
+            <div style="text-align:center; margin-top:20px; color:#999; font-size:12px;">
+                目前為離線預覽模式
+            </div>
+        </div>
+    </div>
+</div>
 
 <div id="lightbox" class="lightbox" onclick="closeLightbox()">
     <img id="lightbox-img" src="">
@@ -2448,6 +2533,51 @@
         } catch (e) { console.log(e); }
     }
     fetchWeather('d1');
+// 匯率計算機邏輯
+    function calculate(source) {
+        const rateInput = document.getElementById('calc-rate');
+        const jpyInput = document.getElementById('val-jpy');
+        const twdInput = document.getElementById('val-twd');
+        
+        let rate = parseFloat(rateInput.value);
+        if (!rate) rate = 0.22; // 防呆預設值
+
+        if (source === 'jpy') {
+            const jpy = parseFloat(jpyInput.value);
+            if (!isNaN(jpy)) {
+                twdInput.value = Math.round(jpy * rate);
+            } else {
+                twdInput.value = '';
+            }
+        } else if (source === 'twd') {
+            const twd = parseFloat(twdInput.value);
+            if (!isNaN(twd)) {
+                jpyInput.value = Math.round(twd / rate);
+            } else {
+                jpyInput.value = '';
+            }
+        } else if (source === 'rate') {
+            // 匯率變動時，優先以日幣欄位重新計算台幣
+            const jpy = parseFloat(jpyInput.value);
+            if (!isNaN(jpy)) {
+                twdInput.value = Math.round(jpy * rate);
+            }
+        }
+    }
+
+    function addJpy(amount) {
+        const jpyInput = document.getElementById('val-jpy');
+        let current = parseFloat(jpyInput.value);
+        if (isNaN(current)) current = 0;
+        jpyInput.value = current + amount;
+        calculate('jpy'); // 觸發換算
+    }
+
+    function clearCalc() {
+        document.getElementById('val-jpy').value = '';
+        document.getElementById('val-twd').value = '';
+    }
+    
 </script>
 </body>
 </html>
