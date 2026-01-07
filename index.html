@@ -1370,31 +1370,53 @@
     <div class="weather-scroller" id="wb-d7"><div class="wh-loading">載入氣象...</div></div>
 
     <div class="card">
-        <div class="card-header">
-            <div class="location-title"><i class="fas fa-suitcase"></i> 09:00 暫存行李</div>
-        </div>
+        <div class="card-header"><div class="location-title"><i class="fas fa-suitcase"></i> 09:00 行李安置策略</div></div>
         <div class="card-body">
-            <div class="guide-text">
-                退房後將行李<b>寄放於飯店櫃檯</b>，輕裝前往難波補貨。<br>
-                <span style="font-size:13px; color:#666;">(今日移動將善用車站置物櫃，省下託運費)</span>
+            <div class="guide-text" style="margin-bottom:15px;">
+                今天是移動日，請根據您的預算與需求，選擇一種行李處理方式：
+            </div>
+
+            <div onclick="toggleVisibility('plan-a-luggagent')" style="background:#F2F2F7; padding:12px 15px; border-radius:8px; font-size:13px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-weight:600; color:#333; margin-bottom:10px;">
+                <span><i class="fas fa-truck-loading" style="color:#2E7D32;"></i> 方案 A：LuggAgent (解放雙手)</span>
+                <i class="fas fa-chevron-down" id="icon-plan-a-luggagent"></i>
+            </div>
+            <div id="plan-a-luggagent" style="display:none; padding:15px; border:1px solid #F2F2F7; border-top:none; border-radius:0 0 8px 8px; font-size:13px; line-height:1.7; color:#333; margin-bottom:10px;">
+                <b>1. 早上：</b><br>
+                將行李交給飯店櫃檯或預約的 LuggAgent 收件人員，保留收據。<br>
+                <b>2. 白天：</b><br>
+                全程空手移動，隨身背包只帶護照、錢包、手機、行充。<br>
+                <b>3. 晚上 (機場)：</b><br>
+                抵達機場後，前往指定櫃檯憑收據領取大行李，再辦理登機。
+            </div>
+
+            <div onclick="toggleVisibility('plan-b-locker')" style="background:#F2F2F7; padding:12px 15px; border-radius:8px; font-size:13px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-weight:600; color:#333;">
+                <span><i class="fas fa-lock" style="color:#F39C12;"></i> 方案 B：車站置物櫃 (省錢戰術)</span>
+                <i class="fas fa-chevron-down" id="icon-plan-b-locker"></i>
+            </div>
+            <div id="plan-b-locker" style="display:none; padding:15px; border:1px solid #F2F2F7; border-top:none; border-radius:0 0 8px 8px; font-size:13px; line-height:1.7; color:#333;">
+                <b>1. 早上：</b><br>
+                退房後將行李「寄放飯店櫃檯」，先去難波逛街。<br>
+                <b>2. 中午 (移動)：</b><br>
+                回飯店拿行李，搭車前往「鳳站」。抵達後將行李鎖在<b>鳳站置物櫃</b>。<br>
+                <b>3. 下午 (臨空城)：</b><br>
+                從鳳站取出李，搭到「臨空城站」，再次將行李鎖在<b>臨空城站或 Outlet 置物櫃</b>。<br>
+                <span style="font-size:12px; color:#666;">(雖然稍微麻煩，但可省下千元運費)</span>
             </div>
         </div>
     </div>
 
     <div class="card">
-        <div class="card-header">
-            <div class="location-title"><i class="fas fa-shopping-bag"></i> 10:00 難波最終補貨</div>
-        </div>
+        <div class="card-header"><div class="location-title"><i class="fas fa-shopping-bag"></i> 10:00 難波最終補貨</div></div>
         <div class="card-body">
             <div class="guide-text" style="margin-bottom:15px;">
                 把握最後時光，補齊藥妝與伴手禮。
             </div>
             
             <div onclick="toggleVisibility('shop-list-d7')" style="background:#F2F2F7; padding:12px 15px; border-radius:8px; font-size:13px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-weight:600; color:#333;">
-                <span><i class="fas fa-list-ul" style="color:#666;"></i> 推薦補貨清單</span>
+                <span><i class="fas fa-list-ul" style="color:#555;"></i> 關鍵指引：推薦補貨清單</span>
                 <i class="fas fa-chevron-down" id="icon-shop-list-d7"></i>
             </div>
-            <div id="shop-list-d7" style="display:none; padding:15px; border:1px solid #F2F2F7; border-top:none; border-radius:0 0 8px 8px; font-size:13px; line-height:1.7; color:#666;">
+            <div id="shop-list-d7" style="display:none; padding:15px; border:1px solid #F2F2F7; border-top:none; border-radius:0 0 8px 8px; font-size:13px; line-height:1.7; color:#333;">
                 <b>1. 藥妝：</b> 大國藥妝 / 松本清 (心齋橋筋)<br>
                 <b>2. 伴手禮：</b> 551 蓬萊肉包 (冷藏版)、Rikuro 老爺爺起司蛋糕<br>
                 <b>3. 零食：</b> 唐吉訶德 (最後一掃)
@@ -1403,24 +1425,23 @@
     </div>
 
     <div class="card">
-        <div class="card-header">
-            <div class="location-title"><i class="fas fa-torii-gate"></i> 14:00 大鳥大社</div>
-        </div>
+        <div class="card-header"><div class="location-title"><i class="fas fa-torii-gate"></i> 14:00 大鳥大社</div></div>
         <div class="card-body">
             
-            <div class="guide-text" style="color:#555; font-style:italic; margin-bottom:15px; border:none; padding:0;">
-                <i class="fas fa-quote-left" style="color:#ccc; margin-right:8px;"></i>
+            <div class="guide-text" style="color:#555; font-style:italic; margin-bottom:20px; border:none; padding:0;">
+                <i class="fas fa-quote-left" style="color:#E67E22; margin-right:8px;"></i>
+                <b>導遊說故事：</b>
                 和泉國的一之宮，最有名的是「透明御守」。據說能看透未來、祈求前途光明。拿在手上對著天空拍照，畫面非常夢幻。
             </div>
 
-            <div onclick="toggleVisibility('traffic-otori')" style="background:#FFF9E6; border:1px solid #FFEBA8; color:#856404; padding:12px 15px; border-radius:8px; font-size:13px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-weight:600; margin-bottom:15px;">
-                <span><i class="fas fa-map-signs" style="color:#F39C12;"></i> 交通與防迷路關鍵</span>
+            <div onclick="toggleVisibility('traffic-otori')" style="background:#F2F2F7; padding:12px 15px; border-radius:8px; font-size:13px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-weight:600; color:#333; margin-bottom:15px;">
+                <span><i class="fas fa-map-signs" style="color:#555;"></i> 關鍵指引：交通與防迷路</span>
                 <i class="fas fa-chevron-down" id="icon-traffic-otori"></i>
             </div>
-            <div id="traffic-otori" style="display:none; padding:15px; border:1px solid #FFEBA8; border-top:none; border-radius:0 0 8px 8px; font-size:13px; line-height:1.7; color:#333;">
+            <div id="traffic-otori" style="display:none; padding:15px; border:1px solid #F2F2F7; border-top:none; border-radius:0 0 8px 8px; font-size:13px; line-height:1.7; color:#333;">
                 <b>1. 移動方式：</b><br>
-                回飯店拿行李 ➔ 御堂筋線至「天王寺站」 ➔ 轉乘 JR 阪和線至<b>「鳳站 (Otori)」</b>。<br><br>
-                <b>2. 行李對策：</b><br>
+                回飯店拿行李 ➔ 搭御堂筋線 <span style="color:#E63946">(紅色)</span> 至「天王寺站」 ➔ 轉乘 JR 阪和線 <span style="color:#F39C12">(橘色)</span> 至<b>「鳳站 (Otori)」</b>。<br><br>
+                <b>2. 行李對策 (若選方案 B)：</b><br>
                 抵達鳳站後，請將大行李鎖在站內的<b>投幣置物櫃</b>。<br><br>
                 <b>3. 防迷路指引：</b><br>
                 請找<b>「西出口」</b>。出來後沿著商店街直走 7 分鐘即可抵達。
@@ -1433,24 +1454,22 @@
     </div>
 
     <div class="card">
-        <div class="card-header">
-            <div class="location-title"><i class="fas fa-tshirt"></i> 16:20 Rinku Outlets</div>
-        </div>
+        <div class="card-header"><div class="location-title"><i class="fas fa-tshirt"></i> 16:20 Rinku Outlets</div></div>
         <div class="card-body">
             
             <div class="guide-text" style="margin-bottom:15px;">
                 關西機場前最後一站，擁有無敵海景與豐富的品牌折扣。
             </div>
 
-            <div onclick="toggleVisibility('traffic-rinku')" style="background:#FFF9E6; border:1px solid #FFEBA8; color:#856404; padding:12px 15px; border-radius:8px; font-size:13px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-weight:600; margin-bottom:15px;">
-                <span><i class="fas fa-map-signs" style="color:#F39C12;"></i> 交通與防迷路關鍵</span>
+            <div onclick="toggleVisibility('traffic-rinku')" style="background:#F2F2F7; padding:12px 15px; border-radius:8px; font-size:13px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-weight:600; color:#333; margin-bottom:15px;">
+                <span><i class="fas fa-map-signs" style="color:#555;"></i> 關鍵指引：交通與置物櫃</span>
                 <i class="fas fa-chevron-down" id="icon-traffic-rinku"></i>
             </div>
-            <div id="traffic-rinku" style="display:none; padding:15px; border:1px solid #FFEBA8; border-top:none; border-radius:0 0 8px 8px; font-size:13px; line-height:1.7; color:#333;">
+            <div id="traffic-rinku" style="display:none; padding:15px; border:1px solid #F2F2F7; border-top:none; border-radius:0 0 8px 8px; font-size:13px; line-height:1.7; color:#333;">
                 <b>1. 移動方式：</b><br>
                 從鳳站搭乘 JR 阪和線至<b>「臨空城站 (Rinku Town)」</b>。<br><br>
-                <b>2. 行李對策：</b><br>
-                出站處或 Outlet 服務中心都有大量置物櫃，務必寄放。<br><br>
+                <b>2. 行李對策 (若選方案 B)：</b><br>
+                出站處或 Outlet 服務中心都有大量置物櫃，務必寄放，才能空手掃貨。<br><br>
                 <b>3. 防迷路指引：</b><br>
                 出站後，直接連接大型商場天橋，跟著<b>「Outlet」</b>指標走即達。
             </div>
@@ -1462,23 +1481,26 @@
     </div>
 
     <div class="card" style="border: 2px solid #C0392B;">
-        <div class="card-header">
-            <div class="location-title" style="color:#C0392B;"><i class="fas fa-plane-departure"></i> 18:45 抵達關西機場</div>
-        </div>
+        <div class="card-header"><div class="location-title" style="color:#C0392B;"><i class="fas fa-plane-departure"></i> 18:45 抵達關西機場</div></div>
         <div class="card-body">
             <div class="guide-text" style="margin-bottom:15px;">
                 <b>班機資訊：AirAsia AK171</b><br>
                 起飛時間：20:45 <span style="font-size:12px; color:#666;">(T1 第一航廈)</span>
             </div>
             
-            <div onclick="toggleVisibility('traffic-airport')" style="background:#Fdedec; padding:12px 15px; border-radius:8px; font-size:13px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; color:#C0392B; font-weight:600;">
-                <span><i class="fas fa-subway"></i> 交通與航廈指引</span>
-                <i class="fas fa-chevron-down" id="icon-traffic-airport"></i>
+            <div onclick="toggleVisibility('airport-check-d7')" style="background:#Fdedec; padding:12px 15px; border-radius:8px; font-size:13px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; color:#C0392B; font-weight:600;">
+                <span><i class="fas fa-passport"></i> 必讀：登機與出關重要提醒</span>
+                <i class="fas fa-chevron-down" id="icon-airport-check-d7"></i>
             </div>
-            <div id="traffic-airport" style="display:none; padding:15px; border:1px solid #Fdedec; border-top:none; border-radius:0 0 8px 8px; font-size:13px; line-height:1.7; color:#333;">
-                <b>1. 移動方式：</b><br>
-                從臨空城站搭乘 JR 或 南海電鐵，僅需 1 站即可抵達「關西機場站」。<br><br>
-                <b>2. 報到指引：</b><br>
+            <div id="airport-check-d7" style="display:none; padding:15px; border:1px solid #Fdedec; border-top:none; border-radius:0 0 8px 8px; font-size:13px; line-height:1.7; color:#333;">
+                <b>1. 交通移動：</b><br>
+                從臨空城搭 JR 或南海電鐵，1 站即達「關西機場站」。<br><br>
+                <b>2. 行李領取 (若選方案 A)：</b><br>
+                請先去領取 LuggAgent 寄送的行李，再去櫃檯報到。<br><br>
+                <b>3. 安檢提醒：</b><br>
+                - 液體需分裝於 100ml 內容器，並裝入透明夾鏈袋。<br>
+                - <b>行動電源、電池、打火機</b> 必須「隨身攜帶」，嚴禁託運。<br><br>
+                <b>4. 報到時間：</b><br>
                 請務必預留至少 2 小時辦理登機與安檢。AirAsia 位於<b>第一航廈 (T1)</b>。
             </div>
         </div>
