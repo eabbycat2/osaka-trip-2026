@@ -2386,11 +2386,42 @@
     }
 
     // 新增：日語發音功能
+   // --- 日語發音功能 (男聲優先版) ---
+    
+    // 預先載入語音清單 (解決 Chrome 有時讀不到的問題)
+    let allVoices = [];
+    window.speechSynthesis.onvoiceschanged = function() {
+        allVoices = window.speechSynthesis.getVoices();
+    };
+
     function speakJapanese(text) {
+        const synth = window.speechSynthesis;
         const utterance = new SpeechSynthesisUtterance(text);
-        utterance.lang = 'ja-JP'; // 設定語言為日文
-        utterance.rate = 0.9;     // 語速稍微放慢，比較清楚
-        window.speechSynthesis.speak(utterance);
+        utterance.lang = 'ja-JP'; 
+        utterance.rate = 0.9;     
+
+        // 確保語音清單已載入
+        if (allVoices.length === 0) {
+            allVoices = synth.getVoices();
+        }
+
+        // 搜尋策略：尋找日文 (ja-JP) 且名字包含常見男聲關鍵字的語音
+        const maleVoice = allVoices.find(v => 
+            v.lang === 'ja-JP' && (
+                v.name.includes('Otoya') ||   // iOS / macOS 男聲
+                v.name.includes('Ichiro') ||  // Windows 男聲
+                v.name.includes('Takumi') ||  // macOS 男聲
+                v.name.includes('Male')       // 通用標示
+            )
+        );
+
+        // 如果有找到男聲，就指定使用；沒找到則維持系統預設
+        if (maleVoice) {
+            utterance.voice = maleVoice;
+            // console.log("Using voice:", maleVoice.name); // 測試用，可查看用到哪個聲音
+        }
+
+        synth.speak(utterance);
     }
     
     function toggleVisibility(id) {
