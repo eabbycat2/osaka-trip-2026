@@ -151,7 +151,47 @@
         .expense-name { font-size: 14px; color: #333; font-weight: 500; }
         .expense-price { font-size: 14px; color: #E74C3C; font-weight: 700; font-family: sans-serif; }
         .expense-date { font-size: 11px; color: #999; }
+
+        /* === 美食清單新版樣式 (手機最佳化) === */
+        .food-scroller { 
+            display: flex; 
+            overflow-x: auto; 
+            gap: 15px; 
+            padding: 10px 5px 25px 5px; /* 下方留空給陰影 */
+            scroll-snap-type: x mandatory; /* 磁吸效果 */
+            scrollbar-width: none; /* 隱藏捲軸 */
+            -webkit-overflow-scrolling: touch;
+        }
+        .food-scroller::-webkit-scrollbar { display: none; }
         
+        .food-card { 
+            flex: 0 0 85vw; /* 關鍵：佔據螢幕 85% 寬度，確保資訊完整顯示 */
+            max-width: 320px; /* 電腦版限制最大寬度 */
+            background: #fff; 
+            border: 1px solid #eee; 
+            border-radius: 12px; 
+            padding: 20px; 
+            scroll-snap-align: center; /* 滑動停止時自動置中 */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            display: flex;
+            flex-direction: column; /* 資訊改為垂直排列 */
+        }
+
+        .food-header {
+            display: flex; 
+            justify-content: space-between; 
+            align-items: start; 
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px dashed #eee;
+        }
+        
+        .food-name { font-size: 16px; font-weight: 700; color: #333; line-height: 1.4; }
+        .food-tag { font-size: 11px; padding: 3px 8px; border-radius: 4px; white-space: nowrap; margin-left: 10px; }
+        
+        .food-info { font-size: 13px; color: #555; line-height: 1.6; flex-grow: 1; margin-bottom: 15px; }
+        .food-info b { display: block; margin-bottom: 5px; color: #333; }
+        .food-rec { display: block; margin-top: 10px; padding: 8px; background: #FFF9F0; border-radius: 6px; color: #D35400; font-weight: 600; font-size: 12px; }
     </style>
 </head>
 <body>
@@ -704,77 +744,73 @@
                 道頓堀與心齋橋精選。請左右滑動依心情挑選：
             </div>
 
-            <div style="display: flex; overflow-x: auto; gap: 15px; padding: 5px 0 20px 0; -webkit-overflow-scrolling: touch; scrollbar-width: none;">
+            <div class="food-scroller">
                 
-                <div style="min-width: 260px; background: #fff; border: 1px solid #eee; border-radius: 8px; padding: 15px; flex-shrink: 0;">
-                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
-                        <span style="font-weight:bold; color:#333; font-size:15px;">矢場とん (松竹座店)</span>
-                        <span style="font-size:11px; color:#E67E22; border:1px solid #E67E22; padding:2px 6px; border-radius:4px;">正餐</span>
+                <div class="food-card">
+                    <div class="food-header">
+                        <div class="food-name">矢場とん (松竹座店)</div>
+                        <div class="food-tag" style="color:#E67E22; border:1px solid #E67E22;">正餐</div>
                     </div>
-                    <div style="font-size:13px; color:#555; line-height:1.6; margin-bottom:15px;">
-                        <b><i class="far fa-clock"></i> 11:00 - 22:00</b><br>
-                        <span style="color:#888;">名古屋名店，淋上濃郁「紅味噌醬」的炸豬排，口味偏重超下飯。</span><br>
-                        <span style="color:#E67E22; font-weight:600;">★ 必點：鐵板味噌腰內豬排</span>
+                    <div class="food-info">
+                        <b><i class="far fa-clock"></i> 11:00 - 22:00</b>
+                        名古屋名店，淋上濃郁「紅味噌醬」的炸豬排，口味偏重超下飯。
+                        <span class="food-rec">★ 必點：鐵板味噌腰內豬排</span>
                     </div>
-                    <a href="https://maps.app.goo.gl/5t8UsdsRWPAjDeU99" target="_blank" class="btn-outline" style="width:100%; text-align:center; display:block; color:#555; border-color:#ddd;">導航前往</a>
+                    <a href="https://maps.app.goo.gl/5t8UsdsRWPAjDeU99" target="_blank" class="btn-outline">導航前往</a>
                 </div>
 
-                <div style="min-width: 260px; background: #fff; border: 1px solid #eee; border-radius: 8px; padding: 15px; flex-shrink: 0;">
-                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
-                        <span style="font-weight:bold; color:#333; font-size:15px;">あっちち本舗</span>
-                        <span style="font-size:11px; color:#C0392B; border:1px solid #C0392B; padding:2px 6px; border-radius:4px;">正餐/點心</span>
+                <div class="food-card">
+                    <div class="food-header">
+                        <div class="food-name">あっちち本舗</div>
+                        <div class="food-tag" style="color:#C0392B; border:1px solid #C0392B;">正餐/點心</div>
                     </div>
-                    <div style="font-size:13px; color:#555; line-height:1.6; margin-bottom:15px;">
-                        <b><i class="far fa-clock"></i> 09:00 - 02:00</b><br>
-                        <span style="color:#888;">河畔排隊名店。正統關西口感「皮薄軟、內餡爆漿」，小心燙口！</span><br>
-                        <span style="color:#C0392B; font-weight:600;">★ 必點：醬汁+美乃滋+蔥花</span>
+                    <div class="food-info">
+                        <b><i class="far fa-clock"></i> 09:00 - 02:00</b>
+                        河畔排隊名店。正統關西口感「皮薄軟、內餡爆漿」，小心燙口！
+                        <span class="food-rec">★ 必點：醬汁+美乃滋+蔥花</span>
                     </div>
-                    <a href="https://maps.app.goo.gl/saDFEWenKhsHQTht8" target="_blank" class="btn-outline" style="width:100%; text-align:center; display:block; color:#555; border-color:#ddd;">導航前往</a>
+                    <a href="https://maps.app.goo.gl/saDFEWenKhsHQTht8" target="_blank" class="btn-outline">導航前往</a>
                 </div>
 
-                <div style="min-width: 260px; background: #fff; border: 1px solid #eee; border-radius: 8px; padding: 15px; flex-shrink: 0;">
-                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
-                        <span style="font-weight:bold; color:#333; font-size:15px;">たろじろう天婦羅</span>
-                        <span style="font-size:11px; color:#F39C12; border:1px solid #F39C12; padding:2px 6px; border-radius:4px;">正餐</span>
+                <div class="food-card">
+                    <div class="food-header">
+                        <div class="food-name">たろじろう天婦羅</div>
+                        <div class="food-tag" style="color:#F39C12; border:1px solid #F39C12;">正餐</div>
                     </div>
-                    <div style="font-size:13px; color:#555; line-height:1.6; margin-bottom:15px;">
-                        <b><i class="far fa-clock"></i> 17:00 - 24:00</b><br>
-                        <span style="color:#888;">隱藏版小店。現點現炸，麵衣薄脆不油膩，價格親民。</span><br>
-                        <span style="color:#F39C12; font-weight:600;">★ 必點：半熟蛋天婦羅、大根</span>
+                    <div class="food-info">
+                        <b><i class="far fa-clock"></i> 17:00 - 24:00</b>
+                        隱藏版小店。現點現炸，麵衣薄脆不油膩，價格親民。
+                        <span class="food-rec">★ 必點：半熟蛋天婦羅、大根</span>
                     </div>
-                    <a href="https://maps.app.goo.gl/bWSUbwFyAESXzcc29" target="_blank" class="btn-outline" style="width:100%; text-align:center; display:block; color:#555; border-color:#ddd;">導航前往</a>
+                    <a href="https://maps.app.goo.gl/bWSUbwFyAESXzcc29" target="_blank" class="btn-outline">導航前往</a>
                 </div>
 
-                <div style="min-width: 260px; background: #fff; border: 1px solid #eee; border-radius: 8px; padding: 15px; flex-shrink: 0;">
-                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
-                        <span style="font-weight:bold; color:#333; font-size:15px;">天ぷら定食まきの</span>
-                        <span style="font-size:11px; color:#95A5A6; border:1px solid #95A5A6; padding:2px 6px; border-radius:4px;">備案</span>
+                <div class="food-card">
+                    <div class="food-header">
+                        <div class="food-name">天ぷら定食まきの</div>
+                        <div class="food-tag" style="color:#95A5A6; border:1px solid #95A5A6;">備案</div>
                     </div>
-                    <div style="font-size:13px; color:#555; line-height:1.6; margin-bottom:15px;">
-                        <b><i class="far fa-clock"></i> 11:00 - 22:00</b><br>
-                        <span style="color:#888;">若上面客滿可來這。一道道上菜的高級模式，開放式廚房視覺感佳。</span><br>
-                        <span style="color:#7F8C8D; font-weight:600;">★ 必點：玉子天炸蛋飯</span>
+                    <div class="food-info">
+                        <b><i class="far fa-clock"></i> 11:00 - 22:00</b>
+                        若上面客滿可來這。一道道上菜的高級模式，開放式廚房視覺感佳。
+                        <span class="food-rec">★ 必點：玉子天炸蛋飯</span>
                     </div>
-                    <a href="https://maps.app.goo.gl/fYKxHPeY9jh4b1EcA" target="_blank" class="btn-outline" style="width:100%; text-align:center; display:block; color:#555; border-color:#ddd;">導航前往</a>
+                    <a href="https://maps.app.goo.gl/fYKxHPeY9jh4b1EcA" target="_blank" class="btn-outline">導航前往</a>
                 </div>
 
-                <div style="min-width: 260px; background: #fff; border: 1px solid #eee; border-radius: 8px; padding: 15px; flex-shrink: 0;">
-                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
-                        <span style="font-weight:bold; color:#333; font-size:15px;">一蘭 (道頓堀別館)</span>
-                        <span style="font-size:11px; color:#2C3E50; border:1px solid #2C3E50; padding:2px 6px; border-radius:4px;">宵夜</span>
+                <div class="food-card">
+                    <div class="food-header">
+                        <div class="food-name">一蘭 (道頓堀別館)</div>
+                        <div class="food-tag" style="color:#2C3E50; border:1px solid #2C3E50;">宵夜</div>
                     </div>
-                    <div style="font-size:13px; color:#555; line-height:1.6; margin-bottom:15px;">
-                        <b><i class="far fa-clock"></i> 24 小時營業</b><br>
-                        <span style="color:#888;">比起本館，別館排隊稍快一些。獨立座位適合深夜安靜吸麵。</span><br>
-                        <span style="color:#2C3E50; font-weight:600;">★ 必點：加點半熟蛋+抹茶豆腐</span>
+                    <div class="food-info">
+                        <b><i class="far fa-clock"></i> 24 小時營業</b>
+                        比起本館，別館排隊稍快一些。獨立座位適合深夜安靜吸麵。
+                        <span class="food-rec">★ 必點：加點半熟蛋+抹茶豆腐</span>
                     </div>
-                    <a href="https://maps.app.goo.gl/vuJmgibVZ1Nvaj2aA" target="_blank" class="btn-outline" style="width:100%; text-align:center; display:block; color:#555; border-color:#ddd;">導航前往</a>
+                    <a href="https://maps.app.goo.gl/vuJmgibVZ1Nvaj2aA" target="_blank" class="btn-outline">導航前往</a>
                 </div>
 
-            </div>
-            
-            <div style="font-size:12px; color:#bbb; text-align:center; margin-top:-10px;">
-                <i class="fas fa-hand-point-left"></i> 左右滑動查看更多 <i class="fas fa-hand-point-right"></i>
             </div>
         </div>
     </div>
